@@ -7,7 +7,7 @@ public class Data {
     @DataProvider(name = "DataForIntegersTests")
     public static Object[][] integerDataProvider() {
         return new Object[][]
-                {{39, 41}, {51, 29}, {23, 16},
+                {{39, 41}, {51, 29}, {0, 12},
                         {38, 12}, {24, 82}};
     }
 

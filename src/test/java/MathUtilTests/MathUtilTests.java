@@ -5,8 +5,7 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
-
-//@Listeners(CustomListener.class)
+@Listeners(CustomListener.class)
 public class MathUtilTests {
 
     private SoftAssert softAssert = new SoftAssert();
@@ -62,7 +61,7 @@ public class MathUtilTests {
         System.out.println("After method." + "\n");
     }
 
-    @Test(groups = "integers", dataProvider = "DataForIntegersTests",
+    @Test(groups = "tester", dataProvider = "DataForIntegersTests",
             dataProviderClass = Data.class)
     public void testMathMax(int x, int y) {
         int max = (x >= y) ? x : y;
@@ -70,7 +69,7 @@ public class MathUtilTests {
                 "The result is not right!");
     }
 
-    @Test(groups = "doubles", dataProvider = "DataForDoublesTests",
+    @Test(groups = "tester", dataProvider = "DataForDoublesTests",
             dataProviderClass = Data.class)
     public void testMathMax(double x, double y) {
         double max = (x >= y) ? x : y;
@@ -78,7 +77,7 @@ public class MathUtilTests {
                 "The result is not right!");
     }
 
-    @Test(groups = "integers", dataProvider = "DataForIntegersTests",
+    @Test(groups = "tester", dataProvider = "DataForIntegersTests",
             dataProviderClass = Data.class)
     public void testMathMin(int x, int y) {
         int min = (x <= y) ? x : y;
@@ -86,7 +85,7 @@ public class MathUtilTests {
                 "The result is not right!");
     }
 
-    @Test(groups = "doubles", dataProvider = "DataForDoublesTests",
+    @Test(groups = "tester", dataProvider = "DataForDoublesTests",
             dataProviderClass = Data.class)
     public void testMathMin(Double x, Double y) {
         double min = (x <= y) ? x : y;
@@ -94,78 +93,78 @@ public class MathUtilTests {
                 "The result is not right!");
     }
 
-    @Test(groups = "integers")
-    @Parameters("firstValue")
-    public void testMathAbs(int firstValue) {
+    @Test(groups = "tester")
+    @Parameters("valueForIntegerTests")
+    public void testMathAbs(int valueForIntegerTests) {
 
-        int result = (firstValue < 0) ? -firstValue : firstValue;
+        int result = (valueForIntegerTests < 0) ? -valueForIntegerTests : valueForIntegerTests;
 
-        Assert.assertEquals(Math.abs(firstValue), result,
+        Assert.assertEquals(Math.abs(valueForIntegerTests), result,
                 "The result is not right!");
-        Assert.assertNotEquals(Math.abs(firstValue), -result,
+        Assert.assertNotEquals(Math.abs(valueForIntegerTests), -result,
                 "The result is not right!");
-        Assert.assertTrue(Math.abs(firstValue) != firstValue,
+        Assert.assertTrue(Math.abs(valueForIntegerTests) != valueForIntegerTests,
                 "The result is not right!");
-        Assert.assertFalse(Math.abs(firstValue) < firstValue,
+        Assert.assertFalse(Math.abs(valueForIntegerTests) < valueForIntegerTests,
                 "The result is not right!");
     }
 
-    @Test(groups = "integers")
-    @Parameters("secondValue")
-    public void testMathAbs(double secondValue) {
+    @Test(groups = "tester")
+    @Parameters("valueForDoublesTests")
+    public void testMathAbs(double valueForDoublesTests) {
 
-        double result = (secondValue < 0.0) ? -secondValue : secondValue;
+        double result = (valueForDoublesTests < 0.0) ? -valueForDoublesTests : valueForDoublesTests;
 
-        Assert.assertEquals(Math.abs(secondValue), result,
+        Assert.assertEquals(Math.abs(valueForDoublesTests), result,
                 "The result is not right!");
-        Assert.assertNotEquals(Math.abs(secondValue), -result,
+        Assert.assertNotEquals(Math.abs(valueForDoublesTests), -result,
                 "The result is not right!");
-        Assert.assertTrue(Math.abs(secondValue) != -secondValue,
+        Assert.assertTrue(Math.abs(valueForDoublesTests) != -valueForDoublesTests,
                 "The result is not right!");
-        Assert.assertFalse(Math.abs(secondValue) < -secondValue,
+        Assert.assertFalse(Math.abs(valueForDoublesTests) < -valueForDoublesTests,
                 "The result is not right!");
     }
 
-    @Test(groups = {"fail", "integers"}, dataProvider = "DataForIntegersTests",
+    @Test(groups = "fail", dataProvider = "DataForIntegersTests",
             dataProviderClass = Data.class)
     public void testAssertFail(Integer x, Integer y) {
+        if (x ==0) Assert.fail();
         Assert.assertTrue(Math.pow(x, y) > (x + y),
                 "The result is not right!");
-        Assert.fail();
     }
 
-    @Test(groups = "doubles")
-    @Parameters("secondValue")
-    public void testMathSqrt(double secondValue) {
+    @Test(groups = "dependent", dependsOnGroups = {"fail"})
+    @Parameters("valueForDoublesTests")
+    public void testMathSqrt(double valueForDoublesTests) {
 
-        double sqrt = StrictMath.sqrt(secondValue);
+        double sqrt = StrictMath.sqrt(valueForDoublesTests);
 
-        Assert.assertEquals(Math.sqrt(secondValue), sqrt,
+        Assert.assertEquals(Math.sqrt(valueForDoublesTests), sqrt,
                 "The result is not right!");
     }
 
-    @Test(groups = {"doubles", "fail"})
-    @Parameters("secondValue")
-    public void testMathSqrtFail(double secondValue) {
+    @Test(groups = "fail")
+    @Parameters("valueForFailTest")
+    public void testMathSqrtFail(double valueForFailTest) {
 
-        double sqrt = StrictMath.sqrt(secondValue);
+        double sqrt = StrictMath.sqrt(valueForFailTest);
 
-        Assert.assertEquals(Math.sqrt(secondValue), sqrt,
+        Assert.assertEquals(Math.sqrt(valueForFailTest), sqrt,
                 "The result is not right!");
 
-        softAssert.assertTrue(Math.sqrt(secondValue) < (secondValue));
+        softAssert.assertTrue(Math.sqrt(valueForFailTest) < valueForFailTest);
     }
 
-    @Test(groups = {"integers", "context"})
+    @Test(groups = "context")
     public void testContextSetUp(ITestContext context) {
         context.setAttribute("newValue", "25");
     }
 
-    @Test(groups = {"integers", "context"})
-    @Parameters("firstValue")
-    public void testContextSetUp(ITestContext context, int firstValue) {
+    @Test(groups = "context")
+    @Parameters("valueTestingContext")
+    public void testContextSetUp(ITestContext context, int valueTestingContext) {
         String attribute = context.getAttribute("newValue").toString();
-        int sum = Integer.parseInt(attribute) + firstValue;
-        Assert.assertEquals(sum, firstValue + 25);
+        int sum = Integer.parseInt(attribute) + valueTestingContext;
+        Assert.assertEquals(sum, valueTestingContext + 25);
     }
 }

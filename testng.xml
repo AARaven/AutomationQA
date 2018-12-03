@@ -2,28 +2,27 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="MathTest">
-    <listeners>
-        <listener class-name="MathUtilTests.CustomListener"/>
-    </listeners>
-    <test name="mathUtilTests">
-        <parameter name="firstValue" value="-17"/>
-        <parameter name="secondValue" value="14.21"/>
+    <test name="MainTest">
+        <parameter name="valueForIntegerTests" value="-17"/>
+        <parameter name="valueForDoublesTests" value="14.5"/>
+        <parameter name="valueTestingContext" value="20"/>
         <groups>
             <run>
-                <include name="integers"/>
-                <include name="doubles"/>
-                <exclude name="fail"/>
+                <include name="tester"/>
+                <include name="context"/>
             </run>
         </groups>
         <classes>
             <class name="MathUtilTests.MathUtilTests"/>
         </classes>
     </test>
-    <test name="TestsFail">
-        <parameter name="secondValue" value="9.0"/>
+    <test name="FailTest">
+        <parameter name="valueForFailTest" value="12.2"/>
+        <parameter name="valueForDependentTest" value="13.2"/>
         <groups>
             <run>
                 <include name="fail"/>
+                <include name="dependent"/>
             </run>
         </groups>
         <classes>
