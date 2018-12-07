@@ -4,11 +4,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-public class CreateAnAccountPage extends Page {
+public class CreateAnAccPage extends AuthPage {
+
+    public CreateAnAccPage() {
+        this.url = "http://automationpractice.com/index.php?" +
+                "controller=authentication&back=my-account#account-creation";
+        this.title = "Login - My Store";
+    }
+
+    //BUTTONS:
 
     //Button submit account:
     @FindBy(id = "submitAccount")
     private WebElement submitAccountBtn;
+
+    //RADIO BUTTONS:
 
     //RadioBtn sex male:
     @FindBy(id = "id_gender1")
@@ -18,14 +28,19 @@ public class CreateAnAccountPage extends Page {
     @FindBy(id = "id_gender2")
     private WebElement genderSexFemale;
 
+    //CHECKBOXES:
+
     //CheckBox submit newsletter:
     @FindBy(id = "newsletter")
     private WebElement newsLetter;
-
     //CheckBox special offer from partners:
+
     @FindBy(id = "optin")
     private WebElement optin;
 
+    //SELECTIONS:
+
+    //DROPDOWN SELECTION DATE OF BIRTH:
     //Selection dropDown day of birth:
     @FindBy(id = "days")
     private Select days;
@@ -38,9 +53,12 @@ public class CreateAnAccountPage extends Page {
     @FindBy(id = "years")
     private Select years;
 
+    //COUNTRY SELECTION:
     //Selection dropDown country (1 option):
     @FindBy(id = "id_country")
     private Select country;
+
+    //TEXT AREAS:
 
     //Text area customer firstname:
     @FindBy(id = "customer_firstname")
@@ -97,11 +115,4 @@ public class CreateAnAccountPage extends Page {
     //Text area phone mobile phone number:
     @FindBy(id = "phone_mobile")
     private WebElement phoneMobile;
-
-    public CreateAnAccountPage() {
-        this.pageURL = "http://automationpractice.com/index.php?" +
-                "controller=authentication&back=my-account#account-creation";
-        this.pageTitle = "Login - My Store";
-    }
-
 }

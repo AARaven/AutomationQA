@@ -18,7 +18,6 @@
 //
 //    private WebDriver driver;
 //
-//
 //    @Parameters("browser")
 //    @BeforeSuite
 //    public void getDriver() {
@@ -29,8 +28,6 @@
 //    protected void quitWebDriver() {
 //        this.driver.quit();
 //    }
-//
-//
 //
 //    public void setDriver(String browser) {
 //
@@ -67,7 +64,6 @@
 //            System.setProperty("webdriver.opera.driver", "./src/main/resources/operadriver.exe");
 //        }
 //    }
-//
 //
 //    @Test
 //    public void getUrl() {

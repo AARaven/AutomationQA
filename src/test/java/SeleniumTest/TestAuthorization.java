@@ -1,5 +1,6 @@
 //package SeleniumTest;
 //
+//import SeleniumTest.com.automationpractice.WebDriver.DriverConfig;
 //import net.bytebuddy.utility.RandomString;
 //import org.openqa.selenium.By;
 //import org.openqa.selenium.WebDriver;
@@ -50,15 +51,8 @@
 //
 //    @Test
 //    public void getStartPage() {
+//
 //        this.driver.get("http://automationpractice.com");
-//    }
-//
-//
-//    @Test
-//    public void getStartPage() {
-//        //get START PAGE:
-//
-//
 //        //find and press Btn SignIn
 //        driver.findElement(By.className("login"))
 //                .click();

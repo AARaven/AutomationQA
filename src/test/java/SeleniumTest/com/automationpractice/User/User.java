@@ -11,7 +11,6 @@ public class User {
     protected String userPassword;
     protected String tempUserPassword;
 
-
     User() {
         this.tempUserEmail = accountEmailGenerator();
         this.userEmail = this.tempUserEmail;
@@ -50,5 +49,4 @@ public class User {
         Random randomNumberData = new Random();
         return String.valueOf(randomNumberData.nextInt(1000000));
     }
-
 }
