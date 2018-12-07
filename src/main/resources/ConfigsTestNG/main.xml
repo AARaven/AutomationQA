@@ -5,6 +5,7 @@
     <suite-files>
         <suite-file path="ChromeTestAuth.xml"/>
         <!--<suite-file path="FirefoxTestAuth.xml"/>-->
+        <!--<suite-file path="OperaTestAuth.xml"/>-->
     </suite-files>
 </suite>
 

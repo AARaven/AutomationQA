@@ -4,7 +4,9 @@ interface PageNavigation {
 
     void open();
 
-    void close();
+    void openUrl(String url);
+
+    void openPage(Page page);
 
     void next();
 

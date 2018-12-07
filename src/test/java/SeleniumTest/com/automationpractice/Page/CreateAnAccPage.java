@@ -1,16 +1,16 @@
 package SeleniumTest.com.automationpractice.Page;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 public class CreateAnAccPage extends AuthPage {
 
-    public CreateAnAccPage() {
-        this.url = "http://automationpractice.com/index.php?" +
-                "controller=authentication&back=my-account#account-creation";
-        this.title = "Login - My Store";
-        this.open();
+    public CreateAnAccPage(WebDriver driver) {
+        super(driver);
+        this.setUrl("http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation");
+        this.setTitle("Login - My Store");
     }
 
     //Pre page methods:
@@ -51,16 +51,16 @@ public class CreateAnAccPage extends AuthPage {
         this.optin.click();
     }
 
-    public void choiceDayOfBirth() {
-        this.days.selectByIndex(4);
+    public void choiceDayOfBirth(String day) {
+        this.days.selectByIndex(Integer.parseInt(day));
     }
 
-    public void choiceMonthOfBirth() {
-        this.month.selectByIndex(4);
+    public void choiceMonthOfBirth(String month) {
+        this.month.selectByIndex(Integer.parseInt(month));
     }
 
-    public void choiceYearOfBirth() {
-        this.years.selectByValue("2018");
+    public void choiceYearOfBirth(String year) {
+        this.years.selectByValue(year);
     }
 
     public void choiceCountry() {
