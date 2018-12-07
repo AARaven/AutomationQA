@@ -1,14 +1,10 @@
 package SeleniumTest.com.automationpractice.Tests;
 
-import SeleniumTest.com.automationpractice.Page.AuthPage;
-import SeleniumTest.com.automationpractice.Page.MainPage;
+import SeleniumTest.com.automationpractice.Page.CreateAnAccPage;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.log4testng.Logger;
 
-public class BaseTest {
-
-    Logger logger;
+public class AuthTest extends TestBase {
 
     @DataProvider(name = "UserEmail")
     public Object[][] userEmail() {
@@ -33,20 +29,18 @@ public class BaseTest {
     }
 
     @Test
-    public void getMainPageAndClickButtons() {
-        MainPage main = new MainPage();
-        main.open();
-        main.pressSignInBtn();
-        main.back();
-        main.pressContactUsBtn();
-        main.close();
-    }
-
-    @Test(dataProvider = "UserEmail")
-    public void getAuthPageAndPushAnEmail(String email) throws Exception {
-        AuthPage auth = new AuthPage();
-        auth.open();
-        auth.sendEmailAndPushSubmit(email);
-        auth.close();
+    public void getTest() {
+        CreateAnAccPage create = new CreateAnAccPage();
+        create.open();
+        create.sendCreationEmail("asdf@adf.asdf");
+        create.pushCreateAccBtn();
+        create.choiceMale();
+        create.choiceCustomerFirstName("asdf");
+        create.choiceCustomerLastName("asdfasd");
+        create.choiceFirstName("asdfasdf");
+        create.choiceLastName("lasdjkf");
+        create.choiceCity("fasdlfh");
+        create.choiceCompany("falsdifh");
+        create.close();
     }
 }

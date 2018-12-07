@@ -1,4 +1,4 @@
-package SeleniumTest.com.automationpractice.User;
+package SeleniumTest.com.automationpractice.Models;
 
 import net.bytebuddy.utility.RandomString;
 
@@ -12,17 +12,9 @@ public class User {
     protected String tempUserPassword;
 
     User() {
-        this.tempUserEmail = accountEmailGenerator();
-        this.userEmail = this.tempUserEmail;
-        this.tempUserPassword = passwordGenerator();
-        this.userPassword = this.tempUserPassword;
     }
 
     User(String email, String password) {
-        this.tempUserEmail = email;
-        this.userEmail = email;
-        this.tempUserPassword = password;
-        this.userPassword = password;
     }
 
     protected String accountEmailGenerator() {

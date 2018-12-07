@@ -1,6 +1,7 @@
 package SeleniumTest.com.automationpractice.Page;
 
 interface PageNavigation {
+
     void open();
 
     void close();

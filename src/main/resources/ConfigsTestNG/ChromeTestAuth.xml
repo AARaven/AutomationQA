@@ -5,7 +5,7 @@
     <!--<parameter name="browser" value="chrome"/>-->
     <test name="AuthorizationTestChrome">
         <classes>
-            <class name="SeleniumTest.com.automationpractice.Tests.BaseTest"/>
+            <class name="SeleniumTest.com.automationpractice.Tests.AuthTest"/>
         </classes>
     </test>
 </suite>

@@ -15,13 +15,21 @@ import java.util.concurrent.TimeUnit;
 
 class Page implements PageNavigation {
 
-    Page() {
-        PageFactory.initElements(startDriver("chrome"), this);
-    }
-
     String url;
     String title;
     private WebDriver driver;
+
+    //Button contact us:
+    @FindBy(id = "contact-link")
+    private WebElement contactUsBtn;
+
+    //Button sign in:
+    @FindBy(className = "login")
+    private WebElement signInBtn;
+
+    Page() {
+        PageFactory.initElements(startDriver("chrome"), this);
+    }
 
     public String getUrl() {
         return this.url;
@@ -31,7 +39,35 @@ class Page implements PageNavigation {
         return this.title;
     }
 
-    protected WebDriver startDriver(String driver) {
+    public void pressContactUsBtn() {
+        this.contactUsBtn.click();
+    }
+
+    public void pressSignInBtn() {
+        this.signInBtn.click();
+    }
+
+    public void open() {
+        this.driver.navigate().to(this.url);
+    }
+
+    public void close() {
+        this.driver.quit();
+    }
+
+    public void next() {
+        this.driver.navigate().forward();
+    }
+
+    public void back() {
+        this.driver.navigate().back();
+    }
+
+    public void refresh() {
+        this.driver.navigate().refresh();
+    }
+
+    private WebDriver startDriver(String driver) {
         switch (driver) {
             case ("chrome"):
                 setProperty("chrome");
@@ -53,7 +89,7 @@ class Page implements PageNavigation {
                 setProperty("opera");
                 OperaOptions options = new OperaOptions();
                 options.setBinary("C:\\Program Files (x86)\\Opera\\launcher.exe");
-                this.driver = new OperaDriver(OperaDriverService.createDefaultService(),options);
+                this.driver = new OperaDriver(OperaDriverService.createDefaultService(), options);
                 new WebDriverWait(this.driver, 3);
                 this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
                 this.driver.manage().window().maximize();
@@ -74,41 +110,5 @@ class Page implements PageNavigation {
                 System.setProperty("webdriver.opera.driver", "./src/main/resources/operadriver.exe");
                 break;
         }
-    }
-
-    public void open() {
-        this.driver.get(this.url);
-    }
-
-    public void close() {
-        this.driver.quit();
-    }
-
-    public void next() {
-        this.driver.navigate().forward();
-    }
-
-    public void back() {
-        this.driver.navigate().back();
-    }
-
-    public void refresh() {
-        this.driver.navigate().refresh();
-    }
-
-    //Button contact us:
-    @FindBy(id = "contact-link")
-    private WebElement contactUsBtn;
-
-    public void pressContactUsBtn() {
-        this.contactUsBtn.click();
-    }
-
-    //Button sign in:
-    @FindBy(className = "login")
-    private WebElement signInBtn;
-
-    public void pressSignInBtn() {
-        this.signInBtn.click();
     }
 }

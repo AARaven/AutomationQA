@@ -5,5 +5,6 @@ public class MainPage extends Page {
     public MainPage() {
         this.url = "http://automationpractice.com";
         this.title = "My Store";
+        this.open();
     }
 }

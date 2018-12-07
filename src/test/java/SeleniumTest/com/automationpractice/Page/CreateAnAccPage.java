@@ -10,6 +10,117 @@ public class CreateAnAccPage extends AuthPage {
         this.url = "http://automationpractice.com/index.php?" +
                 "controller=authentication&back=my-account#account-creation";
         this.title = "Login - My Store";
+        this.open();
+    }
+
+    //Pre page methods:
+    public void sendCreationEmail(String email) {
+        this.emailCreate.sendKeys(email);
+    }
+
+    public void sendEmail(String email) {
+        this.email.sendKeys(email);
+    }
+
+    public void sendPassword(String password) {
+        this.password.sendKeys(password);
+    }
+
+    public void pushCreateAccBtn() {
+        this.submitCreateAccount.click();
+    }
+
+    public void pushSignBtn() {
+        this.submitLoginAccount.click();
+    }
+
+    //Creation account page methods:
+    public void choiceMale() {
+        this.genderSexMale.click();
+    }
+
+    public void choiceFemale() {
+        this.genderSexFemale.click();
+    }
+
+    public void choiceNewsLetter() {
+        this.newsLetter.click();
+    }
+
+    public void choiceOptin() {
+        this.optin.click();
+    }
+
+    public void choiceDayOfBirth() {
+        this.days.selectByIndex(4);
+    }
+
+    public void choiceMonthOfBirth() {
+        this.month.selectByIndex(4);
+    }
+
+    public void choiceYearOfBirth() {
+        this.years.selectByValue("2018");
+    }
+
+    public void choiceCountry() {
+        this.country.selectByVisibleText("United States");
+    }
+
+    public void choiceCustomerFirstName(String customerFirstname) {
+        this.customerFirstName.sendKeys(customerFirstname);
+    }
+
+    public void choiceCustomerLastName(String customerLastname) {
+        this.customerLastName.sendKeys(customerLastname);
+    }
+
+    public void choiceFirstName(String firstname) {
+        this.firstName.sendKeys(firstname);
+    }
+
+    public void choiceLastName(String lastname) {
+        this.lastName.sendKeys(lastname);
+    }
+
+    public void choicePassword(String password) {
+        this.passWord.sendKeys(password);
+    }
+
+    public void choiceCompany(String company) {
+        this.company.sendKeys(company);
+    }
+
+    public void choiceFirstAddress(String address1) {
+        this.adress1.sendKeys(address1);
+    }
+
+    public void choiceSecondAddress(String address2) {
+        this.address2.sendKeys(address2);
+    }
+
+    public void choiceCity(String city) {
+        this.city.sendKeys(city);
+    }
+
+    public void choiceState(String state) {
+        this.state.selectByVisibleText(state);
+    }
+
+    public void choicePostCode(String zip) {
+        this.postCode.sendKeys(zip);
+    }
+
+    public void sendAddInfo(String additional) {
+        this.other.sendKeys(additional);
+    }
+
+    public void choicePhone(String phone) {
+        this.phone.sendKeys(phone);
+    }
+
+    public void choiceMobilePhone(String phoneMobile) {
+        this.phoneMobile.sendKeys(phoneMobile);
     }
 
     //BUTTONS:
@@ -53,10 +164,13 @@ public class CreateAnAccPage extends AuthPage {
     @FindBy(id = "years")
     private Select years;
 
-    //COUNTRY SELECTION:
     //Selection dropDown country (1 option):
     @FindBy(id = "id_country")
     private Select country;
+
+    //Selection dropDown state:
+    @FindBy(id = "id_state")
+    private Select state;
 
     //TEXT AREAS:
 
@@ -96,10 +210,6 @@ public class CreateAnAccPage extends AuthPage {
     @FindBy(id = "city")
     private WebElement city;
 
-    //Selection dropDown state:
-    @FindBy(id = "id_state")
-    private Select state;
-
     //Text area postcode (5 digits):
     @FindBy(id = "postcode")
     private WebElement postCode;
@@ -115,4 +225,33 @@ public class CreateAnAccPage extends AuthPage {
     //Text area phone mobile phone number:
     @FindBy(id = "phone_mobile")
     private WebElement phoneMobile;
+
+    //PRE PAGE ELEMENTS:
+    //REGISTER AREA:
+
+    //Text area enter email for registration:
+    @FindBy(id = "email_create")
+    private WebElement emailCreate;
+
+    //Create an account Button:
+    @FindBy(id = "SubmitCreate")
+    private WebElement submitCreateAccount;
+
+    //LOGIN AREA:
+
+    //Text area email:
+    @FindBy(id = "email")
+    private WebElement email;
+
+    //Text area password:
+    @FindBy(id = "passwd")
+    private WebElement password;
+
+    //SignIn Button:
+    @FindBy(id = "SubmitLogin")
+    private WebElement submitLoginAccount;
+
+    //forgot your password link:
+    @FindBy(className = "lost_password from_group")
+    private WebElement forgotYourPassword;
 }

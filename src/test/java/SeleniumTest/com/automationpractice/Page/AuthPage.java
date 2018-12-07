@@ -8,6 +8,12 @@ public class AuthPage extends Page {
     public AuthPage() {
         this.url = "http://automationpractice.com/index.php?controller=authentication&back=my-account";
         this.title = "Login - My Store";
+        this.open();
+    }
+
+    public void sendEmailAndPushSubmit(String email) throws Exception {
+        this.emailCreate.sendKeys(email);
+        this.submitCreateAccount.click();
     }
 
     //REGISTER AREA:
@@ -19,17 +25,6 @@ public class AuthPage extends Page {
     //Create an account Button:
     @FindBy(id = "SubmitCreate")
     private WebElement submitCreateAccount;
-    //99% positive case:
-
-    public void sendEmailAndPushSubmit(String email) throws Exception {
-        if (this.emailCreate.isDisplayed()) {
-            this.emailCreate.sendKeys(email);
-        } else throw new Exception("The email area is not available.");
-
-        if (this.submitCreateAccount.isDisplayed()) {
-            this.submitCreateAccount.click();
-        } else throw new Exception("The submit button is not available.");
-    }
 
     //LOGIN AREA:
 
