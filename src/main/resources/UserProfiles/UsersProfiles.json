@@ -26,8 +26,8 @@
       "sex": "male",
       "firstName": "Alex",
       "lastName": "Smith",
-      "email": "JoHn@SmItH.j1",
-      "password": "asdfEFsdf12",
+      "email": "JoHn@SnItW.j1",
+      "password": "asd1EFsd3f12",
       "dayOfBirth": "20",
       "monthOfBirth": "5",
       "yearOfBirth": "2018",
@@ -46,8 +46,8 @@
   "PeterPan": [
     {
       "sex": "male",
-      "firstName": "Alex",
-      "lastName": "Smith",
+      "firstName": "Peter",
+      "lastName": "Pan",
       "email": "JoHn@SmItH.j1",
       "password": "asdfEFsdf12",
       "dayOfBirth": "20",
@@ -68,9 +68,9 @@
   "JackSparrow": [
     {
       "sex": "male",
-      "firstName": "Alex",
-      "lastName": "Smith",
-      "email": "JoHn@SmItH.j1",
+      "firstName": "Jack",
+      "lastName": "Sparrow",
+      "email": "JaCK@SpIerWH.j1",
       "password": "asdfEFsdf12",
       "dayOfBirth": "20",
       "monthOfBirth": "5",

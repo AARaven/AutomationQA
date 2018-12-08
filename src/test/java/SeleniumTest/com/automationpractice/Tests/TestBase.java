@@ -1,5 +1,7 @@
 package SeleniumTest.com.automationpractice.Tests;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,24 +11,28 @@ import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-import org.testng.log4testng.Logger;
 
 import java.util.concurrent.TimeUnit;
 
 class TestBase {
 
-    protected Logger logger;
     protected SoftAssert softAssert;
+    protected Logger LOGGER = LogManager.getLogger(this.getClass().getName());
     WebDriver driver;
 
     @BeforeSuite
     protected void beforeSuiteMethod() {
+
+        LOGGER.info("Setting webdriver properties...");
         setProperty("chrome");
+        LOGGER.info("Starting webdriver...");
         startDriver("chrome");
+        LOGGER.info("Webdriver started.");
     }
 
     @AfterSuite
     protected void afterSuiteMethod() {
+        LOGGER.info("Webdriver stopped.");
         this.driver.quit();
     }
 

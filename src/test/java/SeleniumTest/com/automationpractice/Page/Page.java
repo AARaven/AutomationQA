@@ -5,32 +5,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Properties;
 
 class Page implements PageNavigation {
 
     private String url;
     private String title;
-    private WebDriver driver;
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public String getTitle() {
-        return this.driver.getTitle();
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public void setTitle(String title) {
-        this.title = this.driver.getTitle();
-    }
+    protected WebDriver driver;
+    protected WebDriverWait wait;
 
     public void pressContactUsBtn() {
         this.contactUsBtn.click();
@@ -40,12 +29,16 @@ class Page implements PageNavigation {
         this.signInBtn.click();
     }
 
+    public void pressSignOutBtn() {
+        this.signOutBtn.click();
+    }
+
     public void open() {
-        this.driver.navigate().to(this.getUrl());
+        this.driver.get(this.getUrl());
     }
 
     public void openUrl(String url) {
-        this.driver.navigate().to(url);
+        this.driver.get(url);
     }
 
     public void openPage(Page page) {
@@ -68,8 +61,31 @@ class Page implements PageNavigation {
         return PageFactory.initElements(driver, pageClass);
     }
 
-    public String parseJsonData( String key)  {
-        File file = new File("./src/main/resources/PropertyFiles/Urls.json");
+    //CONSTRUCTOR:
+    protected Page(WebDriver driver) {
+        this.driver = driver;
+        this.title = this.driver.getTitle();
+        PageFactory.initElements(driver, this);
+    }
+
+    protected String getUrl() {
+        return this.url;
+    }
+
+    protected String getTitle() {
+        return this.driver.getTitle();
+    }
+
+    protected void setUrl(String url) {
+        this.url = url;
+    }
+
+    protected void setTitle(String title) {
+        this.title = this.driver.getTitle();
+    }
+
+    protected String parseJsonUrl(String key) {
+        File file = new File("./src/main/resources/PropertyFiles/url.json");
         ObjectMapper mapper = new ObjectMapper();
         HashMap map = null;
         try {
@@ -80,17 +96,36 @@ class Page implements PageNavigation {
         return map.get(key).toString();
     }
 
-    Page(WebDriver driver) {
-        this.driver = driver;
-        this.title = this.driver.getTitle();
-        PageFactory.initElements(driver, this);
+    protected String getPropertyUrl(String key) {
+        Properties prop = new Properties();
+        InputStream input = null;
+        try {
+            input = new FileInputStream("./src/main/resources/PropertyFiles/url.properties");
+            prop.load(input);
+            return prop.getProperty(key);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
     }
-    //Button contact us:
 
+    //Button contact us:
     @FindBy(id = "contact-link")
     private WebElement contactUsBtn;
-    //Button sign in:
 
+    //Button sign in:
     @FindBy(className = "login")
     private WebElement signInBtn;
+
+    //Button sign out:
+    @FindBy(className = "logout")
+    private WebElement signOutBtn;
 }

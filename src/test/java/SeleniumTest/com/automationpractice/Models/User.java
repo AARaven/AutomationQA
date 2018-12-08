@@ -28,6 +28,7 @@ public class User {
     private String additionalInfo;
     private String homePhone;
     private String mobilePhone;
+    private String additionalEmail;
 
     public User() {
         this.Sex = parseUserData("sex");
@@ -48,6 +49,7 @@ public class User {
         this.additionalInfo = parseUserData("additionalInfo");
         this.homePhone = parseUserData("homePhone");
         this.mobilePhone = parseUserData("mobilePhone");
+        this.additionalEmail = parseUserData("additionalEmail");
     }
 
     private String parseUserData(String user) {

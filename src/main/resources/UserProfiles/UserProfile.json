@@ -1,9 +1,9 @@
 {
   "sex": "male",
-  "firstName": "Alex",
-  "lastName": "Smith",
-  "email": "JoHn@SmItH.va1",
-  "password": "asdfEFsdf12",
+  "firstName": "Jonny",
+  "lastName": "Five",
+  "email": "JonnY@fiVE.roc",
+  "password": "asddfEFsdf12",
   "dayOfBirth": "20",
   "monthOfBirth": "5",
   "yearOfBirth": "2018",
@@ -16,5 +16,6 @@
   "country": "United States",
   "additionalInfo": "Knock-knock",
   "homePhone": "666666",
-  "mobilePhone": "66666666666"
+  "mobilePhone": "66666666666",
+  "additionalEmail": "asdf@asdf.asf"
 }

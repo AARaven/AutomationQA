@@ -2,12 +2,12 @@ package SeleniumTest.com.automationpractice.Page;
 
 import org.openqa.selenium.WebDriver;
 
-import java.io.IOException;
-
 public class StartPage extends Page {
 
-    public StartPage(WebDriver driver) throws IOException {
+    //CONSTRUCTOR:
+    public StartPage(WebDriver driver){
         super(driver);
-        this.setUrl(parseJsonData("BaseUrl"));
+        this.setUrl(getPropertyUrl("BaseUrl"));
+//        this.setUrl(parseJsonUrl("BaseUrl"));
     }
 }

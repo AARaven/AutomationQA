@@ -1,7 +1,7 @@
 package SeleniumTest.com.automationpractice.Tests;
 
 import SeleniumTest.com.automationpractice.Models.User;
-import SeleniumTest.com.automationpractice.Page.AccountCreationPage;
+import SeleniumTest.com.automationpractice.Page.AuthorizationPage;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -31,9 +31,22 @@ public class AuthTest extends TestBase {
 
     @Test(dataProvider = "Users")
     public void createAndVerifyAccount(User user) {
-        AccountCreationPage a = new AccountCreationPage(this.driver);
+        AuthorizationPage a = new AuthorizationPage(this.driver);
+        LOGGER.info("Starting new page");
         a.open();
-        a.registerAccount(user);
-        a.verifyAccount();
+        a.createAnAccount(user);
+//        a.verifyUserAccount(user);
+//        a.openUserAccount(user);
+    }
+
+    @Test(dataProvider = "Users")
+    public void verifyRecentAccount(User user) {
+        LOGGER.info("Initializing webpage...");
+        AuthorizationPage auth = new AuthorizationPage(this.driver);
+        LOGGER.info("Open authorization page...");
+        auth.open();
+        LOGGER.info("Verifying recent account...");
+        auth.verifyUserAccount(user);
+        LOGGER.info("Completed.");
     }
 }
