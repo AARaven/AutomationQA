@@ -21,7 +21,7 @@ class Page implements PageNavigation {
     }
 
     public String getTitle() {
-        return this.title;
+        return this.driver.getTitle();
     }
 
     public void setUrl(String url) {
@@ -29,7 +29,7 @@ class Page implements PageNavigation {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.title = this.driver.getTitle();
     }
 
     public void pressContactUsBtn() {
@@ -68,15 +68,21 @@ class Page implements PageNavigation {
         return PageFactory.initElements(driver, pageClass);
     }
 
-    public String parseJsonData(String path, String key) throws IOException {
-        File file = new File(path);
+    public String parseJsonData( String key)  {
+        File file = new File("./src/main/resources/PropertyFiles/Urls.json");
         ObjectMapper mapper = new ObjectMapper();
-        HashMap map = mapper.readValue(file, HashMap.class);
+        HashMap map = null;
+        try {
+            map = mapper.readValue(file, HashMap.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return map.get(key).toString();
     }
 
     Page(WebDriver driver) {
         this.driver = driver;
+        this.title = this.driver.getTitle();
         PageFactory.initElements(driver, this);
     }
     //Button contact us:

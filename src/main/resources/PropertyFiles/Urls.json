@@ -1,0 +1,4 @@
+{
+  "BaseUrl": "http://automationpractice.com",
+  "AccountCreation": "http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation"
+}

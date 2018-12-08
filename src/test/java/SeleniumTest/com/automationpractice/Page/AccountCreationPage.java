@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
-public class CreateAnAccPage extends AuthPage {
+public class AccountCreationPage extends AuthorizationPage {
 
-    public CreateAnAccPage(WebDriver driver) {
+    public AccountCreationPage(WebDriver driver) {
         super(driver);
-        this.setUrl("http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation");
-        this.setTitle("Login - My Store");
+        this.setUrl(parseJsonData("AccountCreation"));
     }
 
     public void registerAccount(User user) {
@@ -20,111 +20,161 @@ public class CreateAnAccPage extends AuthPage {
         pushDataIntoFields(user);
     }
 
+    public void verifyAccount() {
+        String expectedTitle = "My account - My Store";
+        Assert.assertEquals(expectedTitle,this.getTitle(),"The account has not verify!");
+    }
+
+    private void pushDataIntoFields(User user) {
+        //gender:
+        if (user.getSex().equals("male")) {
+            choiceMale();
+        } else if (user.getSex().equals("female")) choiceFemale();
+
+        //other:
+        choiceCustomerFirstName(user.getFirstName());
+        choiceCustomerLastName(user.getLastName());
+        choicePassword(user.getPassword());
+        choiceDateOfBirth(user.getDayOfBirth(), user.getMonthOfBirth(), user.getYearOfBirth());
+        choiceNewsLetter();
+        choiceOptin();
+        choiceFirstName(user.getFirstName());
+        choiceLastName(user.getLastName());
+        choiceCompany(user.getCompany());
+        choiceFirstAddress(user.getAddress());
+        choiceSecondAddress(user.getAddressSecLine());
+        choiceCity(user.getCity());
+        choiceState(user.getState());
+        choicePostCode(user.getZip());
+        choiceCountry(user.getCountry());
+        sendAddInfo(user.getAdditionalInfo());
+        choicePhone(user.getHomePhone());
+        choiceMobilePhone(user.getMobilePhone());
+        pushSubmitAccoutnBtn();
+    }
+
     //Pre page methods:
-    public void sendEmail(String email) {
+    private void sendEmail(String email) {
         this.email.sendKeys(email);
     }
 
-    public void sendCreationEmail(String email) {
+    private void sendCreationEmail(String email) {
         this.emailCreate.sendKeys(email);
     }
 
-    public void pushCreateAccBtn() {
+    private void pushCreateAccBtn() {
         this.submitCreateAccount.click();
     }
 
-    public void sendPassword(String password) {
+    private void sendPassword(String password) {
         this.password.sendKeys(password);
     }
 
-    public void pushSignBtn() {
+    private void pushSignBtn() {
         this.submitLoginAccount.click();
     }
 
     //Creation account page methods:
-    public void choiceMale() {
+    private void choiceMale() {
         this.genderSexMale.click();
     }
 
-    public void choiceFemale() {
+    private void choiceFemale() {
         this.genderSexFemale.click();
     }
 
-    public void choiceNewsLetter() {
+    private void choiceNewsLetter() {
         this.newsLetter.click();
     }
 
-    public void choiceOptin() {
+    private void choiceOptin() {
         this.optin.click();
     }
 
-    public void choiceDateOfBirth(String day, String month, String year) {
-        this.days.selectByIndex(Integer.parseInt(day));
-        this.month.selectByIndex(Integer.parseInt(month));
-        this.years.selectByValue(year);
+    private void choiceDayOfBirth(String day) {
+        new Select(this.days).selectByValue(day);
+//        this.days.selectByValue(day);
     }
 
-    public void choiceCountry(String country) {
-        this.country.selectByVisibleText(country);
+    private void choiceMonthOfBirth(String month) {
+        new Select(this.months).selectByValue(month);
+//        this.months.selectByValue(month);
     }
 
-    public void choiceCustomerFirstName(String customerFirstname) {
+    private void choiceYearOfBirth(String year) {
+        new Select(this.years).selectByValue(year);
+//        this.years.selectByValue(year);
+    }
+
+    private void choiceDateOfBirth(String day, String month, String year) {
+        choiceDayOfBirth(day);
+        choiceMonthOfBirth(month);
+        choiceYearOfBirth(year);
+    }
+
+    private void choiceCountry(String country) {
+        new Select(this.country).selectByVisibleText(country);
+//        this.country.selectByVisibleText(country);
+    }
+
+    private void choiceCustomerFirstName(String customerFirstname) {
         this.customerFirstName.sendKeys(customerFirstname);
     }
 
-    public void choiceCustomerLastName(String customerLastname) {
+    private void choiceCustomerLastName(String customerLastname) {
         this.customerLastName.sendKeys(customerLastname);
     }
 
-    public void choiceFirstName(String firstname) {
+    private void choiceFirstName(String firstname) {
         this.firstName.sendKeys(firstname);
     }
 
-    public void choiceLastName(String lastname) {
+    private void choiceLastName(String lastname) {
         this.lastName.sendKeys(lastname);
     }
 
-    public void choicePassword(String password) {
+    private void choicePassword(String password) {
         this.passWord.sendKeys(password);
     }
 
-    public void choiceCompany(String company) {
+    private void choiceCompany(String company) {
         this.company.sendKeys(company);
     }
 
-    public void choiceFirstAddress(String address1) {
+    private void choiceFirstAddress(String address1) {
         this.adress1.sendKeys(address1);
     }
 
-    public void choiceSecondAddress(String address2) {
+    private void choiceSecondAddress(String address2) {
         this.address2.sendKeys(address2);
     }
 
-    public void choiceCity(String city) {
+    private void choiceCity(String city) {
         this.city.sendKeys(city);
     }
 
-    public void choiceState(String state) {
-        this.state.selectByValue(state);
+    private void choiceState(String state) {
+        new Select(this.state).selectByVisibleText(state);
+//        this.state.selectByVisibleText(state);
     }
 
-    public void choicePostCode(String zip) {
+    private void choicePostCode(String zip) {
         this.postCode.sendKeys(zip);
     }
 
-    public void sendAddInfo(String additional) {
+    private void sendAddInfo(String additional) {
         this.other.sendKeys(additional);
     }
 
-    public void choicePhone(String phone) {
+    private void choicePhone(String phone) {
         this.phone.sendKeys(phone);
     }
 
-    public void choiceMobilePhone(String phoneMobile) {
+    private void choiceMobilePhone(String phoneMobile) {
         this.phoneMobile.sendKeys(phoneMobile);
     }
 
-    public void pushSubmitAccoutnBtn() {
+    private void pushSubmitAccoutnBtn() {
         this.submitAccountBtn.click();
     }
 
@@ -149,8 +199,8 @@ public class CreateAnAccPage extends AuthPage {
     //CheckBox submit newsletter:
     @FindBy(id = "newsletter")
     private WebElement newsLetter;
-    //CheckBox special offer from partners:
 
+    //CheckBox special offer from partners:
     @FindBy(id = "optin")
     private WebElement optin;
 
@@ -159,23 +209,23 @@ public class CreateAnAccPage extends AuthPage {
     //DROPDOWN SELECTION DATE OF BIRTH:
     //Selection dropDown day of birth:
     @FindBy(id = "days")
-    private Select days;
+    private WebElement days;
 
     //Selection dropDown month of birth:
     @FindBy(id = "months")
-    private Select month;
+    private WebElement months;
 
     //Selection dropDown year of birth:
     @FindBy(id = "years")
-    private Select years;
+    private WebElement years;
 
     //Selection dropDown country (1 option):
     @FindBy(id = "id_country")
-    private Select country;
+    private WebElement country;
 
     //Selection dropDown state:
     @FindBy(id = "id_state")
-    private Select state;
+    private WebElement state;
 
     //TEXT AREAS:
 
@@ -259,35 +309,4 @@ public class CreateAnAccPage extends AuthPage {
     //forgot your password link:
     @FindBy(className = "lost_password from_group")
     private WebElement forgotYourPassword;
-
-    private void pushDataIntoFields(User user) {
-        //gender:
-        if (user.getSex().equals("male")) {
-            choiceMale();
-        } else if (user.getSex().equals("female")) choiceFemale();
-
-        //other:
-        choiceCustomerFirstName(user.getFirstName());
-        choiceCustomerLastName(user.getLastName());
-        choicePassword(user.getPassword());
-        choiceDateOfBirth(
-                user.getDayOfBirth()
-                , user.getMonthOfBirth()
-                , user.getYearOfBirth());
-        choiceNewsLetter();
-        choiceOptin();
-        choiceFirstName(user.getFirstName());
-        choiceLastName(user.getLastName());
-        choiceCompany(user.getCompany());
-        choiceFirstAddress(user.getAddress());
-        choiceSecondAddress(user.getAddressSecLine());
-        choiceCity(user.getCity());
-        choiceState(user.getState());
-        choicePostCode(user.getZip());
-        choiceCountry(user.getCountry());
-        sendAddInfo(user.getAdditionalInfo());
-        choicePhone(user.getHomePhone());
-        choiceMobilePhone(user.getMobilePhone());
-        pushSubmitAccoutnBtn();
-    }
 }

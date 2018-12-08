@@ -4,12 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AuthPage extends Page {
+public class AuthorizationPage extends Page {
 
-    public AuthPage(WebDriver driver) {
+    public AuthorizationPage(WebDriver driver) {
         super(driver);
         this.setUrl("http://automationpractice.com/index.php?controller=authentication&back=my-account");
-        this.setTitle("Login - My Store");
     }
 
     public void sendEmailAndPushSubmit(String email) throws Exception {

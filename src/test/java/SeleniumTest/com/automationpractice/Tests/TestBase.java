@@ -75,8 +75,8 @@ class TestBase {
             case ("chrome"):
                 setProperty("chrome");
                 this.driver = new ChromeDriver();
-                new WebDriverWait(this.driver, 7);
-                this.driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+                new WebDriverWait(this.driver, 10);
+                this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                 this.driver.manage().window().maximize();
                 return this.driver;
 
