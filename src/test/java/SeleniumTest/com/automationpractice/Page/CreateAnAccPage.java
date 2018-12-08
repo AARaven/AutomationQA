@@ -1,5 +1,6 @@
 package SeleniumTest.com.automationpractice.Page;
 
+import SeleniumTest.com.automationpractice.Models.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,21 +14,27 @@ public class CreateAnAccPage extends AuthPage {
         this.setTitle("Login - My Store");
     }
 
-    //Pre page methods:
-    public void sendCreationEmail(String email) {
-        this.emailCreate.sendKeys(email);
+    public void registerAccount(User user) {
+        sendCreationEmail(user.getEmail());
+        pushCreateAccBtn();
+        pushDataIntoFields(user);
     }
 
+    //Pre page methods:
     public void sendEmail(String email) {
         this.email.sendKeys(email);
     }
 
-    public void sendPassword(String password) {
-        this.password.sendKeys(password);
+    public void sendCreationEmail(String email) {
+        this.emailCreate.sendKeys(email);
     }
 
     public void pushCreateAccBtn() {
         this.submitCreateAccount.click();
+    }
+
+    public void sendPassword(String password) {
+        this.password.sendKeys(password);
     }
 
     public void pushSignBtn() {
@@ -51,20 +58,14 @@ public class CreateAnAccPage extends AuthPage {
         this.optin.click();
     }
 
-    public void choiceDayOfBirth(String day) {
+    public void choiceDateOfBirth(String day, String month, String year) {
         this.days.selectByIndex(Integer.parseInt(day));
-    }
-
-    public void choiceMonthOfBirth(String month) {
         this.month.selectByIndex(Integer.parseInt(month));
-    }
-
-    public void choiceYearOfBirth(String year) {
         this.years.selectByValue(year);
     }
 
-    public void choiceCountry() {
-        this.country.selectByVisibleText("United States");
+    public void choiceCountry(String country) {
+        this.country.selectByVisibleText(country);
     }
 
     public void choiceCustomerFirstName(String customerFirstname) {
@@ -104,7 +105,7 @@ public class CreateAnAccPage extends AuthPage {
     }
 
     public void choiceState(String state) {
-        this.state.selectByVisibleText(state);
+        this.state.selectByValue(state);
     }
 
     public void choicePostCode(String zip) {
@@ -121,6 +122,10 @@ public class CreateAnAccPage extends AuthPage {
 
     public void choiceMobilePhone(String phoneMobile) {
         this.phoneMobile.sendKeys(phoneMobile);
+    }
+
+    public void pushSubmitAccoutnBtn() {
+        this.submitAccountBtn.click();
     }
 
     //BUTTONS:
@@ -254,4 +259,35 @@ public class CreateAnAccPage extends AuthPage {
     //forgot your password link:
     @FindBy(className = "lost_password from_group")
     private WebElement forgotYourPassword;
+
+    private void pushDataIntoFields(User user) {
+        //gender:
+        if (user.getSex().equals("male")) {
+            choiceMale();
+        } else if (user.getSex().equals("female")) choiceFemale();
+
+        //other:
+        choiceCustomerFirstName(user.getFirstName());
+        choiceCustomerLastName(user.getLastName());
+        choicePassword(user.getPassword());
+        choiceDateOfBirth(
+                user.getDayOfBirth()
+                , user.getMonthOfBirth()
+                , user.getYearOfBirth());
+        choiceNewsLetter();
+        choiceOptin();
+        choiceFirstName(user.getFirstName());
+        choiceLastName(user.getLastName());
+        choiceCompany(user.getCompany());
+        choiceFirstAddress(user.getAddress());
+        choiceSecondAddress(user.getAddressSecLine());
+        choiceCity(user.getCity());
+        choiceState(user.getState());
+        choicePostCode(user.getZip());
+        choiceCountry(user.getCountry());
+        sendAddInfo(user.getAdditionalInfo());
+        choicePhone(user.getHomePhone());
+        choiceMobilePhone(user.getMobilePhone());
+        pushSubmitAccoutnBtn();
+    }
 }

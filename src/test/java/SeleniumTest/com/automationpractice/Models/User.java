@@ -1,5 +1,11 @@
 package SeleniumTest.com.automationpractice.Models;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+
 public class User {
 
     private String Sex;
@@ -21,16 +27,37 @@ public class User {
     private String homePhone;
     private String mobilePhone;
 
+    public User() {
+        this.Sex = parseUserData("sex");
+        this.firstName = parseUserData("firstName");
+        this.lastName = parseUserData("lastName");
+        this.email = parseUserData("email");
+        this.password = parseUserData("password");
+        this.dayOfBirth = parseUserData("dayOfBirth");
+        this.monthOfBirth = parseUserData("monthOfBirth");
+        this.yearOfBirth = parseUserData("yearOfBirth");
+        this.company = parseUserData("company");
+        this.address = parseUserData("address");
+        this.addressSecLine = parseUserData("addressSecLine");
+        this.city = parseUserData("city");
+        this.state = parseUserData("state");
+        this.zip = parseUserData("zip");
+        this.country = parseUserData("country");
+        this.additionalInfo = parseUserData("additionalInfo");
+        this.homePhone = parseUserData("homePhone");
+        this.mobilePhone = parseUserData("mobilePhone");
+    }
+
     public String getSex() {
-        return Sex;
+        return this.Sex;
     }
 
     public void setSex(String sex) {
-        Sex = sex;
+        this.Sex = sex;
     }
 
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     public void setFirstName(String firstName) {
@@ -38,7 +65,7 @@ public class User {
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 
     public void setLastName(String lastName) {
@@ -46,7 +73,7 @@ public class User {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -54,7 +81,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -62,7 +89,7 @@ public class User {
     }
 
     public String getDayOfBirth() {
-        return dayOfBirth;
+        return this.dayOfBirth;
     }
 
     public void setDayOfBirth(String dayOfBirth) {
@@ -70,7 +97,7 @@ public class User {
     }
 
     public String getMonthOfBirth() {
-        return monthOfBirth;
+        return this.monthOfBirth;
     }
 
     public void setMonthOfBirth(String monthOfBirth) {
@@ -78,7 +105,7 @@ public class User {
     }
 
     public String getYearOfBirth() {
-        return yearOfBirth;
+        return this.yearOfBirth;
     }
 
     public void setYearOfBirth(String yearOfBirth) {
@@ -86,7 +113,7 @@ public class User {
     }
 
     public String getCompany() {
-        return company;
+        return this.company;
     }
 
     public void setCompany(String company) {
@@ -94,7 +121,7 @@ public class User {
     }
 
     public String getAddress() {
-        return address;
+        return this.address;
     }
 
     public void setAddress(String address) {
@@ -102,7 +129,7 @@ public class User {
     }
 
     public String getAddressSecLine() {
-        return addressSecLine;
+        return this.addressSecLine;
     }
 
     public void setAddressSecLine(String addressSecLine) {
@@ -110,7 +137,7 @@ public class User {
     }
 
     public String getCity() {
-        return city;
+        return this.city;
     }
 
     public void setCity(String city) {
@@ -118,7 +145,7 @@ public class User {
     }
 
     public String getState() {
-        return state;
+        return this.state;
     }
 
     public void setState(String state) {
@@ -126,7 +153,7 @@ public class User {
     }
 
     public String getZip() {
-        return zip;
+        return this.zip;
     }
 
     public void setZip(String zip) {
@@ -134,7 +161,7 @@ public class User {
     }
 
     public String getCountry() {
-        return country;
+        return this.country;
     }
 
     public void setCountry(String country) {
@@ -142,7 +169,7 @@ public class User {
     }
 
     public String getAdditionalInfo() {
-        return additionalInfo;
+        return this.additionalInfo;
     }
 
     public void setAdditionalInfo(String additionalInfo) {
@@ -150,7 +177,7 @@ public class User {
     }
 
     public String getHomePhone() {
-        return homePhone;
+        return this.homePhone;
     }
 
     public void setHomePhone(String homePhone) {
@@ -158,31 +185,22 @@ public class User {
     }
 
     public String getMobilePhone() {
-        return mobilePhone;
+        return this.mobilePhone;
     }
 
     public void setMobilePhone(String mobilePhone) {
         this.mobilePhone = mobilePhone;
     }
 
-    public User() {
-        this.Sex = "male";
-        this.firstName = "John";
-        this.lastName = "Smith";
-        this.email = "JohN@SmIth.jo";
-        this.password = "SeCrEtWoRd123";
-        this.dayOfBirth = "5";
-        this.monthOfBirth = "7";
-        this.yearOfBirth = "1993";
-        this.company = "Coca-Cola co.";
-        this.address = "st. Omen street";
-        this.addressSecLine = "666";
-        this.city = "Des Moines";
-        this.state = "Iowa";
-        this.zip = "666666";
-        this.country = "United States";
-        this.additionalInfo = "bla bla bla";
-        this.homePhone = "666666";
-        this.mobilePhone = "88006666666";
+    public String parseUserData(String key) {
+        File file = new File("./src/main/resources/UserProfiles/UserProfile.json");
+        ObjectMapper mapper = new ObjectMapper();
+        HashMap map = null;
+        try {
+            map = mapper.readValue(file, HashMap.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return map.get(key).toString();
     }
 }

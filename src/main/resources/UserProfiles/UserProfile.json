@@ -1,6 +1,20 @@
 {
-  "firstName": "alex",
-  "lastName": "smith",
-  "company": "coca-cola",
-
+  "sex": "male",
+  "firstName": "Alex",
+  "lastName": "Smith",
+  "email": "JoHn@SmItH.jo",
+  "password": "asdfEFsdf12",
+  "dayOfBirth": "20",
+  "monthOfBirth": "5",
+  "yearOfBirth": "2018",
+  "company": "Coca-cola inc.",
+  "address": "Junior st. ,666666, Coca-cola inc.",
+  "addressSecLine": "asdfasdf",
+  "city": "Minsk",
+  "state": "2",
+  "zip": "666666",
+  "country": "Unites States",
+  "additionalInfo": "adsfasdfasdf",
+  "homePhone": "666666",
+  "mobilePhone": "66666666666"
 }
