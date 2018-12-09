@@ -43,8 +43,8 @@ public class Page implements PageNavigation {
         this.driver.navigate().refresh();
     }
 
-    public <T extends Page> T getInstance(Class<T> pageClass) {
-        return PageFactory.initElements(driver, pageClass);
+    public <T extends Page> T getInstance(Class<T> PageClass) {
+        return PageFactory.initElements(driver, PageClass);
     }
 
     //CONSTRUCTOR:

@@ -22,6 +22,7 @@ class TestBase {
 
     @BeforeSuite
     protected void beforeSuiteMethod() {
+        LOGGER.info("Before suite method:");
         LOGGER.debug("Starting webdriver...");
         startDriver("chrome");
         LOGGER.debug("Webdriver started.");
@@ -29,48 +30,50 @@ class TestBase {
 
     @AfterSuite
     protected void afterSuiteMethod() {
-        LOGGER.info("Webdriver stopped.");
+        LOGGER.info("After suite method:");
+        LOGGER.debug("Stopping webdriver...");
         this.driver.quit();
+        LOGGER.debug("Webdriver stopped.");
     }
 
     @BeforeClass
     protected void beforeClassMethod() {
-        LOGGER.info("beforeClassMethod");
+        LOGGER.info("beforeClassMethod:");
     }
 
     @AfterClass
     protected void afterClassMethod() {
-        LOGGER.info("afterClassMethod");
+        LOGGER.info("afterClassMethod:");
     }
 
     @BeforeGroups
     protected void beforeGroupsMethod() {
-        LOGGER.info("beforeGroupsMethod");
+        LOGGER.info("beforeGroupsMethod:");
     }
 
     @AfterGroups
     protected void afterGroupsMethod() {
-        LOGGER.info("afterGroupsMethod");
+        LOGGER.info("afterGroupsMethod:");
     }
 
     @BeforeTest
     protected void beforeTestMethod() {
-        LOGGER.info("beforeTestMethod");
+        LOGGER.info("beforeTestMethod:");
     }
 
     @AfterTest
     protected void afterTestMethod() {
-        LOGGER.info("afterTestMethod");
+        LOGGER.info("afterTestMethod:");
     }
 
     @BeforeMethod
     protected void beforeMethod() {
-        LOGGER.info("beforeMethod");
+        LOGGER.info("beforeMethod:");
     }
 
     @AfterMethod
     protected void afterMethod() {
-        LOGGER.info("afterMethod");
+        LOGGER.info("afterMethod:");
     }
 
     private WebDriver startDriver(String driver) {

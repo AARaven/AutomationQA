@@ -10,7 +10,7 @@ import java.util.HashMap;
 @Data
 public class User {
 
-    private String Sex;
+    private String gender;
     private String firstName;
     private String lastName;
     private String email;
@@ -20,47 +20,60 @@ public class User {
     private String yearOfBirth;
     private String company;
     private String address;
-    private String addressSecLine;
+    private String addressSecondLine;
     private String city;
     private String state;
-    private String zip;
+    private String zipCode;
     private String country;
     private String additionalInfo;
     private String homePhone;
     private String mobilePhone;
     private String additionalEmail;
 
-    public User() {
-        this.Sex = parseUserData("sex");
-        this.firstName = parseUserData("firstName");
-        this.lastName = parseUserData("lastName");
-        this.email = parseUserData("email");
-        this.password = parseUserData("password");
-        this.dayOfBirth = parseUserData("dayOfBirth");
-        this.monthOfBirth = parseUserData("monthOfBirth");
-        this.yearOfBirth = parseUserData("yearOfBirth");
-        this.company = parseUserData("company");
-        this.address = parseUserData("address");
-        this.addressSecLine = parseUserData("addressSecLine");
-        this.city = parseUserData("city");
-        this.state = parseUserData("state");
-        this.zip = parseUserData("zip");
-        this.country = parseUserData("country");
-        this.additionalInfo = parseUserData("additionalInfo");
-        this.homePhone = parseUserData("homePhone");
-        this.mobilePhone = parseUserData("mobilePhone");
-        this.additionalEmail = parseUserData("additionalEmail");
+    //CONSTRUCTOR:
+    public User(String name) {
+        this.gender = parseUserData(name, "gender");
+        this.firstName = parseUserData(name, "firstName");
+        this.lastName = parseUserData(name, "lastName");
+        this.email = parseUserData(name, "email");
+        this.password = parseUserData(name, "password");
+        this.dayOfBirth = parseUserData(name, "dayOfBirth");
+        this.monthOfBirth = parseUserData(name, "monthOfBirth");
+        this.yearOfBirth = parseUserData(name, "yearOfBirth");
+        this.company = parseUserData(name, "company");
+        this.address = parseUserData(name, "address");
+        this.addressSecondLine = parseUserData(name, "addressSecondLine");
+        this.city = parseUserData(name, "city");
+        this.state = parseUserData(name, "state");
+        this.zipCode = parseUserData(name, "zipCode");
+        this.country = parseUserData(name, "country");
+        this.additionalInfo = parseUserData(name, "additionalInfo");
+        this.homePhone = parseUserData(name, "homePhone");
+        this.mobilePhone = parseUserData(name, "mobilePhone");
+        this.additionalEmail = parseUserData(name, "additionalEmail");
+        saveUserProfile(this);
     }
 
-    private String parseUserData(String user) {
-        File file = new File("./src/main/resources/UserProfiles/UserProfile.json");
+    private String parseUserData(String user, String key) {
+        File file = new File("./src/main/resources/UsersProfiles/UsersProfiles.json");
         ObjectMapper mapper = new ObjectMapper();
-        HashMap map = null;
+        HashMap temp = null;
+        HashMap result = null;
         try {
-            map = mapper.readValue(file, HashMap.class);
+            temp = mapper.readValue(file, HashMap.class);
+            result = (HashMap) temp.get(user);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return map != null ? map.get(user).toString() : null;
+        return result != null ? result.get(key).toString() : null;
+    }
+
+    private void saveUserProfile(User user) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writeValue(new File("./src/main/resources/UsersProfiles/SavedProfiles/lastProfile.json"), user);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -19,10 +19,10 @@ public class Data {
     @DataProvider(name = "Users")
     public Object[][] userPassword() {
         return new Object[][]{
-                {new User()},
-//                {new User()},
-//                {new User()},
-//                {new User()},
+                {new User("Alex")},
+                {new User("Peter")},
+                {new User("Jack")},
+                {new User("John")},
 //                {new User()}
         };
     }
