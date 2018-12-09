@@ -1,9 +1,7 @@
-package SeleniumTest.com.automationpractice.Page;
+package Models.Page;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,24 +12,12 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Properties;
 
-class Page implements PageNavigation {
+public class Page implements PageNavigation {
 
     private String url;
     private String title;
-    protected WebDriver driver;
+    private WebDriver driver;
     protected WebDriverWait wait;
-
-    public void pressContactUsBtn() {
-        this.contactUsBtn.click();
-    }
-
-    public void pressSignInBtn() {
-        this.signInBtn.click();
-    }
-
-    public void pressSignOutBtn() {
-        this.signOutBtn.click();
-    }
 
     public void open() {
         this.driver.get(this.getUrl());
@@ -84,7 +70,7 @@ class Page implements PageNavigation {
         this.title = this.driver.getTitle();
     }
 
-    protected String parseJsonUrl(String key) {
+    protected String getJsonUrl(String key) {
         File file = new File("./src/main/resources/PropertyFiles/url.json");
         ObjectMapper mapper = new ObjectMapper();
         HashMap map = null;
@@ -116,16 +102,4 @@ class Page implements PageNavigation {
         }
         return null;
     }
-
-    //Button contact us:
-    @FindBy(id = "contact-link")
-    private WebElement contactUsBtn;
-
-    //Button sign in:
-    @FindBy(className = "login")
-    private WebElement signInBtn;
-
-    //Button sign out:
-    @FindBy(className = "logout")
-    private WebElement signOutBtn;
 }

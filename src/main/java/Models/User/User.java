@@ -1,4 +1,4 @@
-package SeleniumTest.com.automationpractice.Models;
+package Models.User;
 
 import lombok.Data;
 import org.codehaus.jackson.map.ObjectMapper;

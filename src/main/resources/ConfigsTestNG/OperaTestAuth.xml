@@ -5,7 +5,7 @@
     <!--<parameter name="browser" value="opera"/>-->
     <test name="AuthorizationTestOpera">
         <classes>
-            <class name="SeleniumTest.com.automationpractice.Tests.AuthTest"/>
+            <class name="AuthTest"/>
         </classes>
     </test>
 </suite>

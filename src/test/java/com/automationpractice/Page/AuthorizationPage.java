@@ -1,43 +1,13 @@
-package SeleniumTest.com.automationpractice.Page;
+package com.automationpractice.Page;
 
-import SeleniumTest.com.automationpractice.Models.User;
+import Models.User.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-public class AuthorizationPage extends Page {
-
-    // CONSTRUCTOR:
-    public AuthorizationPage(WebDriver driver) {
-        super(driver);
-        this.setUrl(parseJsonUrl("Authorization"));
-//        this.setUrl(getPropertyUrl("AuthorizationUrl"));
-    }
-
-    // Method which send an email and click
-    // on Create_An_Account button:
-    public void createAnAccount(User user) {
-        this.emailCreateField.sendKeys(user.getEmail());
-        this.createAnAccountBtn.click();
-        fillAllFields(user);
-        this.submitAccountBtn.click();
-        pressSignOutBtn();
-    }
-
-    // Method which open a resent account:
-    public void openUserAccount(User user) {
-        this.emailTextField.sendKeys(user.getEmail());
-        this.passwordTextField.sendKeys(user.getPassword());
-        this.submitLoginAccountBtn.click();
-    }
-
-    public void verifyUserAccount(User user) {
-        openUserAccount(user);
-        Assert.assertEquals("My account - My Store", getTitle(), "The titles is not equals!");
-        pressSignOutBtn();
-    }
+public class AuthorizationPage extends StartPage {
 
     // CREATE ACCOUNT AREA:
 
@@ -174,6 +144,36 @@ public class AuthorizationPage extends Page {
     //Text area additional email:
     @FindBy(id = "alias")
     private WebElement additionalEmail;
+
+    // CONSTRUCTOR:
+    public AuthorizationPage(WebDriver driver) {
+        super(driver);
+        this.setUrl(getJsonUrl("Authorization"));
+//        this.setUrl(getPropertyUrl("AuthorizationUrl"));
+    }
+
+    // Method which send an email and click
+    // on Create_An_Account button:
+    public void createAnAccount(User user) {
+        this.emailCreateField.sendKeys(user.getEmail());
+        this.createAnAccountBtn.click();
+        fillAllFields(user);
+        this.submitAccountBtn.click();
+        pressSignOutBtn();
+    }
+
+    // Method which open a resent account:
+    public void openUserAccount(User user) {
+        this.emailTextField.sendKeys(user.getEmail());
+        this.passwordTextField.sendKeys(user.getPassword());
+        this.submitLoginAccountBtn.click();
+    }
+
+    public void verifyUserAccount(User user) {
+        openUserAccount(user);
+        Assert.assertEquals("My account - My Store", getTitle(), "The titles is not equals!");
+        pressSignOutBtn();
+    }
 
     // Section Your Personal Information:
 

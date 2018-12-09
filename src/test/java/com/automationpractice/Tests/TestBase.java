@@ -1,4 +1,4 @@
-package SeleniumTest.com.automationpractice.Tests;
+package com.automationpractice.Tests;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,12 +22,9 @@ class TestBase {
 
     @BeforeSuite
     protected void beforeSuiteMethod() {
-
-        LOGGER.info("Setting webdriver properties...");
-        setProperty("chrome");
-        LOGGER.info("Starting webdriver...");
+        LOGGER.debug("Starting webdriver...");
         startDriver("chrome");
-        LOGGER.info("Webdriver started.");
+        LOGGER.debug("Webdriver started.");
     }
 
     @AfterSuite
@@ -38,42 +35,42 @@ class TestBase {
 
     @BeforeClass
     protected void beforeClassMethod() {
-
+        LOGGER.info("beforeClassMethod");
     }
 
     @AfterClass
     protected void afterClassMethod() {
-
+        LOGGER.info("afterClassMethod");
     }
 
     @BeforeGroups
     protected void beforeGroupsMethod() {
-
+        LOGGER.info("beforeGroupsMethod");
     }
 
     @AfterGroups
     protected void afterGroupsMethod() {
-
+        LOGGER.info("afterGroupsMethod");
     }
 
     @BeforeTest
     protected void beforeTestMethod() {
-
+        LOGGER.info("beforeTestMethod");
     }
 
     @AfterTest
     protected void afterTestMethod() {
-
+        LOGGER.info("afterTestMethod");
     }
 
     @BeforeMethod
     protected void beforeMethod() {
-
+        LOGGER.info("beforeMethod");
     }
 
     @AfterMethod
     protected void afterMethod() {
-
+        LOGGER.info("afterMethod");
     }
 
     private WebDriver startDriver(String driver) {
@@ -110,13 +107,19 @@ class TestBase {
     private void setProperty(String driver) {
         switch (driver) {
             case ("chrome"):
-                System.setProperty("webdriver.chrome.driver", "./src/main/resources/chromedriver.exe");
+                LOGGER.debug("Set driver property : webdriver.chrome.driver," +
+                        " ./src/main/resources/WebDrivers/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "./src/main/resources/WebDrivers/chromedriver.exe");
                 break;
             case ("firefox"):
-                System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver.exe");
+                LOGGER.debug("Set driver property : webdriver.gecko.driver," +
+                        " ./src/main/resources/WebDrivers/geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", "./src/main/resources/WebDrivers/geckodriver.exe");
                 break;
             case ("opera"):
-                System.setProperty("webdriver.opera.driver", "./src/main/resources/operadriver.exe");
+                LOGGER.debug("Set driver property : webdriver.opera.driver," +
+                        " ./src/main/resources/WebDrivers/operadriver.exe");
+                System.setProperty("webdriver.opera.driver", "./src/main/resources/WebDrivers/operadriver.exe");
                 break;
         }
     }
