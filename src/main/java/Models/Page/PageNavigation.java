@@ -2,13 +2,9 @@ package Models.Page;
 
 interface PageNavigation {
 
-    <T extends Page> T getInstance(Class<T> pageClass);
-
-    void open();
+    void openPage();
 
     void openUrl(String url);
-
-    void openPage(Page page);
 
     void next();
 

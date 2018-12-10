@@ -20,9 +20,9 @@ public class Data {
     public Object[][] userPassword() {
         return new Object[][]{
                 {new User("Alex")},
-                {new User("Peter")},
-                {new User("Jack")},
-                {new User("John")},
+//                {new User("Peter")},
+//                {new User("Jack")},
+//                {new User("John")},
 //                {new User()}
         };
     }

@@ -1,0 +1,23 @@
+{
+  "Alex": {
+    "gender": "male",
+    "firstName": "Alex",
+    "lastName": "Smith",
+    "email": "Jo12dfHn@SmIvtH.j1",
+    "password": "afdasd21dfEFsdf12",
+    "dayOfBirth": "20",
+    "monthOfBirth": "5",
+    "yearOfBirth": "2018",
+    "company": "Coca-cola inc.",
+    "address": "Junior st. ,666666, Coca-cola inc.",
+    "addressSecondLine": "20",
+    "city": "Minsk",
+    "state": "Alaska",
+    "zipCode": "66666",
+    "country": "United States",
+    "additionalInfo": "Knock-knock",
+    "homePhone": "666666",
+    "mobilePhone": "66666666666",
+    "additionalEmail": "asdf@asdf.asf"
+  }
+}

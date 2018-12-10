@@ -16,19 +16,15 @@ public class Page implements PageNavigation {
 
     private String url;
     private String title;
-    private WebDriver driver;
+    protected WebDriver driver;
     protected WebDriverWait wait;
 
-    public void open() {
+    public void openPage() {
         this.driver.get(this.getUrl());
     }
 
     public void openUrl(String url) {
         this.driver.get(url);
-    }
-
-    public void openPage(Page page) {
-        this.driver.get(page.getUrl());
     }
 
     public void next() {
@@ -43,11 +39,6 @@ public class Page implements PageNavigation {
         this.driver.navigate().refresh();
     }
 
-    public <T extends Page> T getInstance(Class<T> PageClass) {
-        return PageFactory.initElements(driver, PageClass);
-    }
-
-    //CONSTRUCTOR:
     protected Page(WebDriver driver) {
         this.driver = driver;
         this.title = this.driver.getTitle();

@@ -30,7 +30,6 @@ public class User {
     private String mobilePhone;
     private String additionalEmail;
 
-    //CONSTRUCTOR:
     public User(String name) {
         this.gender = parseUserData(name, "gender");
         this.firstName = parseUserData(name, "firstName");
