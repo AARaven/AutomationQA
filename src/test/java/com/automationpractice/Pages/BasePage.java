@@ -14,7 +14,7 @@ public class BasePage extends Page {
     private WebElement buttonSignIn;
 
     @FindBy(className = "logout")
-    protected WebElement buttonSignOut;
+    private WebElement buttonSignOut;
 
     @FindBy(className = "account")
     protected WebElement spanAccount;
@@ -35,4 +35,5 @@ public class BasePage extends Page {
     public void clickSignOutBtn() {
         this.buttonSignOut.click();
     }
+
 }

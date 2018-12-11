@@ -15,8 +15,7 @@ import java.util.Properties;
 public class Page implements PageNavigation {
 
     private String url;
-    private String title;
-    protected WebDriver driver;
+    private WebDriver driver;
     protected WebDriverWait wait;
 
     public void openPage() {
@@ -41,7 +40,6 @@ public class Page implements PageNavigation {
 
     protected Page(WebDriver driver) {
         this.driver = driver;
-        this.title = this.driver.getTitle();
         PageFactory.initElements(driver, this);
     }
 
@@ -55,10 +53,6 @@ public class Page implements PageNavigation {
 
     protected void setUrl(String url) {
         this.url = url;
-    }
-
-    protected void setTitle(String title) {
-        this.title = this.driver.getTitle();
     }
 
     protected String getJsonUrl(String key) {
