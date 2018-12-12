@@ -18,7 +18,9 @@
     "additionalInfo": "Knock-knock",
     "homePhone": "666666",
     "mobilePhone": "66666666666",
-    "additionalEmail": "asdf@asdf.asf"
+    "alias": "asdf@asdf.asf",
+    "newsLetter": "true",
+    "specialOffers": "true"
   },
   "John": {
     "gender": "male",
@@ -39,14 +41,16 @@
     "additionalInfo": "Knock-knock",
     "homePhone": "666666",
     "mobilePhone": "66666666666",
-    "additionalEmail": "asdf@asdf.asf"
+    "alias": "asdf@asdf.asf",
+    "newsLetter": "true",
+    "specialOffers": "true"
   },
   "Peter": {
     "gender": "male",
     "firstName": "Peter",
     "lastName": "Pan",
-    "email": "JoHn@SmItH.j1",
-    "password": "asdfEFsf12",
+    "email": "JofadHn@SmItH.j1",
+    "password": "asdfEFsfasdff12",
     "dayOfBirth": "20",
     "monthOfBirth": "5",
     "yearOfBirth": "2018",
@@ -60,7 +64,9 @@
     "additionalInfo": "Knock-knock",
     "homePhone": "666666",
     "mobilePhone": "66666666666",
-    "additionalEmail": "asdf@asdf.asf"
+    "alias": "",
+    "newsLetter": "false",
+    "specialOffers": "true"
   },
   "Jack": {
     "gender": "male",
@@ -81,6 +87,8 @@
     "additionalInfo": "Knock-knock",
     "homePhone": "666666",
     "mobilePhone": "66666666666",
-    "additionalEmail": "asdf@asdf.asf"
+    "alias": "asdf@asdf.asf",
+    "newsLetter": "false",
+    "specialOffers": "false"
   }
 }

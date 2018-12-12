@@ -1,15 +1,15 @@
 package Models.User;
 
 import lombok.Data;
+import lombok.SneakyThrows;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.File;
-import java.io.IOException;
 
 @Data
 public class User {
 
-    private static final String  USER_SAVING_PATH = "./src/main/resources/UsersProfiles/SavedProfiles/lastProfile.json";
+    private static final String USER_SAVING_PATH = "./src/main/resources/UsersProfiles/SavedProfiles/lastProfile.json";
 
     private String gender;
     private String firstName;
@@ -29,7 +29,9 @@ public class User {
     private String additionalInfo;
     private String homePhone;
     private String mobilePhone;
-    private String additionalEmail;
+    private String alias;
+    private boolean newsLetter;
+    private boolean specialOffers;
 
     public User() {
         saveUserProfile(this);
@@ -54,16 +56,13 @@ public class User {
 //        this.additionalInfo = parseUserData(name, "additionalInfo");
 //        this.homePhone = parseUserData(name, "homePhone");
 //        this.mobilePhone = parseUserData(name, "mobilePhone");
-//        this.additionalEmail = parseUserData(name, "additionalEmail");
+//        this.alias = parseUserData(name, "alias");
 //        saveUserProfile(this);
 //    }
 
+    @SneakyThrows
     private void saveUserProfile(User user) {
         ObjectMapper mapper = new ObjectMapper();
-        try {
-            mapper.writeValue(new File(USER_SAVING_PATH), user);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        mapper.writeValue(new File(USER_SAVING_PATH), user);
     }
 }

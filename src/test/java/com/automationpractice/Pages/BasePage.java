@@ -22,7 +22,7 @@ public class BasePage extends Page {
 
     public BasePage(WebDriver driver) {
         super(driver);
-        this.setUrl(getPropertyUrl("BaseUrl"));
+        this.setUrl(getPropertyUrl("BasePage"));
     }
 
     public void clickContactUsBtn() {

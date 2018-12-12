@@ -8,87 +8,84 @@ import org.openqa.selenium.support.ui.Select;
 
 public class AccountCreationPage extends AuthorizationPage {
 
-    private static final String ACCOUNT_CREATION_PAGE_URL =
-            "http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation";
-
     public AccountCreationPage(WebDriver driver) {
         super(driver);
-        this.setUrl(ACCOUNT_CREATION_PAGE_URL);
+        this.setUrl(getPropertyUrl("AccountCreationPage"));
     }
 
     @FindBy(id = "submitAccount")
     private WebElement buttonSubmitAccount;
 
     @FindBy(id = "id_gender1")
-    private WebElement radioGenderMale;
+    protected WebElement radioGenderMale;
 
     @FindBy(id = "id_gender2")
-    private WebElement radioGenderFemale;
+    protected WebElement radioGenderFemale;
 
     @FindBy(id = "newsletter")
-    private WebElement checkboxNewsLetter;
+    protected WebElement checkboxNewsLetter;
 
     @FindBy(id = "optin")
-    private WebElement checkboxSpecialOffers;
+    protected WebElement checkboxSpecialOffers;
 
     @FindBy(id = "days")
-    private WebElement selectDays;
+    protected WebElement selectDays;
 
     @FindBy(id = "months")
-    private WebElement selectMonths;
+    protected WebElement selectMonths;
 
     @FindBy(id = "years")
-    private WebElement selectYears;
+    protected WebElement selectYears;
 
     @FindBy(id = "id_country")
-    private WebElement selectCountry;
+    protected WebElement selectCountry;
 
     @FindBy(id = "id_state")
-    private WebElement selectState;
+    protected WebElement selectState;
 
     @FindBy(id = "customer_firstname")
-    private WebElement inputCustomerFirstName;
+    protected WebElement inputCustomerFirstName;
 
     @FindBy(id = "customer_lastname")
-    private WebElement inputCustomerLastName;
+    protected WebElement inputCustomerLastName;
 
     @FindBy(id = "firstname")
-    private WebElement inputFirstName;
+    protected WebElement inputFirstName;
 
     @FindBy(id = "lastname")
-    private WebElement inputLastName;
+    protected WebElement inputLastName;
 
     @FindBy(id = "company")
-    private WebElement inputCompany;
+    protected WebElement inputCompany;
 
     @FindBy(id = "address1")
-    private WebElement inputAdress1;
+    protected WebElement inputAdress1;
 
     @FindBy(id = "address2")
-    private WebElement inputAddress2;
+    protected WebElement inputAddress2;
 
     @FindBy(id = "city")
-    private WebElement inputCity;
+    protected WebElement inputCity;
 
     @FindBy(id = "postcode")
-    private WebElement inputZipCode;
+    protected WebElement inputZipCode;
 
     @FindBy(id = "other")
-    private WebElement inputAdditionalInfo;
+    protected WebElement inputAdditionalInfo;
 
     @FindBy(id = "phone")
-    private WebElement inputPhone;
+    protected WebElement inputPhone;
 
     @FindBy(id = "phone_mobile")
-    private WebElement inputPhoneMobile;
+    protected WebElement inputPhoneMobile;
 
     @FindBy(id = "alias")
-    private WebElement inputAdditionalEmail;
+    protected WebElement inputAlias;
 
-    private void checkGender(String sex) {
-        if (sex.equals("male")) {
+    private void setGender(User user) {
+        if (user.getGender().equals("male")) {
             this.radioGenderMale.click();
-        } else if (sex.equals("female")) {
+        } else if (user.getGender().equals("female")) {
             this.radioGenderFemale.click();
         } else {
             throw new IllegalArgumentException("Current gender is not available.");
@@ -111,14 +108,6 @@ public class AccountCreationPage extends AuthorizationPage {
         new Select(this.selectDays).selectByValue(day);
         new Select(this.selectMonths).selectByValue(month);
         new Select(this.selectYears).selectByValue(year);
-    }
-
-    private void setNewsLetter() {
-        this.checkboxNewsLetter.click();
-    }
-
-    private void setSpecialOffers() {
-        this.checkboxSpecialOffers.click();
     }
 
     private void setFirstName(String firstname) {
@@ -169,20 +158,32 @@ public class AccountCreationPage extends AuthorizationPage {
         this.inputPhoneMobile.sendKeys(mobilePhone);
     }
 
-    private void setAdditionalEmail(String additionalEmail) {
-        this.inputAdditionalEmail.sendKeys(additionalEmail);
+    private void setAlias(String additionalEmail) {
+        this.inputAlias.sendKeys(additionalEmail);
+    }
+
+    private void setNewsLetter(User user) {
+        if (user.isNewsLetter()) {
+            this.checkboxNewsLetter.click();
+        }
+    }
+
+    private void setSpecialOffers(User user) {
+        if (user.isSpecialOffers()) {
+            this.checkboxSpecialOffers.click();
+        }
     }
 
     public void setAllFields(User user) {
-        checkGender(user.getGender());
+        setGender(user);
         setCustomerFirstName(user.getFirstName());
         setCustomerLastName(user.getLastName());
         setPassword(user.getPassword());
         setDateOfBirth(user.getDayOfBirth(), user.getMonthOfBirth(), user.getYearOfBirth());
-        setNewsLetter();
-        setSpecialOffers();
-        setFirstName(user.getFirstName());
-        setLastName(user.getLastName());
+        setNewsLetter(user);
+        setSpecialOffers(user);
+//        setFirstName(user.getFirstName());
+//        setLastName(user.getLastName());
         setCompany(user.getCompany());
         setFirstAddressField(user.getAddress());
         setSecondAddressField(user.getAddressSecondLine());
@@ -193,7 +194,7 @@ public class AccountCreationPage extends AuthorizationPage {
         setAdditionalInfo(user.getAdditionalInfo());
         setHomePhone(user.getHomePhone());
         setMobilePhone(user.getMobilePhone());
-        setAdditionalEmail(user.getAdditionalEmail());
+        setAlias(user.getAlias());
     }
 
     public void pushSubmitAnAccount() {

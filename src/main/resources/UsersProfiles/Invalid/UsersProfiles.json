@@ -18,7 +18,9 @@
     "additionalInfo": "Knock-knock",
     "homePhone": "666666",
     "mobilePhone": "66666666666",
-    "additionalEmail": "asdf@asdf.asf"
+    "alias": "asdf@asdf.asf",
+    "newsLetter": "false",
+    "specialOffers": "false"
   },
   "John": {
     "gender": "male",
@@ -39,7 +41,9 @@
     "additionalInfo": "Knock-knock",
     "homePhone": "666666",
     "mobilePhone": "66666666666",
-    "additionalEmail": "asdf@asdf.asf"
+    "alias": "asdf@asdf.asf",
+    "newsLetter": "false",
+    "specialOffers": "false"
   },
   "Peter": {
     "gender": "male",
@@ -60,7 +64,9 @@
     "additionalInfo": "Knock-knock",
     "homePhone": "666666",
     "mobilePhone": "66666666666",
-    "additionalEmail": "asdf@asdf.asf"
+    "alias": "asdf@asdf.asf",
+    "newsLetter": "false",
+    "specialOffers": "false"
   },
   "Jack": {
     "gender": "male",
@@ -81,6 +87,8 @@
     "additionalInfo": "Knock-knock",
     "homePhone": "666666",
     "mobilePhone": "66666666666",
-    "additionalEmail": "asdf@asdf.asf"
+    "alias": "asdf@asdf.asf",
+    "newsLetter": "false",
+    "specialOffers": "false"
   }
 }

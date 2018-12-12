@@ -27,11 +27,11 @@ public class Data {
     @DataProvider(name = "ValidUsers")
     public Object[][] getValidUsers() {
         return new Object[][]{
-                {getValidUser("Alex")},
-                {},
-                {},
-                {},
-                {}
+                {getValidUser("Peter")},
+//                {},
+//                {},
+//                {},
+//                {},
         };
     }
 
