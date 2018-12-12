@@ -1,79 +1,75 @@
 package com.automationpractice.Tests;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.opera.OperaDriverService;
-import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 import java.util.concurrent.TimeUnit;
 
+@Log4j2
 class TestBase {
 
     protected SoftAssert softAssert;
-    protected Logger LOGGER = LogManager.getLogger(this.getClass().getName());
     WebDriver driver;
 
     @BeforeSuite
     protected void beforeSuiteMethod() {
-        LOGGER.debug("Before suite method:");
-        LOGGER.debug("Starting webdriver...");
+        log.debug("Before suite method:");
+        log.debug("Starting webdriver...");
         startDriver("chrome");
-        LOGGER.debug("Webdriver started.");
+        log.debug("Webdriver started.");
     }
 
     @AfterSuite
     protected void afterSuiteMethod() {
-        LOGGER.debug("After suite method:");
-        LOGGER.debug("Stopping webdriver...");
+        log.debug("After suite method:");
+        log.debug("Stopping webdriver...");
         this.driver.quit();
-        LOGGER.debug("Webdriver stopped.");
+        log.debug("Webdriver stopped.");
     }
 
     @BeforeClass
     protected void beforeClassMethod() {
-        LOGGER.debug("beforeClassMethod:");
+        log.debug("beforeClassMethod:");
     }
 
     @AfterClass
     protected void afterClassMethod() {
-        LOGGER.debug("afterClassMethod:");
+        log.debug("afterClassMethod:");
     }
 
     @BeforeGroups
     protected void beforeGroupsMethod() {
-        LOGGER.debug("beforeGroupsMethod:");
+        log.debug("beforeGroupsMethod:");
     }
 
     @AfterGroups
     protected void afterGroupsMethod() {
-        LOGGER.debug("afterGroupsMethod:");
+        log.debug("afterGroupsMethod:");
     }
 
     @BeforeTest
     protected void beforeTestMethod() {
-        LOGGER.debug("beforeTestMethod:");
+        log.debug("beforeTestMethod:");
     }
 
     @AfterTest
     protected void afterTestMethod() {
-        LOGGER.debug("afterTestMethod:");
+        log.debug("afterTestMethod:");
     }
 
     @BeforeMethod
     protected void beforeMethod() {
-        LOGGER.debug("beforeMethod:");
+        log.debug("beforeMethod:");
     }
 
     @AfterMethod
     protected void afterMethod() {
-        LOGGER.debug("afterMethod:");
+        log.debug("afterMethod:");
     }
 
     private WebDriver startDriver(String driver) {
@@ -93,16 +89,6 @@ class TestBase {
                 this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
                 this.driver.manage().window().maximize();
                 return this.driver;
-
-            case ("opera"):
-                setProperty("opera");
-                OperaOptions options = new OperaOptions();
-                options.setBinary("C:\\Program Files (x86)\\Opera\\launcher.exe");
-                this.driver = new OperaDriver(OperaDriverService.createDefaultService(), options);
-                new WebDriverWait(this.driver, 3);
-                this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-                this.driver.manage().window().maximize();
-                return this.driver;
         }
         throw new NullPointerException("Browser is not available!");
     }
@@ -110,19 +96,14 @@ class TestBase {
     private void setProperty(String driver) {
         switch (driver) {
             case ("chrome"):
-                LOGGER.debug("Set driver property : webdriver.chrome.driver," +
+                log.debug("Set driver property : webdriver.chrome.driver," +
                         " ./src/main/resources/WebDrivers/chromedriver.exe");
                 System.setProperty("webdriver.chrome.driver", "./src/main/resources/WebDrivers/chromedriver.exe");
                 break;
             case ("firefox"):
-                LOGGER.debug("Set driver property : webdriver.gecko.driver," +
+                log.debug("Set driver property : webdriver.gecko.driver," +
                         " ./src/main/resources/WebDrivers/geckodriver.exe");
                 System.setProperty("webdriver.gecko.driver", "./src/main/resources/WebDrivers/geckodriver.exe");
-                break;
-            case ("opera"):
-                LOGGER.debug("Set driver property : webdriver.opera.driver," +
-                        " ./src/main/resources/WebDrivers/operadriver.exe");
-                System.setProperty("webdriver.opera.driver", "./src/main/resources/WebDrivers/operadriver.exe");
                 break;
         }
     }

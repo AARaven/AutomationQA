@@ -1,5 +1,0 @@
-{
-  "BaseUrl": "http://automationpractice.com",
-"Authorization": "http://automationpractice.com/index.php?controller=authentication&back=my-account",
-"AccountCreation": "http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation"
-}

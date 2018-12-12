@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class BasePage extends Page {
 
+
     @FindBy(id = "contact-link")
     private WebElement buttonContactUs;
 

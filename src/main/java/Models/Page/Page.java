@@ -1,18 +1,17 @@
 package Models.Page;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.Properties;
 
 public class Page implements PageNavigation {
+
+    private static final String PROPERTIES_PATH = "./src/main/resources/PropertyFiles/url.properties";
 
     private String url;
     private WebDriver driver;
@@ -55,23 +54,11 @@ public class Page implements PageNavigation {
         this.url = url;
     }
 
-    protected String getJsonUrl(String key) {
-        File file = new File("./src/main/resources/PropertyFiles/url.json");
-        ObjectMapper mapper = new ObjectMapper();
-        HashMap map = null;
-        try {
-            map = mapper.readValue(file, HashMap.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return map.get(key).toString();
-    }
-
     protected String getPropertyUrl(String key) {
         Properties prop = new Properties();
         InputStream input = null;
         try {
-            input = new FileInputStream("./src/main/resources/PropertyFiles/url.properties");
+            input = new FileInputStream(PROPERTIES_PATH);
             prop.load(input);
             return prop.getProperty(key);
         } catch (IOException e) {

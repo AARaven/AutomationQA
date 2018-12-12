@@ -1,21 +1,19 @@
 package com.automationpractice.Data;
 
 import Models.User.User;
+import lombok.SneakyThrows;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.testng.annotations.DataProvider;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.LinkedList;
 
 public class Data {
 
-    Collection<User> userCollection;
+    private static final String USERS_VALID_PATH = "./src/main/resources/UsersProfiles/Valid/UsersProfiles.json";
+    private static final String USERS_INVALID_PATH = "./src/main/resources/UsersProfiles/Invalid/UsersProfiles.json";
 
-    @DataProvider(name = "UserEmail")
-
+    @DataProvider(name = "UserEmails")
     public Object[][] userEmail() {
         return new Object[][]{
                 {"conflict@gmail.com"},
@@ -26,27 +24,55 @@ public class Data {
         };
     }
 
-    @DataProvider(name = "Users")
-    public Object[][] userPassword() {
+    @DataProvider(name = "ValidUsers")
+    public Object[][] getValidUsers() {
         return new Object[][]{
-                {new User("Alex")},
-//                {new User("Peter")},
-//                {new User("Jack")},
-//                {new User("John")},
-//                {new User()}
+                {getValidUser("Alex")},
+                {},
+                {},
+                {},
+                {}
         };
     }
 
-    // TODO: download user from json using username ----->
-    private User parseUserFromJson() {
-        File file = new File("./src/main/resources/UsersProfiles/UsersProfiles.json");
+    @DataProvider(name = "InvalidUsers")
+    public Object[][] getInvalidUsers() {
+        return new Object[][]{
+                {getInvalidUser("Alex")},
+                {},
+                {},
+                {},
+                {}
+        };
+    }
+
+    @SneakyThrows
+    private User getValidUser(String name) {
+        File file = new File(USERS_VALID_PATH);
         ObjectMapper mapper = new ObjectMapper();
-        try {
-            return mapper.readValue(file, User.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        User user;
+        HashMap map;
+        map = mapper.readValue(file, HashMap.class);
+        user = mapper.convertValue(map.get(name), User.class);
+        return user;
+    }
+
+    @SneakyThrows
+    private User getInvalidUser(String name) {
+        File file = new File(USERS_INVALID_PATH);
+        ObjectMapper mapper = new ObjectMapper();
+        User user;
+        HashMap map;
+        map = mapper.readValue(file, HashMap.class);
+        user = mapper.convertValue(map.get(name), User.class);
+        return user;
+    }
+
+    private String getValidEmail() {
         return null;
     }
 
+    private String getInvalidEmail(String name) {
+        return null;
+    }
 }

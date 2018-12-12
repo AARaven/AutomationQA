@@ -6,9 +6,11 @@ import org.openqa.selenium.support.FindBy;
 
 public class AccountPage extends BasePage {
 
+    private static final String ACCOUNT_PAGE_URL = "http://automationpractice.com/index.php?controller=my-account";
+
     public AccountPage(WebDriver driver) {
         super(driver);
-        this.setUrl("http://automationpractice.com/index.php?controller=my-account");
+        this.setUrl(ACCOUNT_PAGE_URL);
     }
 
     @FindBy(className = "icon-list-ol")
@@ -28,8 +30,6 @@ public class AccountPage extends BasePage {
 
     @FindBy(className = "info-account")
     private WebElement textInfoAccount;
-
-
 
     public void clickOrderHistoryAndDetails() {
         this.buttonOrderHistoryAndDetails.click();
@@ -54,5 +54,4 @@ public class AccountPage extends BasePage {
     public boolean verifyTextInfoAccount(String target) {
         return this.textInfoAccount.getText().equals(target);
     }
-
 }

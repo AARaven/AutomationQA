@@ -8,9 +8,12 @@ import org.openqa.selenium.support.ui.Select;
 
 public class AccountCreationPage extends AuthorizationPage {
 
+    private static final String ACCOUNT_CREATION_PAGE_URL =
+            "http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation";
+
     public AccountCreationPage(WebDriver driver) {
         super(driver);
-        this.setUrl("http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation");
+        this.setUrl(ACCOUNT_CREATION_PAGE_URL);
     }
 
     @FindBy(id = "submitAccount")

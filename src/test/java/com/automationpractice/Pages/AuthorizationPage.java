@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class AuthorizationPage extends BasePage {
 
+    private static final String AUTHORIZATION_PAGE_URL = "http://automationpractice.com/index.php?controller=authentication&back=my-account";
+
     @FindBy(id = "email_create")
     private WebElement inputEmail;
 
@@ -27,7 +29,7 @@ public class AuthorizationPage extends BasePage {
 
     public AuthorizationPage(WebDriver driver) {
         super(driver);
-        this.setUrl("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+        this.setUrl(AUTHORIZATION_PAGE_URL);
     }
 
     public void setPassword(String password) {
