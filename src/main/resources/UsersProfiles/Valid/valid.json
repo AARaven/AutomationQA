@@ -1,0 +1,23 @@
+{
+  "gender": "female",
+  "firstName": "Johanna",
+  "lastName": "Brown",
+  "email": "JohsaNasd@advsf.cda",
+  "password": "ffasdl123asd",
+  "dayOfBirth": "15",
+  "monthOfBirth": "4",
+  "yearOfBirth": "2002",
+  "company": "Wolf",
+  "address": "Mins st,55555, Wolf inc.",
+  "addressSecondLine": "10",
+  "city": "Michigan",
+  "state": "Iowa",
+  "zipCode": "55555",
+  "country": "United States",
+  "additionalInfo": "bla bla bla",
+  "homePhone": "555555",
+  "mobilePhone": "12345789123",
+  "alias": "",
+  "newsLetter": true,
+  "specialOffers": true
+}

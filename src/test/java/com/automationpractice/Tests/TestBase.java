@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 @Log4j2
 class TestBase {
 
-    protected SoftAssert softAssert;
+    protected SoftAssert softAssert = new SoftAssert();
     WebDriver driver;
 
     @BeforeSuite

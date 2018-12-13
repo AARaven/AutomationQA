@@ -1,94 +1,100 @@
-package com.automationpractice.Pages;
+package com.automationpractice.Pages.AuthenticationPage.SplitedPages;
 
 import Models.User.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class AccountCreationPage extends AuthorizationPage {
+public class CreateAccountStep {
 
-    public AccountCreationPage(WebDriver driver) {
-        super(driver);
-        this.setUrl(getPropertyUrl("AccountCreationPage"));
+    public CreateAccountStep(WebDriver driver) {
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(id = "submitAccount")
     private WebElement buttonSubmitAccount;
 
     @FindBy(id = "id_gender1")
-    protected WebElement radioGenderMale;
+    private WebElement radioGenderMale;
 
     @FindBy(id = "id_gender2")
-    protected WebElement radioGenderFemale;
+    private WebElement radioGenderFemale;
 
     @FindBy(id = "newsletter")
-    protected WebElement checkboxNewsLetter;
+    private WebElement checkboxNewsLetter;
 
     @FindBy(id = "optin")
-    protected WebElement checkboxSpecialOffers;
+    private WebElement checkboxSpecialOffers;
 
     @FindBy(id = "days")
-    protected WebElement selectDays;
+    private WebElement selectDays;
 
     @FindBy(id = "months")
-    protected WebElement selectMonths;
+    private WebElement selectMonths;
 
     @FindBy(id = "years")
-    protected WebElement selectYears;
+    private WebElement selectYears;
 
     @FindBy(id = "id_country")
-    protected WebElement selectCountry;
+    private WebElement selectCountry;
 
     @FindBy(id = "id_state")
-    protected WebElement selectState;
+    private WebElement selectState;
 
     @FindBy(id = "customer_firstname")
-    protected WebElement inputCustomerFirstName;
+    private WebElement inputCustomerFirstName;
 
     @FindBy(id = "customer_lastname")
-    protected WebElement inputCustomerLastName;
+    private WebElement inputCustomerLastName;
+
+    @FindBy(id = "passwd")
+    private WebElement inputPassword;
 
     @FindBy(id = "firstname")
-    protected WebElement inputFirstName;
+    private WebElement inputFirstName;
 
     @FindBy(id = "lastname")
-    protected WebElement inputLastName;
+    private WebElement inputLastName;
 
     @FindBy(id = "company")
-    protected WebElement inputCompany;
+    private WebElement inputCompany;
 
     @FindBy(id = "address1")
-    protected WebElement inputAdress1;
+    private WebElement inputAdress1;
 
     @FindBy(id = "address2")
-    protected WebElement inputAddress2;
+    private WebElement inputAddress2;
 
     @FindBy(id = "city")
-    protected WebElement inputCity;
+    private WebElement inputCity;
 
     @FindBy(id = "postcode")
-    protected WebElement inputZipCode;
+    private WebElement inputZipCode;
 
     @FindBy(id = "other")
-    protected WebElement inputAdditionalInfo;
+    private WebElement inputAdditionalInfo;
 
     @FindBy(id = "phone")
-    protected WebElement inputPhone;
+    private WebElement inputPhone;
 
     @FindBy(id = "phone_mobile")
-    protected WebElement inputPhoneMobile;
+    private WebElement inputPhoneMobile;
 
     @FindBy(id = "alias")
-    protected WebElement inputAlias;
+    private WebElement inputAlias;
 
     private void setGender(User user) {
-        if (user.getGender().equals("male")) {
-            this.radioGenderMale.click();
-        } else if (user.getGender().equals("female")) {
-            this.radioGenderFemale.click();
-        } else {
-            throw new IllegalArgumentException("Current gender is not available.");
+        switch (user.getGender()) {
+            case "male":
+                this.radioGenderMale.click();
+                break;
+            case "female":
+                this.radioGenderFemale.click();
+                break;
+            default:
+                throw new IllegalArgumentException("Current gender is not available.");
         }
     }
 
@@ -100,7 +106,7 @@ public class AccountCreationPage extends AuthorizationPage {
         this.inputCustomerLastName.sendKeys(lastname);
     }
 
-    public void setPassword(String password) {
+    private void setPassword(String password) {
         this.inputPassword.sendKeys(password);
     }
 
@@ -174,7 +180,7 @@ public class AccountCreationPage extends AuthorizationPage {
         }
     }
 
-    public void setAllFields(User user) {
+    public void createAnAccount(User user) {
         setGender(user);
         setCustomerFirstName(user.getFirstName());
         setCustomerLastName(user.getLastName());
@@ -195,9 +201,10 @@ public class AccountCreationPage extends AuthorizationPage {
         setHomePhone(user.getHomePhone());
         setMobilePhone(user.getMobilePhone());
         setAlias(user.getAlias());
+        clickSubmitAnAccount();
     }
 
-    public void pushSubmitAnAccount() {
+    private void clickSubmitAnAccount() {
         this.buttonSubmitAccount.click();
     }
 }

@@ -1,4 +1,4 @@
-package com.automationpractice.Pages;
+package com.automationpractice.Pages.StartPage;
 
 import Models.Page.Page;
 import com.automationpractice.Pages.AuthenticationPage.AuthenticationPage;
@@ -6,10 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class BasePage extends Page {
+public class StartPage extends Page {
 
-    AuthenticationPage authenticationPage = new AuthenticationPage(this.driver);
+    public AuthenticationPage authentication = new AuthenticationPage(this.driver);
 
+    public StartPage(WebDriver driver) {
+        super(driver);
+        this.setUrl(getPropertyUrl("BasePage"));
+    }
 
     @FindBy(id = "contact-link")
     private WebElement buttonContactUs;
@@ -23,11 +27,6 @@ public class BasePage extends Page {
     @FindBy(className = "account")
     protected WebElement spanAccount;
 
-    public BasePage(WebDriver driver) {
-        super(driver);
-        this.setUrl(getPropertyUrl("BasePage"));
-    }
-
     public void clickContactUsBtn() {
         this.buttonContactUs.click();
     }
@@ -39,5 +38,4 @@ public class BasePage extends Page {
     public void clickSignOutBtn() {
         this.buttonSignOut.click();
     }
-
 }

@@ -1,14 +1,13 @@
-package com.automationpractice.Pages;
+package com.automationpractice.Pages.AuthenticationPage.SplitedPages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AccountPage extends BasePage {
+public class Account extends SubPage {
 
-    public AccountPage(WebDriver driver) {
+    public Account(WebDriver driver) {
         super(driver);
-        this.setUrl(getPropertyUrl("AccountPage"));
     }
 
     @FindBy(className = "icon-list-ol")
@@ -29,9 +28,6 @@ public class AccountPage extends BasePage {
     @FindBy(className = "info-account")
     private WebElement textInfoAccount;
 
-    @FindBy(className = "btn btn-default button button-small")
-    private WebElement buttonUpdate;
-
     public void clickOrderHistoryAndDetails() {
         this.buttonOrderHistoryAndDetails.click();
     }
@@ -40,21 +36,15 @@ public class AccountPage extends BasePage {
         this.buttonMyCreditSlips.click();
     }
 
-    public void clickMyPersonalInfo() {
-        this.buttonMyPersonalInfo.click();
-    }
-
     public void clickMyAddresses() {
         this.buttonMyAddresses.click();
     }
 
-    public void clickMyWishlist() {
+    public void clickMyPersonalInfo() {
+        this.buttonMyPersonalInfo.click();
+    }
+
+    public void clickMyWishLists() {
         this.buttonMyWishlist.click();
     }
-
-    public boolean verifyTextInfoAccount(String target) {
-        return this.textInfoAccount.getText().equals(target);
-    }
-
-
 }

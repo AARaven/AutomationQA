@@ -1,16 +1,15 @@
-package com.automationpractice.Pages.AuthenticationPage;
+package com.automationpractice.Pages.AuthenticationPage.SplitedPages;
 
 import Models.User.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class MyAddress {
+public class MyAddress extends SubPage {
 
-    MyAddress(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+    public MyAddress(WebDriver driver) {
+        super(driver);
     }
 
     @FindBy(linkText = "Update")
@@ -19,9 +18,14 @@ public class MyAddress {
     @FindBy(linkText = "Delete")
     private WebElement buttonDelete;
 
-    //button SAVE:
     @FindBy(id = "submitAddress")
     private WebElement buttonSubmitAddress;
+
+    @FindBy(linkText = "Add an address")
+    private WebElement buttonAddAddress;
+
+    @FindBy(xpath = "//a[@class='btn btn-defaul button button-small']")
+    private WebElement buttonBackToYourAddresses;
 
     //Info:
 
@@ -74,6 +78,14 @@ public class MyAddress {
 
     public void clickSubmitAddress() {
         this.buttonSubmitAddress.click();
+    }
+
+    public void clickAddAddress() {
+        this.buttonAddAddress.click();
+    }
+
+    public void clickBackToYourAddresses() {
+        this.buttonBackToYourAddresses.click();
     }
 
     public boolean isUserFirstName(User user) {

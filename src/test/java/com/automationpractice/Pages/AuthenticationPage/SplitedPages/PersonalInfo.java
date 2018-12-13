@@ -1,15 +1,15 @@
-package com.automationpractice.Pages.AuthenticationPage;
+package com.automationpractice.Pages.AuthenticationPage.SplitedPages;
 
 import Models.User.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class PersonalInfo {
+public class PersonalInfo extends SubPage {
 
-    PersonalInfo(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+    public PersonalInfo(WebDriver driver) {
+        super(driver);
+        this.setUrl(getPropertyUrl("PersonalInfoPage"));
     }
 
     @FindBy(id = "id_gender1")
@@ -46,7 +46,7 @@ public class PersonalInfo {
         if (user.getGender().equals("male")) {
             return this.radioGenderMale.isSelected();
         } else if ((user.getGender().equals("female"))) {
-            this.radioGenderFemale.isSelected();
+           return this.radioGenderFemale.isSelected();
         }
         return false;
     }

@@ -7,5 +7,6 @@
         <suite-file path="ChromeTestAuth.xml"/>
         <!--<suite-file path="FirefoxTestAuth.xml"/>-->
     </suite-files>
+
 </suite>
 

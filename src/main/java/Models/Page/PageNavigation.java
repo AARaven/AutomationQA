@@ -11,4 +11,6 @@ interface PageNavigation {
     void back();
 
     void refresh();
+
+    String getCurrentUrl();
 }

@@ -37,16 +37,20 @@ public class Page implements PageNavigation {
         this.driver.navigate().refresh();
     }
 
+    public String getCurrentUrl() {
+        return this.driver.getCurrentUrl();
+    }
+
     protected Page(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    protected String getUrl() {
+    public String getUrl() {
         return this.url;
     }
 
-    protected String getTitle() {
+    public String getTitle() {
         return this.driver.getTitle();
     }
 
