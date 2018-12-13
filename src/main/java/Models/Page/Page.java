@@ -14,7 +14,7 @@ public class Page implements PageNavigation {
     private static final String PROPERTIES_PATH = "./src/main/resources/PropertyFiles/url.properties";
 
     private String url;
-    private WebDriver driver;
+    protected WebDriver driver;
     protected WebDriverWait wait;
 
     public void openPage() {

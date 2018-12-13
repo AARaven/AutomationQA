@@ -1,11 +1,14 @@
 package com.automationpractice.Pages;
 
 import Models.Page.Page;
+import com.automationpractice.Pages.AuthenticationPage.AuthenticationPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class BasePage extends Page {
+
+    AuthenticationPage authenticationPage = new AuthenticationPage(this.driver);
 
 
     @FindBy(id = "contact-link")
