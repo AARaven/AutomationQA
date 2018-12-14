@@ -1,15 +1,20 @@
 package com.automationpractice.Pages.AuthenticationPage.SplitedPages;
 
 import Models.User.User;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.asserts.SoftAssert;
 
-public class MyAddress extends SubPage {
+@Log4j2
+public class MyAddressPage extends NavigationForMyAccountPages {
 
-    public MyAddress(WebDriver driver) {
+    public MyAddressPage(WebDriver driver) {
         super(driver);
+        this.setUrl(getPropertyUrl("MyAddressPage"));
+        log.debug("creating an object MyAddressPage");
     }
 
     @FindBy(linkText = "Update")
@@ -141,5 +146,23 @@ public class MyAddress extends SubPage {
             return true;
         }
         return user.getAlias().equals(this.inputAlias.getAttribute("value"));
+    }
+
+    public SoftAssert verifyUserAddress(User user) {
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(isUserFirstName(user),"User first name is not correct");
+        softAssert.assertTrue(isUserLastName(user),"User last name is not correct");
+        softAssert.assertTrue(isUserCompany(user),"User company is not correct");
+        softAssert.assertTrue(isUserAddress(user),"User address is not correct");
+        softAssert.assertTrue(isUserAddressSecondLine(user),"User address second line is not correct");
+        softAssert.assertTrue(isUserCity(user),"User city is not correct");
+        softAssert.assertTrue(isUserState(user),"User state is not correct");
+        softAssert.assertTrue(isUserZip(user),"User zip is not correct");
+        softAssert.assertTrue(isUserCountry(user),"User country is not correct");
+        softAssert.assertTrue(isUserHomePhone(user),"User home phone is not correct");
+        softAssert.assertTrue(isUserMobilePhone(user),"User mobile phone is not correct");
+        softAssert.assertTrue(isUserAdditionalInfo(user),"User additional information is not correct");
+        softAssert.assertTrue(isUserAlias(user),"User alias is not correct");
+        return softAssert;
     }
 }

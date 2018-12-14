@@ -4,6 +4,7 @@
 <suite name="TestCrossBrowser" verbose="1" >
     <!--<parameter name="browser" value="chrome"/>-->
     <test name="AuthorizationTestChrome">
+        <parameter name="UsersJsonPath" value="./src/main/resources/UsersProfiles/Valid/UsersProfiles.json"/>
         <classes>
             <class name="com.automationpractice.Tests.AuthTest"/>
         </classes>

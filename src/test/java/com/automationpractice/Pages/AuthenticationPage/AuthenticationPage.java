@@ -1,13 +1,15 @@
 package com.automationpractice.Pages.AuthenticationPage;
 
-import Models.Page.Page;
 import Models.User.User;
 import com.automationpractice.Pages.AuthenticationPage.SplitedPages.*;
+import com.automationpractice.Pages.StartPage.StartPage;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AuthenticationPage extends Page {
+@Log4j2
+public class AuthenticationPage extends StartPage {
 
     @FindBy(id = "email_create")
     private WebElement inputEmail;
@@ -27,23 +29,25 @@ public class AuthenticationPage extends Page {
     @FindBy(className = "lost_password from_group")
     private WebElement linkForgotYourPassword;
 
-    private CreateAccount createStep = new CreateAccount(this.driver);
+    public MyWishListPage wishList = new MyWishListPage(this.driver);
 
-    private Account account = new Account(this.driver);
+    private CreateAccountStep createStep = new CreateAccountStep(this.driver);
 
-    public OrderHistory orders = new OrderHistory(this.driver);
+    private MyAccountPage myAccountPage = new MyAccountPage(this.driver);
 
-    public MyCreditSlips creditSlips = new MyCreditSlips(this.driver);
+    public OrderHistoryPage orders = new OrderHistoryPage(this.driver);
 
-    public MyAddress address = new MyAddress(this.driver);
+    public MyCreditSlipsPage creditSlips = new MyCreditSlipsPage(this.driver);
 
-    public PersonalInfo personalInfo = new PersonalInfo(this.driver);
+    public MyAddressPage address = new MyAddressPage(this.driver);
 
-    public MyWishList wishList = new MyWishList(this.driver);
+    public MyAccountInfoPage personalInfoPage = new MyAccountInfoPage(this.driver);
+
 
     public AuthenticationPage(WebDriver driver) {
         super(driver);
         this.setUrl(getPropertyUrl("AuthorizationPage"));
+        log.debug("creating an object AuthenticationPage");
     }
 
     public void createAccount(User user) {
@@ -60,22 +64,22 @@ public class AuthenticationPage extends Page {
     }
 
     public void clickMyAddress() {
-        this.account.clickMyAddresses();
+        this.myAccountPage.clickMyAddresses();
     }
 
     public void clickMyPersonalInfo() {
-        this.account.clickMyPersonalInfo();
+        this.myAccountPage.clickMyPersonalInfo();
     }
 
     public void clickMyWishList() {
-        this.account.clickMyWishLists();
+        this.myAccountPage.clickMyWishLists();
     }
 
     public void clickOrderHistoryAndDetails() {
-        this.account.clickOrderHistoryAndDetails();
+        this.myAccountPage.clickOrderHistoryAndDetails();
     }
 
     public void clickMyCreditSlips() {
-        this.account.clickMyCreditSlips();
+        this.myAccountPage.clickMyCreditSlips();
     }
 }

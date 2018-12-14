@@ -1,24 +1,27 @@
 package com.automationpractice.Pages.AuthenticationPage.SplitedPages;
 
 import Models.Page.Page;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SubPage extends Page {
+@Log4j2
+public class NavigationForMyAccountPages extends Page {
 
-    SubPage(WebDriver driver) {
+    NavigationForMyAccountPages(WebDriver driver) {
         super(driver);
+        log.debug("creating an object NavigationForMyAccountPages");
     }
+
+    @FindBy(linkText = "Home")
+    private WebElement buttonMainHome;
 
     @FindBy(xpath = "//ul[@class='footer_links clearfix']//li[1]//a[1]")
     private WebElement buttonBactToYourAccount;
 
     @FindBy(xpath = "//ul[@class='footer_links clearfix']//li[2]//a[1]")
     private WebElement buttonHome;
-
-    @FindBy(linkText = "Home")
-    private WebElement buttonMainHome;
 
     public void clickBackToYourAccount() {
         this.buttonBactToYourAccount.click();
@@ -27,6 +30,6 @@ public class SubPage extends Page {
     public void clickHome() {
         if (this.getCurrentUrl().equals("http://automationpractice.com/index.php?controller=my-account")) {
             this.buttonMainHome.click();
-        }else this.buttonHome.click();
+        } else this.buttonHome.click();
     }
 }

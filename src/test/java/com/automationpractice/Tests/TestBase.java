@@ -6,14 +6,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
-import org.testng.asserts.SoftAssert;
 
 import java.util.concurrent.TimeUnit;
 
 @Log4j2
 class TestBase {
 
-    protected SoftAssert softAssert = new SoftAssert();
     WebDriver driver;
 
     @BeforeSuite

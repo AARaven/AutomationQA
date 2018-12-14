@@ -3,126 +3,139 @@ package com.automationpractice.Tests;
 import Models.User.User;
 import com.automationpractice.Data.Data;
 import com.automationpractice.Pages.AuthenticationPage.AuthenticationPage;
-import com.automationpractice.Pages.StartPage.StartPage;
+import com.automationpractice.Pages.AuthenticationPage.SplitedPages.MyAddressPage;
 import lombok.extern.log4j.Log4j2;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 @Log4j2
 public class AuthTest extends TestBase {
-    Data data = new Data();
 
-    //    @Parameters("Path")
+    private static final String
+            USERS_VALID_PATH = "./src/main/resources/UsersProfiles/Valid/UsersProfiles.json";
+    private static final String
+            USERS_INVALID_PATH = "./src/main/resources/UsersProfiles/Invalid/UsersProfiles.json";
+
+    private Data data = new Data();
+
+    @Parameters("UsersJsonPath")
     @DataProvider(name = "Users")
     public Object[][] getUser() {
-        return data.getData();
+        return new Object[][]{
+                {data.getData("Alex", User.class, USERS_VALID_PATH)},
+//                {data.getData("John", User.class, USERS_VALID_PATH)},
+        };
     }
 
-    @Test/*(dataProvider = "ValidUsers", dataProviderClass = Data.class)*/
-            (dataProvider = "Users")
+    @Test(dataProvider = "Users")
     public void createAnAccount(User user) {
-        StartPage st = new StartPage(driver);
         AuthenticationPage auth = new AuthenticationPage(this.driver);
-        auth.openPage();
-        auth.createAccount(user);
-        st.clickSignOutBtn();
+
+        log.info("Open authorization page.");
+        auth
+                .openPage();
+
+        log.info("Create an account.");
+        auth
+                .createAccount(user);
+
+        log.info("Click 'sign out' button.");
+        auth
+                .clickSignOutBtn();
     }
 
-    @Test/*(dataProvider = "ValidUsers", dataProviderClass = Data.class)*/
-            (dataProvider = "Users")
+    @Test(dataProvider = "Users")
     public void verifyPersonalInfo(User user) {
         AuthenticationPage auth = new AuthenticationPage(driver);
-        auth.openPage();
-        auth.authorizeUser(user);
-        auth.clickMyPersonalInfo();
 
-        softAssert.assertTrue(auth.personalInfo.isUserGender(user),
-                "gender is not correct");
-        softAssert.assertTrue(auth.personalInfo.isUserFirstName(user),
-                "User first name is not correct");
-        softAssert.assertTrue(auth.personalInfo.isUserLastName(user),
-                "User last name is not correct");
-        softAssert.assertTrue(auth.personalInfo.isUserEmail(user),
-                "User email is not correct");
-        softAssert.assertTrue(auth.personalInfo.isUserDayOfBirth(user),
-                "User day of birth is not correct");
-        softAssert.assertTrue(auth.personalInfo.isUserMonthOfBirth(user),
-                "User month of birth is not correct");
-        softAssert.assertTrue(auth.personalInfo.isUserYearOfBirth(user),
-                "User year of birth is not correct");
+        log.info("Open authorization page.");
+        auth
+                .openPage();
 
-        if (auth.personalInfo.isNewsLetter(user)) {
-            softAssert.assertTrue(auth.personalInfo.isNewsLetter(user),
-                    "checkbox is not selected!");
-        } else if (!auth.personalInfo.isNewsLetter(user)) {
-            softAssert.assertFalse(auth.personalInfo.isNewsLetter(user),
-                    "checkbox is selected!");
-        }
+        log.info("Authorize user");
+        auth
+                .authorizeUser(user);
 
-        if (auth.personalInfo.isSpecialOffers(user)) {
-            softAssert.assertTrue(auth.personalInfo.isSpecialOffers(user),
-                    "checkbox is not selected!");
-        } else if (!auth.personalInfo.isSpecialOffers(user)) {
-            softAssert.assertFalse(auth.personalInfo.isSpecialOffers(user),
-                    "checkbox is selected!");
-        }
-        softAssert.assertAll();
+        log.info("Open personal info page.");
+        auth.personalInfoPage
+                .openPage();
+
+        log.info("Verify personal info.");
+        auth.personalInfoPage
+                .verifyPersonalInfo(user)
+                .assertAll();
+
+        log.info("Click 'sign out' button.");
+        auth
+                .clickSignOutBtn();
     }
 
-    @Test/*(dataProvider = "ValidUsers", dataProviderClass = Data.class)*/
-            (dataProvider = "Users")
+    @Test(dataProvider = "Users")
     public void verifyUserAddress(User user) {
+        AuthenticationPage auth = new AuthenticationPage(this.driver);
+        MyAddressPage address = new MyAddressPage(this.driver);
+
+        log.info("Open authorization page and authorize user");
+        auth
+                .openPage();
+        auth
+                .authorizeUser(user);
+
+        log.info("Open myAddress page.");
+        address
+                .openPage();
+
+        log.info("Click 'update'.");
+        address
+                .clickUpdate();
+
+        log.info("Verify addresses information.");
+        address
+                .verifyUserAddress(user)
+                .assertAll();
+
+        log.info("Click 'sign out' button.");
+        auth
+                .clickSignOutBtn();
+    }
+
+    @Test(dataProvider = "Users")
+    public void rewriteUserPersonalInfoAndCheckIt(User user) {
         AuthenticationPage auth = new AuthenticationPage(driver);
-        auth.openPage();
-        auth.authorizeUser(user);
-        auth.clickMyAddress();
-        auth.address.clickUpdate();
 
-        softAssert.assertTrue(auth.address.isUserFirstName(user),
-                "User first name is not correct");
-        softAssert.assertTrue(auth.address.isUserLastName(user),
-                "User last name is not correct");
-        softAssert.assertTrue(auth.address.isUserCompany(user),
-                "User company is not correct");
-        softAssert.assertTrue(auth.address.isUserAddress(user),
-                "User address is not correct");
-        softAssert.assertTrue(auth.address.isUserAddressSecondLine(user),
-                "User address second line is not correct");
-        softAssert.assertTrue(auth.address.isUserCity(user),
-                "User city is not correct");
-        softAssert.assertTrue(auth.address.isUserState(user),
-                "User state is not correct");
-        softAssert.assertTrue(auth.address.isUserZip(user),
-                "User zip code is not correct");
-        softAssert.assertTrue(auth.address.isUserCountry(user),
-                "User country is not correct");
-        softAssert.assertTrue(auth.address.isUserHomePhone(user),
-                "User home phone is not correct");
-        softAssert.assertTrue(auth.address.isUserMobilePhone(user),
-                "User mobile phone is not correct");
-        softAssert.assertTrue(auth.address.isUserAdditionalInfo(user),
-                "User additional info is not correct");
-        softAssert.assertTrue(auth.address.isUserAlias(user),
-                "User alias is not correct");
-        softAssert.assertAll();
+        log.info("Open authentication page.");
+        auth
+                .openPage();
+
+        log.info("Authorize user.");
+        auth
+                .authorizeUser(user);
+
+        log.info("Open personal info page.");
+        auth.personalInfoPage
+                .openPage();
+
+        log.info("Change user gender.");
+        auth.personalInfoPage
+                .changeUserGender("female");
+
+        log.info("Confirm old password.");
+        auth.personalInfoPage
+                .confirmPassword(user);
+
+        log.info("Click on save button.");
+        auth.personalInfoPage
+                .clickSave();
+
+        log.info("Verify success of procedure.");
+        Assert.assertTrue
+                (auth.personalInfoPage.verifyAlertSuccess());
     }
 
-    @Test(dataProvider = "ValidUsers", dataProviderClass = Data.class)
-    public void SimpleCodeOfNavigation(User user) {
-        StartPage startPage = new StartPage(driver);
-        startPage.openPage();
-        startPage.clickSignInBtn();
-        startPage.authentication.authorizeUser(user);
-        startPage.authentication.clickMyAddress();
-        startPage.authentication.address.clickUpdate();
-        softAssert.assertTrue(startPage.authentication.address.isUserAddress(user));
-        System.out.println(startPage.getTitle());
-        startPage.authentication.address.clickBackToYourAddresses();
-        startPage.authentication.address.clickBackToYourAccount();
-        startPage.authentication.clickMyWishList();
-        startPage.authentication.address.clickBackToYourAccount();
-        startPage.clickSignOutBtn();
-        softAssert.assertAll();
-
-    }
+//    @Test(dataProvider = "Users")
+//    public void rewriteUserAddressAndCheckIt(User user) {
+//
+//    }
 }

@@ -44,6 +44,7 @@ public class Page implements PageNavigation {
     protected Page(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+
     }
 
     public String getUrl() {

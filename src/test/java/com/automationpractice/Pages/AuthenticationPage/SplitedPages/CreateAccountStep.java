@@ -1,16 +1,20 @@
 package com.automationpractice.Pages.AuthenticationPage.SplitedPages;
 
+import Models.Page.Page;
 import Models.User.User;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class CreateAccount {
+@Log4j2
+public class CreateAccountStep extends Page {
 
-    public CreateAccount(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+    public CreateAccountStep(WebDriver driver) {
+        super(driver);
+        this.setUrl(getPropertyUrl("CreateAccountStep"));
+        log.debug("creating an object CreateAccountStep");
     }
 
     @FindBy(id = "submitAccount")
@@ -88,13 +92,16 @@ public class CreateAccount {
     private void setGender(User user) {
         switch (user.getGender()) {
             case "male":
-                this.radioGenderMale.click();
+                this.radioGenderMale
+                        .click();
                 break;
             case "female":
-                this.radioGenderFemale.click();
+                this.radioGenderFemale
+                        .click();
                 break;
             default:
-                throw new IllegalArgumentException("Current gender is not available.");
+                throw new IllegalArgumentException
+                        ("Current gender is not available.");
         }
     }
 
@@ -111,8 +118,11 @@ public class CreateAccount {
     }
 
     private void setDateOfBirth(String day, String month, String year) {
+        log.debug("set day of birth");
         new Select(this.selectDays).selectByValue(day);
+        log.debug("set month of birth");
         new Select(this.selectMonths).selectByValue(month);
+        log.debug("set year of birth");
         new Select(this.selectYears).selectByValue(year);
     }
 
@@ -181,25 +191,45 @@ public class CreateAccount {
     }
 
     public void fillAllFields(User user) {
+        log.debug("set gender");
         setGender(user);
+        log.debug("set customer first name");
         setCustomerFirstName(user.getFirstName());
+        log.debug("set customer last name");
         setCustomerLastName(user.getLastName());
+        log.debug("set password");
         setPassword(user.getPassword());
+        log.debug("set date of birth");
         setDateOfBirth(user.getDayOfBirth(), user.getMonthOfBirth(), user.getYearOfBirth());
+        log.debug("set newsletter");
         setNewsLetter(user);
+        log.debug("set special offers");
         setSpecialOffers(user);
+//        log.debug("set first name");
 //        setFirstName(user.getFirstName());
+//        log.debug("set last name");
 //        setLastName(user.getLastName());
+        log.debug("set company");
         setCompany(user.getCompany());
+        log.debug("set address first line");
         setFirstAddressField(user.getAddress());
+        log.debug("set address second line");
         setSecondAddressField(user.getAddressSecondLine());
+        log.debug("set city");
         setCity(user.getCity());
+        log.debug("set state");
         setState(user.getState());
+        log.debug("set zip code");
         setZipCode(user.getZipCode());
+        log.debug("set country");
         setCountry(user.getCountry());
+        log.debug("set additional information");
         setAdditionalInfo(user.getAdditionalInfo());
+        log.debug("set home phone");
         setHomePhone(user.getHomePhone());
+        log.debug("set mobile phone");
         setMobilePhone(user.getMobilePhone());
+        log.debug("set alias");
         setAlias(user.getAlias());
     }
 

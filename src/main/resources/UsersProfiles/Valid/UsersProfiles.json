@@ -3,8 +3,8 @@
     "gender": "male",
     "firstName": "Alex",
     "lastName": "Smith",
-    "email": "Jo127dfHn@SmIvtH.j1",
-    "password": "afdasd7dfEFsdf12",
+    "email": "JokuHn@SmIvtH.j1",
+    "password": "afdasd7dfEFskdf12",
     "dayOfBirth": "20",
     "monthOfBirth": "5",
     "yearOfBirth": "2018",
@@ -42,7 +42,7 @@
     "homePhone": "666666",
     "mobilePhone": "66666666666",
     "alias": "asdf@asdf.asf",
-    "newsLetter": true,
+    "newsLetter": false,
     "specialOffers": true
   },
   "Peter": {

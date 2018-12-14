@@ -1,19 +1,18 @@
 package com.automationpractice.Pages.StartPage;
 
 import Models.Page.Page;
-import com.automationpractice.Pages.AuthenticationPage.AuthenticationPage;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
+@Log4j2
 public class StartPage extends Page {
-
-    public AuthenticationPage authentication = new AuthenticationPage(this.driver);
 
     public StartPage(WebDriver driver) {
         super(driver);
-        this.setUrl(getPropertyUrl("BasePage"));
+        this.setUrl(getPropertyUrl("StartPage"));
+        log.debug("creating an object StartPage");
     }
 
     @FindBy(id = "contact-link")
