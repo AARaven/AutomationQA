@@ -27,7 +27,7 @@ public class AuthenticationPage extends Page {
     @FindBy(className = "lost_password from_group")
     private WebElement linkForgotYourPassword;
 
-    private CreateAccountStep createStep = new CreateAccountStep(this.driver);
+    private CreateAccount createStep = new CreateAccount(this.driver);
 
     private Account account = new Account(this.driver);
 
@@ -49,7 +49,8 @@ public class AuthenticationPage extends Page {
     public void createAccount(User user) {
         this.inputEmail.sendKeys(user.getEmail());
         this.buttonCreate.click();
-        this.createStep.createAnAccount(user);
+        this.createStep.fillAllFields(user);
+        this.createStep.clickSubmitAnAccount();
     }
 
     public void authorizeUser(User user) {

@@ -7,9 +7,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class CreateAccountStep {
+public class CreateAccount {
 
-    public CreateAccountStep(WebDriver driver) {
+    public CreateAccount(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -180,7 +180,7 @@ public class CreateAccountStep {
         }
     }
 
-    public void createAnAccount(User user) {
+    public void fillAllFields(User user) {
         setGender(user);
         setCustomerFirstName(user.getFirstName());
         setCustomerLastName(user.getLastName());
@@ -201,10 +201,9 @@ public class CreateAccountStep {
         setHomePhone(user.getHomePhone());
         setMobilePhone(user.getMobilePhone());
         setAlias(user.getAlias());
-        clickSubmitAnAccount();
     }
 
-    private void clickSubmitAnAccount() {
+    public void clickSubmitAnAccount() {
         this.buttonSubmitAccount.click();
     }
 }

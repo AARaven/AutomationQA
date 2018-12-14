@@ -123,5 +123,6 @@ public class AuthTest extends TestBase {
         startPage.authentication.address.clickBackToYourAccount();
         startPage.clickSignOutBtn();
         softAssert.assertAll();
+
     }
 }
