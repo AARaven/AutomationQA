@@ -2,9 +2,7 @@ package Models.Page;
 
 interface PageNavigation {
 
-    void openPage();
-
-    void openUrl(String url);
+    void navigate();
 
     void next();
 

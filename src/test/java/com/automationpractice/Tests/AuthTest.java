@@ -2,12 +2,9 @@ package com.automationpractice.Tests;
 
 import Models.User.User;
 import com.automationpractice.Data.Data;
-import com.automationpractice.Pages.AuthenticationPage.AuthenticationPage;
-import com.automationpractice.Pages.AuthenticationPage.SplitedPages.MyAddressPage;
+import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
 import lombok.extern.log4j.Log4j2;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 @Log4j2
@@ -20,26 +17,28 @@ public class AuthTest extends TestBase {
 
     private Data data = new Data();
 
-    @Parameters("UsersJsonPath")
     @DataProvider(name = "Users")
     public Object[][] getUser() {
         return new Object[][]{
-                {data.getData("Alex", User.class, USERS_VALID_PATH)},
-//                {data.getData("John", User.class, USERS_VALID_PATH)},
+                {data.getData("Alex", User.class, USERS_VALID_PATH),
+                        data.getData("John", User.class, USERS_VALID_PATH)},
         };
     }
 
     @Test(dataProvider = "Users")
     public void createAnAccount(User user) {
-        AuthenticationPage auth = new AuthenticationPage(this.driver);
+        AuthenticationPage auth =
+                new AuthenticationPage(this.driver);
 
         log.info("Open authorization page.");
-        auth
-                .openPage();
+        auth.navigate();
 
         log.info("Create an account.");
         auth
-                .createAccount(user);
+                .setEmail(user)
+                .clickSubmitCreate()
+                .setFieldsUserData(user)
+                .clickRegister();
 
         log.info("Click 'sign out' button.");
         auth
@@ -48,94 +47,71 @@ public class AuthTest extends TestBase {
 
     @Test(dataProvider = "Users")
     public void verifyPersonalInfo(User user) {
-        AuthenticationPage auth = new AuthenticationPage(driver);
+        AuthenticationPage auth =
+                new AuthenticationPage(driver);
 
         log.info("Open authorization page.");
         auth
-                .openPage();
+                .navigate();
 
         log.info("Authorize user");
-        auth
-                .authorizeUser(user);
-
         log.info("Open personal info page.");
-        auth.personalInfoPage
-                .openPage();
-
         log.info("Verify personal info.");
-        auth.personalInfoPage
+        auth
+                .authorizeUser(user)
+                .clickMyAccountInfoPage()
                 .verifyPersonalInfo(user)
                 .assertAll();
 
-        log.info("Click 'sign out' button.");
+        log.info("Logging out.");
         auth
                 .clickSignOutBtn();
     }
 
     @Test(dataProvider = "Users")
     public void verifyUserAddress(User user) {
-        AuthenticationPage auth = new AuthenticationPage(this.driver);
-        MyAddressPage address = new MyAddressPage(this.driver);
+        AuthenticationPage auth =
+                new AuthenticationPage(this.driver);
 
-        log.info("Open authorization page and authorize user");
+        log.info("Open authorization page.");
         auth
-                .openPage();
+                .navigate();
+
+        log.info("Authorization user and verify him address.");
         auth
-                .authorizeUser(user);
 
-        log.info("Open myAddress page.");
-        address
-                .openPage();
-
-        log.info("Click 'update'.");
-        address
-                .clickUpdate();
-
-        log.info("Verify addresses information.");
-        address
+                .authorizeUser(user)
+                .clickMyAddressPage()
                 .verifyUserAddress(user)
                 .assertAll();
 
-        log.info("Click 'sign out' button.");
+        log.info("Logging out.");
         auth
                 .clickSignOutBtn();
     }
 
     @Test(dataProvider = "Users")
-    public void rewriteUserPersonalInfoAndCheckIt(User user) {
-        AuthenticationPage auth = new AuthenticationPage(driver);
-
-        log.info("Open authentication page.");
+    public void simpleTestRefactor(User user) {
+        AuthenticationPage auth =
+                new AuthenticationPage(driver);
+        auth.navigate();
         auth
-                .openPage();
-
-        log.info("Authorize user.");
-        auth
-                .authorizeUser(user);
-
-        log.info("Open personal info page.");
-        auth.personalInfoPage
-                .openPage();
-
-        log.info("Change user gender.");
-        auth.personalInfoPage
-                .changeUserGender("female");
-
-        log.info("Confirm old password.");
-        auth.personalInfoPage
-                .confirmPassword(user);
-
-        log.info("Click on save button.");
-        auth.personalInfoPage
-                .clickSave();
-
-        log.info("Verify success of procedure.");
-        Assert.assertTrue
-                (auth.personalInfoPage.verifyAlertSuccess());
+                .authorizeUser(user)
+                .clickMyAccountInfoPage()
+                .verifyPersonalInfo(user)
+                .assertAll();
     }
 
-//    @Test(dataProvider = "Users")
-//    public void rewriteUserAddressAndCheckIt(User user) {
-//
-//    }
+    @Test(dataProvider = "Users")
+    public void rewriteUserAddress(User user, User temp) {
+        AuthenticationPage authenticationPage =
+                new AuthenticationPage(driver);
+        authenticationPage.navigate();
+
+        authenticationPage
+                .authorizeUser(user)
+                .clickMyAddressPage()
+                .clickUpdate()
+                .rewriteAll(temp);
+    }
 }

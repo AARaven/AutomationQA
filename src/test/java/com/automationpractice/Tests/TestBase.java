@@ -10,9 +10,9 @@ import org.testng.annotations.*;
 import java.util.concurrent.TimeUnit;
 
 @Log4j2
-class TestBase {
+public class TestBase {
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeSuite
     protected void beforeSuiteMethod() {

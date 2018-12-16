@@ -9,7 +9,8 @@ import java.io.File;
 @Data
 public class User {
 
-    private static final String USER_SAVING_PATH = "./src/main/resources/UsersProfiles/SavedProfiles/lastProfile.json";
+    private static final String USER_SAVING_PATH =
+            "./src/main/resources/UsersProfiles/SavedProfiles/lastProfile.json";
 
     private String gender;
     private String firstName;
