@@ -35,26 +35,26 @@ public class AccountInfoPage extends AccountPage {
         SoftAssert softAssert = new SoftAssert();
 
         softAssert.assertTrue
-                        (isUserGender(user),
-                                "User gender is not correct.");
+                (isUserGender(user),
+                        "User gender is not correct.");
         softAssert.assertTrue
-                        (isUserFirstName(user),
-                                "User first name is not correct.");
+                (isUserFirstName(user),
+                        "User first name is not correct.");
         softAssert.assertTrue
-                        (isUserLastName(user),
-                                "User last name is not correct.");
+                (isUserLastName(user),
+                        "User last name is not correct.");
         softAssert.assertTrue
-                        (isUserEmail(user),
-                                "User email is not correct.");
+                (isUserEmail(user),
+                        "User email is not correct.");
         softAssert.assertTrue
-                        (isUserDayOfBirth(user),
-                                "User day of birth is not correct.");
+                (isUserDayOfBirth(user),
+                        "User day of birth is not correct.");
         softAssert.assertTrue
-                        (isUserMonthOfBirth(user),
-                                "User month of birth is not correct.");
+                (isUserMonthOfBirth(user),
+                        "User month of birth is not correct.");
         softAssert.assertTrue
-                        (isUserYearOfBirth(user),
-                                "User year of birth is not correct.");
+                (isUserYearOfBirth(user),
+                        "User year of birth is not correct.");
 
         if (isNewsLetter(user)) {
             softAssert
@@ -69,8 +69,9 @@ public class AccountInfoPage extends AccountPage {
         }
         if (isSpecialOffers(user)) {
             softAssert
-                    .assertTrue(isSpecialOffers(user),
-                            "SpecialOffers checkbox is not selected.");
+                    .assertTrue
+                            (isSpecialOffers(user),
+                                    "SpecialOffers checkbox is not selected.");
         } else if (!isSpecialOffers(user)) {
             softAssert
                     .assertFalse
@@ -158,12 +159,12 @@ public class AccountInfoPage extends AccountPage {
     }
 
     private AccountInfoPage rewriteUserNewsLetter(User user) {
-            this.personalInfo.getCheckboxNewsLetter().click();
+        this.personalInfo.getCheckboxNewsLetter().click();
         return this;
     }
 
     private AccountInfoPage rewriteUserSpecialOffers(User user) {
-            this.personalInfo.getCheckboxSpecialOffers().click();
+        this.personalInfo.getCheckboxSpecialOffers().click();
         return this;
     }
 
@@ -193,7 +194,7 @@ public class AccountInfoPage extends AccountPage {
     private boolean isUserEmail(User user) {
         return user.getEmail()
                 .equals(this.personalInfo.getInputEmail()
-                .getAttribute("value"));
+                        .getAttribute("value"));
     }
 
     private boolean isUserDayOfBirth(User user) {

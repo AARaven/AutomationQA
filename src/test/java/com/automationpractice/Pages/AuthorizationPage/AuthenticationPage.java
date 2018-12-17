@@ -42,7 +42,7 @@ public class AuthenticationPage extends HomePage {
     public AuthenticationPage setEmail(User user) {
         this.inputEmail.clear();
         this.inputEmail.sendKeys(user.getEmail());
-        return new AuthenticationPage(driver);
+        return this;
     }
 
     public AuthenticationPage setCurrentEmail(User user) {

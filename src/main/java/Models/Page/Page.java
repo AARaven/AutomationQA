@@ -12,7 +12,8 @@ import java.util.Properties;
 
 public class Page implements PageNavigation {
 
-    private static final String PROPERTIES_PATH = "./src/main/resources/PropertyFiles/url.properties";
+    private static final String PROPERTIES_PATH =
+            "./src/main/resources/PropertyFiles/url.properties";
 
     private String url;
     protected WebDriver driver;

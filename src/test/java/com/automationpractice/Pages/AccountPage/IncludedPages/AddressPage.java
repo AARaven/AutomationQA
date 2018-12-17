@@ -62,6 +62,36 @@ public class AddressPage extends AccountPage {
         return this;
     }
 
+    public AddressPage rewriteAll(User user) {
+        rewriteFirstName
+                (user.getFirstName());
+        rewriteLastName
+                (user.getLastName());
+        rewriteCompany
+                (user.getCompany());
+        rewriteAddress
+                (user.getAddress());
+        rewriteAddressSecondLine
+                (user.getAddressSecondLine());
+        rewriteCity
+                (user.getCity());
+//        rewriteState
+//                (user.getState());
+        rewriteZip
+                (user.getZipCode());
+//        rewriteCountry
+//                (user.getCountry());
+        rewriteHomePhone
+                (user.getHomePhone());
+        rewriteMobilePhone
+                (user.getMobilePhone());
+        rewriteAdditionalInfo
+                (user.getAdditionalInfo());
+        rewriteAlias
+                (user.getAlias());
+        return this;
+    }
+
     public SoftAssert verifyUserAddress(User user) {
         SoftAssert softAssert = new SoftAssert();
 
@@ -107,111 +137,81 @@ public class AddressPage extends AccountPage {
         return softAssert;
     }
 
-    public AddressPage rewriteFirstName(String firstname) {
+    private AddressPage rewriteFirstName(String firstname) {
         this.userAddress.getInputFirstName().clear();
         this.userAddress.getInputFirstName().sendKeys(firstname);
         return this;
     }
 
-    public AddressPage rewriteLastName(String lastname) {
+    private AddressPage rewriteLastName(String lastname) {
         this.userAddress.getInputLastName().clear();
         this.userAddress.getInputLastName().sendKeys(lastname);
         return this;
     }
 
-    public AddressPage rewriteCompany(String company) {
+    private AddressPage rewriteCompany(String company) {
         this.userAddress.getInputCompany().clear();
         this.userAddress.getInputCompany().sendKeys(company);
         return this;
     }
 
-    public AddressPage rewriteAddress(String address) {
+    private AddressPage rewriteAddress(String address) {
         this.userAddress.getInputAddress1().clear();
         this.userAddress.getInputAddress1().sendKeys(address);
         return this;
     }
 
-    public AddressPage rewriteAddressSecondLine(String address2) {
+    private AddressPage rewriteAddressSecondLine(String address2) {
         this.userAddress.getInputAddress2().clear();
         this.userAddress.getInputAddress2().sendKeys(address2);
         return this;
     }
 
-    public AddressPage rewriteCity(String city) {
+    private AddressPage rewriteCity(String city) {
         this.userAddress.getInputCity().clear();
         this.userAddress.getInputCity().sendKeys(city);
         return this;
     }
 
-    public AddressPage rewriteState(String state) {
+    private AddressPage rewriteState(String state) {
         new Select(this.userAddress.getSelectState()).deselectAll();
         new Select(this.userAddress.getSelectState()).selectByValue(state);
         return this;
     }
 
-    public AddressPage rewriteZip(String zip) {
+    private AddressPage rewriteZip(String zip) {
         this.userAddress.getInputZipCode().clear();
         this.userAddress.getInputZipCode().sendKeys(zip);
         return this;
     }
 
-    public AddressPage rewriteCountry(String country) {
+    private AddressPage rewriteCountry(String country) {
         new Select(this.userAddress.getSelectCountry()).deselectAll();
         new Select(this.userAddress.getSelectCountry()).selectByValue(country);
         return this;
     }
 
-    public AddressPage rewriteHomePhone(String homePhone) {
+    private AddressPage rewriteHomePhone(String homePhone) {
         this.userAddress.getInputPhone().clear();
         this.userAddress.getInputPhone().sendKeys(homePhone);
         return this;
     }
 
-    public AddressPage rewriteMobilePhone(String mobilePhone) {
+    private AddressPage rewriteMobilePhone(String mobilePhone) {
         this.userAddress.getInputPhoneMobile().clear();
         this.userAddress.getInputPhoneMobile().sendKeys(mobilePhone);
         return this;
     }
 
-    public AddressPage rewriteAdditionalInfo(String info) {
+    private AddressPage rewriteAdditionalInfo(String info) {
         this.userAddress.getInputAdditionalInfo().clear();
         this.userAddress.getInputAdditionalInfo().sendKeys(info);
         return this;
     }
 
-    public AddressPage rewriteAlias(String alias) {
+    private AddressPage rewriteAlias(String alias) {
         this.userAddress.getInputAlias().clear();
         this.userAddress.getInputAlias().sendKeys(alias);
-        return this;
-    }
-
-    public AccountPage rewriteAll(User user) {
-        rewriteFirstName
-                (user.getFirstName());
-        rewriteLastName
-                (user.getLastName());
-        rewriteCompany
-                (user.getCompany());
-        rewriteAddress
-                (user.getAddress());
-        rewriteAddressSecondLine
-                (user.getAddressSecondLine());
-        rewriteCity
-                (user.getCity());
-//        rewriteState
-//                (user.getState());
-        rewriteZip
-                (user.getZipCode());
-//        rewriteCountry
-//                (user.getCountry());
-        rewriteHomePhone
-                (user.getHomePhone());
-        rewriteMobilePhone
-                (user.getMobilePhone());
-        rewriteAdditionalInfo
-                (user.getAdditionalInfo());
-        rewriteAlias
-                (user.getAlias());
         return this;
     }
 
