@@ -2,6 +2,7 @@ package com.automationpractice.Tests;
 
 import Models.User.User;
 import com.automationpractice.Data.Data;
+import com.automationpractice.Pages.AccountPage.AccountPage;
 import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
 import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.DataProvider;
@@ -54,9 +55,7 @@ public class AuthTest extends TestBase {
         auth
                 .navigate();
 
-        log.info("Authorize user");
-        log.info("Open personal info page.");
-        log.info("Verify personal info.");
+        log.info("Authorization user and verify him personal info.");
         auth
                 .authorizeUser(user)
                 .clickMyAccountInfoPage()
@@ -79,7 +78,6 @@ public class AuthTest extends TestBase {
 
         log.info("Authorization user and verify him address.");
         auth
-
                 .authorizeUser(user)
                 .clickMyAddressPage()
                 .verifyUserAddress(user)
@@ -91,27 +89,23 @@ public class AuthTest extends TestBase {
     }
 
     @Test(dataProvider = "Users")
-    public void simpleTestRefactor(User user) {
-        AuthenticationPage auth =
-                new AuthenticationPage(driver);
-        auth.navigate();
-        auth
-                .authorizeUser(user)
-                .clickMyAccountInfoPage()
-                .verifyPersonalInfo(user)
-                .assertAll();
-    }
-
-    @Test(dataProvider = "Users")
-    public void rewriteUserAddress(User user, User temp) {
+    public void rewriteUserAddressAndPersonalInfo(User user, User otherUser) {
         AuthenticationPage authenticationPage =
                 new AuthenticationPage(driver);
         authenticationPage.navigate();
 
-        authenticationPage
-                .authorizeUser(user)
+        AccountPage account =
+                authenticationPage.authorizeUser(user);
+
+        account
                 .clickMyAddressPage()
                 .clickUpdate()
-                .rewriteAll(temp);
+                .rewriteAll(otherUser);
+
+        account.navigate();
+
+        account
+                .clickMyAccountInfoPage()
+                .rewriteAll(otherUser);
     }
 }

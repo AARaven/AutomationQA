@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 
 @Log4j2
@@ -98,6 +99,71 @@ public class AccountInfoPage extends AccountPage {
 
     public AccountInfoPage clickSave() {
         this.buttonSave.click();
+        return this;
+    }
+
+    public AccountInfoPage rewriteAll(User user) {
+        rewriteUserGender(user);
+        rewriteUserFirstName(user);
+        rewriteUserLastName(user);
+        rewriteUserEmail(user);
+        rewriteUserDayOfBirth(user);
+        rewriteUserMonthOfBirth(user);
+        rewriteUserYearOfBirth(user);
+        rewriteUserNewsLetter(user);
+        rewriteUserSpecialOffers(user);
+        return this;
+    }
+
+    private AccountInfoPage rewriteUserGender(User user) {
+        if (user.getGender().equals("male")) {
+            this.personalInfo.getRadioGenderFemale().click();
+        } else if (user.getGender().equals("female")) {
+            this.personalInfo.getRadioGenderMale();
+        }
+        return this;
+    }
+
+    private AccountInfoPage rewriteUserFirstName(User user) {
+        this.inputFirstName.clear();
+        this.inputFirstName.sendKeys(user.getFirstName());
+        return this;
+    }
+
+    private AccountInfoPage rewriteUserLastName(User user) {
+        this.inputLastName.clear();
+        this.inputLastName.sendKeys(user.getLastName());
+        return this;
+    }
+
+    private AccountInfoPage rewriteUserEmail(User user) {
+        this.personalInfo.getInputEmail().clear();
+        this.personalInfo.getInputEmail().sendKeys(user.getEmail());
+        return this;
+    }
+
+    private AccountInfoPage rewriteUserDayOfBirth(User user) {
+        new Select(this.personalInfo.getSelectDays()).selectByValue(user.getDayOfBirth());
+        return this;
+    }
+
+    private AccountInfoPage rewriteUserMonthOfBirth(User user) {
+        new Select(this.personalInfo.getSelectMonths()).selectByValue(user.getMonthOfBirth());
+        return this;
+    }
+
+    private AccountInfoPage rewriteUserYearOfBirth(User user) {
+        new Select(this.personalInfo.getSelectYears()).selectByValue(user.getYearOfBirth());
+        return this;
+    }
+
+    private AccountInfoPage rewriteUserNewsLetter(User user) {
+            this.personalInfo.getCheckboxNewsLetter().click();
+        return this;
+    }
+
+    private AccountInfoPage rewriteUserSpecialOffers(User user) {
+            this.personalInfo.getCheckboxSpecialOffers().click();
         return this;
     }
 
