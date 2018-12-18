@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 
@@ -22,19 +23,20 @@ public class AddressPage extends AccountPage {
         log.debug("Creating an instance AddressPage");
     }
 
-    @FindBy(linkText = "Update")
-    private WebElement buttonUpdate;
-
-    @FindBy(linkText = "Delete")
-    private WebElement buttonDelete;
-
-    @FindBy(id = "submitAddress")
+    @FindBy(how = How.ID, using = "submitAddress")
     private WebElement buttonSubmitAddress;
 
-    @FindBy(linkText = "Add an address")
+    @FindBy(how = How.LINK_TEXT, using = "Update")
+    private WebElement buttonUpdate;
+
+    @FindBy(how = How.LINK_TEXT, using = "Delete")
+    private WebElement buttonDelete;
+
+
+    @FindBy(how = How.LINK_TEXT, using = "Add an address")
     private WebElement buttonAddAddress;
 
-    @FindBy(xpath = "//a[@class='btn btn-defaul button button-small']")
+    @FindBy(how = How.XPATH, using = "//a[@class='btn btn-defaul button button-small']")
     private WebElement buttonBackToYourAddresses;
 
     public AddressPage clickUpdate() {

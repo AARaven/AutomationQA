@@ -3,10 +3,12 @@ package com.automationpractice.Pages.HomePage;
 import Models.Page.Page;
 import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
 import com.automationpractice.Pages.HomePage.IncludedPages.ContactUsPage;
+import com.automationpractice.Pages.HomePage.IncludedPages.SearchPage;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 @Log4j2
 public class HomePage extends Page {
@@ -17,17 +19,26 @@ public class HomePage extends Page {
         log.debug("Creating an instance HomePage");
     }
 
-    @FindBy(id = "contact-link")
+    @FindBy(how = How.ID, using = "search_query_top")
+    private WebElement inputSearch;
+
+    @FindBy(how = How.ID, using = "contact-link")
     private WebElement buttonContactUs;
 
-    @FindBy(className = "login")
+    @FindBy(how = How.CLASS_NAME, using = "login")
     private WebElement buttonSignIn;
 
-    @FindBy(className = "logout")
+    @FindBy(how = How.CLASS_NAME, using = "logout")
     private WebElement buttonSignOut;
 
-    @FindBy(className = "account")
-    private WebElement spanAccount;
+    @FindBy(how = How.CLASS_NAME, using = "account")
+    private WebElement buttonAccount;
+
+
+    public HomePage clickSignOutBtn() {
+        this.buttonSignOut.click();
+        return new HomePage(driver);
+    }
 
     public ContactUsPage clickContactUsBtn() {
         this.buttonContactUs.click();
@@ -39,8 +50,9 @@ public class HomePage extends Page {
         return new AuthenticationPage(driver);
     }
 
-    public HomePage clickSignOutBtn() {
-        this.buttonSignOut.click();
-        return new HomePage(driver);
+    public SearchPage searchText(String text) {
+        this.inputSearch.sendKeys(text);
+        this.inputSearch.submit();
+        return new SearchPage(driver);
     }
 }

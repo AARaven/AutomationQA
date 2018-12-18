@@ -1,10 +1,10 @@
 {
   "Alex": {
-    "gender": "male",
+    "gender": "MALE",
     "firstName": "Alex",
     "lastName": "Smith",
-    "email": "Jod2fBHn@SvtH.j1",
-    "password": "ad75dfEFskBdf12",
+    "email": "Jod2n@SvtH.j1",
+    "password": "ad75dfEFskBdgf12",
     "dayOfBirth": "20",
     "monthOfBirth": "5",
     "yearOfBirth": "2018",
@@ -23,7 +23,7 @@
     "specialOffers": true
   },
   "John": {
-    "gender": "male",
+    "gender": "MALE",
     "firstName": "John",
     "lastName": "Smith",
     "email": "JoHdfn@SnsdfItW.j1",
@@ -46,7 +46,7 @@
     "specialOffers": true
   },
   "Peter": {
-    "gender": "male",
+    "gender": "MALE",
     "firstName": "Peter",
     "lastName": "Pan",
     "email": "Jofd2adHn@SmItH.j1",
@@ -69,7 +69,7 @@
     "specialOffers": true
   },
   "Jack": {
-    "gender": "male",
+    "gender": "MALE",
     "firstName": "Jack",
     "lastName": "Sparrow",
     "email": "JaCK@SpIerH.j1",

@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 
@@ -22,13 +23,13 @@ public class AccountInfoPage extends AccountPage {
         log.debug("Creating an instance AccountInfoPage");
     }
 
-    @FindBy(name = "submitIdentity")
+    @FindBy(how = How.NAME, using = "submitIdentity")
     private WebElement buttonSave;
 
-    @FindBy(id = "firstname")
+    @FindBy(how = How.ID, using = "firstname")
     private WebElement inputFirstName;
 
-    @FindBy(id = "lastname")
+    @FindBy(how = How.ID, using = "lastname")
     private WebElement inputLastName;
 
     public SoftAssert verifyPersonalInfo(User user) {
@@ -110,9 +111,12 @@ public class AccountInfoPage extends AccountPage {
 
     public AccountInfoPage rewriteAll(User user) {
         rewriteUserGender(user);
-        rewriteUserFirstName(user);
-        rewriteUserLastName(user);
-        rewriteUserEmail(user);
+        rewriteElement
+                (inputFirstName, user.getFirstName());
+        rewriteElement
+                (inputLastName, user.getLastName());
+        rewriteElement
+                (personalInfo.getInputEmail(), user.getEmail());
         rewriteUserDayOfBirth(user);
         rewriteUserMonthOfBirth(user);
         rewriteUserYearOfBirth(user);
@@ -127,21 +131,6 @@ public class AccountInfoPage extends AccountPage {
         } else if (user.getGender().equals("female")) {
             personalInfo.getRadioGenderMale();
         }
-        return this;
-    }
-
-    private AccountInfoPage rewriteUserFirstName(User user) {
-        rewriteElement(inputFirstName,user.getFirstName());
-        return this;
-    }
-
-    private AccountInfoPage rewriteUserLastName(User user) {
-        rewriteElement(inputLastName,user.getLastName());
-        return this;
-    }
-
-    private AccountInfoPage rewriteUserEmail(User user) {
-        rewriteElement(personalInfo.getInputEmail(),user.getEmail());
         return this;
     }
 

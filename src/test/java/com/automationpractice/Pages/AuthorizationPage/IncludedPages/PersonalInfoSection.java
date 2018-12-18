@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
@@ -17,59 +18,60 @@ public class PersonalInfoSection {
     }
 
     @Getter
-    @FindBy(id = "id_gender1")
+    @FindBy(how = How.ID, using = "id_gender1")
     private WebElement radioGenderMale;
 
     @Getter
-    @FindBy(id = "id_gender2")
+    @FindBy(how = How.ID, using = "id_gender2")
     private WebElement radioGenderFemale;
 
     @Getter
-    @FindBy(id = "newsletter")
+    @FindBy(how = How.ID, using = "newsletter")
     private WebElement checkboxNewsLetter;
 
     @Getter
-    @FindBy(id = "optin")
+    @FindBy(how = How.ID, using = "optin")
     private WebElement checkboxSpecialOffers;
 
     @Getter
-    @FindBy(id = "days")
+    @FindBy(how = How.ID, using = "days")
     private WebElement selectDays;
 
     @Getter
-    @FindBy(id = "months")
+    @FindBy(how = How.ID, using = "months")
     private WebElement selectMonths;
 
     @Getter
-    @FindBy(id = "years")
+    @FindBy(how = How.ID, using = "years")
     private WebElement selectYears;
 
     @Getter
-    @FindBy(id = "customer_firstname")
+    @FindBy(how = How.ID, using = "customer_firstname")
     private WebElement inputCustomerFirstName;
 
     @Getter
-    @FindBy(id = "customer_lastname")
+    @FindBy(how = How.ID, using = "customer_lastname")
     private WebElement inputCustomerLastName;
 
     @Getter
-    @FindBy(id = "passwd")
+    @FindBy(how = How.ID, using = "passwd")
     private WebElement inputPassword;
 
     @Getter
-    @FindBy(id = "email")
+    @FindBy(how = How.ID, using = "email")
     private WebElement inputEmail;
 
     void fillPersonalInfoSection(User user) {
         setGender(user);
-        setCustomerFirstName
-                (user.getFirstName());
-        setCustomerLastName
-                (user.getLastName());
-        setPassword
-                (user.getPassword());
-        setEmail
-                (user.getEmail());
+        setDataFields
+                (inputCustomerFirstName, user.getFirstName());
+        setDataFields
+                (inputCustomerLastName, user.getLastName());
+        setDataFields
+                (inputPassword, user.getPassword());
+        setDataFields
+                (inputEmail, user.getEmail());
+
         setDateOfBirth(
                 user.getDayOfBirth(),
                 user.getMonthOfBirth(),
@@ -80,28 +82,9 @@ public class PersonalInfoSection {
     }
 
     private void setGender(User user) {
-        if (user.getGender().equals("male")) this.radioGenderMale.click();
-        else if (user.getGender().equals("female")) this.radioGenderFemale.click();
-        throw new IllegalArgumentException
-                ("Current gender is not available.");
-    }
-
-
-    private void setCustomerFirstName(String firstname) {
-        this.inputCustomerFirstName.sendKeys(firstname);
-    }
-
-    private void setCustomerLastName(String lastname) {
-        this.inputCustomerLastName.sendKeys(lastname);
-    }
-
-    private void setPassword(String password) {
-        this.inputPassword.sendKeys(password);
-    }
-
-    private void setEmail(String email) {
-        this.inputEmail.clear();
-        this.inputEmail.sendKeys(email);
+        if (user.getGender().name().equals("MALE")) this.radioGenderMale.click();
+        else if (user.getGender().name().equals("FEMALE")) this.radioGenderFemale.click();
+        else throw new IllegalArgumentException("Current gender is not available.");
     }
 
     private void setDateOfBirth(String day, String month, String year) {
@@ -123,5 +106,10 @@ public class PersonalInfoSection {
         if (user.isSpecialOffers()) {
             this.checkboxSpecialOffers.click();
         }
+    }
+
+    private void setDataFields(WebElement element, String value) {
+        element.clear();
+        element.sendKeys(value);
     }
 }

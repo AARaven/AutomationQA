@@ -5,6 +5,7 @@ import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
@@ -15,138 +16,94 @@ public class AddressSection {
     }
 
     @Getter
-    @FindBy(id = "firstname")
+    @FindBy(how = How.ID, using = "firstname")
     private WebElement inputFirstName;
 
     @Getter
-    @FindBy(id = "lastname")
+    @FindBy(how = How.ID, using = "lastname")
     private WebElement inputLastName;
 
     @Getter
-    @FindBy(id = "company")
+    @FindBy(how = How.ID, using = "company")
     private WebElement inputCompany;
 
     @Getter
-    @FindBy(id = "address1")
+    @FindBy(how = How.ID, using = "address1")
     private WebElement inputAddress1;
 
     @Getter
-    @FindBy(id = "address2")
+    @FindBy(how = How.ID, using = "address2")
     private WebElement inputAddress2;
 
     @Getter
-    @FindBy(id = "city")
+    @FindBy(how = How.ID, using = "city")
     private WebElement inputCity;
 
     @Getter
-    @FindBy(id = "postcode")
+    @FindBy(how = How.ID, using = "postcode")
     private WebElement inputZipCode;
 
     @Getter
-    @FindBy(id = "other")
+    @FindBy(how = How.ID, using = "other")
     private WebElement inputAdditionalInfo;
 
     @Getter
-    @FindBy(id = "phone")
+    @FindBy(how = How.ID, using = "phone")
     private WebElement inputPhone;
 
     @Getter
-    @FindBy(id = "phone_mobile")
+    @FindBy(how = How.ID, using = "phone_mobile")
     private WebElement inputPhoneMobile;
 
     @Getter
-    @FindBy(id = "alias")
+    @FindBy(how = How.ID, using = "alias")
     private WebElement inputAlias;
 
     @Getter
-    @FindBy(id = "id_country")
+    @FindBy(how = How.ID, using = "id_country")
     private WebElement selectCountry;
 
     @Getter
-    @FindBy(id = "id_state")
+    @FindBy(how = How.ID, using = "id_state")
     private WebElement selectState;
 
     void fillAddressSection(User user) {
-        setFirstName
-                (user.getFirstName());
-        setLastName
-                (user.getLastName());
-        setCompany
-                (user.getCompany());
-        setFirstAddressField
-                (user.getAddress());
-        setSecondAddressField
-                (user.getAddressSecondLine());
-        setCity(
-                user.getCity());
+        setDataFields
+                (inputFirstName, user.getFirstName());
+        setDataFields
+                (inputLastName, user.getLastName());
+        setDataFields
+                (inputAddress1, user.getAddress());
+        setDataFields
+                (inputAddress2, user.getAddressSecondLine());
+        setDataFields
+                (inputCity, user.getCity());
         setState
                 (user.getState());
-        setZipCode
-                (user.getZipCode());
+        setDataFields
+                (inputZipCode, user.getZipCode());
         setCountry
                 (user.getCountry());
-        setAdditionalInfo
-                (user.getAdditionalInfo());
-        setHomePhone
-                (user.getHomePhone());
-        setMobilePhone
-                (user.getMobilePhone());
-        setAlias
-                (user.getAlias());
-    }
-
-    private void setFirstName(String firstname) {
-        this.inputFirstName.clear();
-        this.inputFirstName.sendKeys(firstname);
-    }
-
-    private void setLastName(String lastname) {
-        this.inputLastName.clear();
-        this.inputLastName.sendKeys(lastname);
-    }
-
-    private void setCompany(String company) {
-        this.inputCompany.sendKeys(company);
-    }
-
-    private void setFirstAddressField(String address) {
-        this.inputAddress1.sendKeys(address);
-    }
-
-    private void setSecondAddressField(String address) {
-        this.inputAddress2.sendKeys(address);
-    }
-
-    private void setCity(String city) {
-        this.inputCity.sendKeys(city);
+        setDataFields
+                (inputAdditionalInfo, user.getAdditionalInfo());
+        setDataFields
+                (inputPhone, user.getHomePhone());
+        setDataFields
+                (inputPhoneMobile, user.getMobilePhone());
+        setDataFields
+                (inputAlias, user.getAlias());
     }
 
     private void setState(String state) {
         new Select(this.selectState).selectByVisibleText(state);
     }
 
-    private void setZipCode(String zipcode) {
-        this.inputZipCode.sendKeys(zipcode);
-    }
-
     private void setCountry(String country) {
         new Select(this.selectCountry).selectByVisibleText(country);
     }
 
-    private void setAdditionalInfo(String additionalInfo) {
-        this.inputAdditionalInfo.sendKeys(additionalInfo);
-    }
-
-    private void setHomePhone(String homePhone) {
-        this.inputPhone.sendKeys(homePhone);
-    }
-
-    private void setMobilePhone(String mobilePhone) {
-        this.inputPhoneMobile.sendKeys(mobilePhone);
-    }
-
-    private void setAlias(String additionalEmail) {
-        this.inputAlias.clear();
-        this.inputAlias.sendKeys(additionalEmail);
+    private void setDataFields(WebElement element, String value) {
+        element.clear();
+        element.sendKeys(value);
     }
 }

@@ -1,6 +1,7 @@
 package Models.Page;
 
 import lombok.SneakyThrows;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -10,6 +11,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
+@Log4j2
 public class Page implements PageNavigation {
 
     private static final String PROPERTIES_PAGES_PATH =
@@ -44,6 +46,7 @@ public class Page implements PageNavigation {
         this.wait = new WebDriverWait(driver, 5);
         PageFactory.initElements(new AjaxElementLocatorFactory
                 (driver, 5), this);
+        log.debug("Calling superclass constructor HomePage");
     }
 
     public String getTitle() {

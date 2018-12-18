@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 @Log4j2
 public class AccountPage extends HomePage {
@@ -16,31 +17,31 @@ public class AccountPage extends HomePage {
         log.debug("Creating an instance AccountPage");
     }
 
-    @FindBy(className = "icon-list-ol")
+    @FindBy(how = How.CLASS_NAME, using = "icon-list-ol")
     private WebElement buttonOrderHistoryAndDetails;
 
-    @FindBy(className = "icon-ban-circle")
+    @FindBy(how = How.CLASS_NAME, using = "icon-ban-circle")
     private WebElement buttonMyCreditSlips;
 
-    @FindBy(className = "icon-building")
+    @FindBy(how = How.CLASS_NAME, using = "icon-building")
     private WebElement buttonMyAddresses;
 
-    @FindBy(className = "icon-user")
+    @FindBy(how = How.CLASS_NAME, using = "icon-user")
     private WebElement buttonMyPersonalInfo;
 
-    @FindBy(className = "icon-heart")
+    @FindBy(how = How.CLASS_NAME, using = "icon-heart")
     private WebElement buttonMyWishlist;
 
-    @FindBy(className = "info-account")
+    @FindBy(how = How.CLASS_NAME, using = "info-account")
     private WebElement textInfoAccount;
 
-    @FindBy(linkText = "Home")
+    @FindBy(how = How.LINK_TEXT, using = "Home")
     private WebElement buttonMainHome;
 
-    @FindBy(xpath = "//ul[@class='footer_links clearfix']//li[1]//a[1]")
+    @FindBy(how = How.XPATH, using = "//ul[@class='footer_links clearfix']//li[1]//a[1]")
     private WebElement buttonBactToYourAccount;
 
-    @FindBy(xpath = "//ul[@class='footer_links clearfix']//li[2]//a[1]")
+    @FindBy(how = How.XPATH, using = "//ul[@class='footer_links clearfix']//li[2]//a[1]")
     private WebElement buttonHome;
 
     public HomePage clickHome() {
@@ -82,7 +83,7 @@ public class AccountPage extends HomePage {
         return new WishListPage(driver);
     }
 
-    protected void rewriteElement(WebElement element,String value) {
+    protected void rewriteElement(WebElement element, String value) {
         element.clear();
         element.sendKeys(value);
     }

@@ -8,29 +8,31 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.testng.asserts.SoftAssert;
 
 @Log4j2
 public class AuthenticationPage extends HomePage {
 
-    @FindBy(id = "email_create")
+    @FindBy(how = How.ID, using = "email_create")
     private WebElement inputEmail;
 
-    @FindBy(id = "SubmitCreate")
+    @FindBy(how = How.ID, using = "SubmitCreate")
     private WebElement buttonCreate;
 
-    @FindBy(id = "email")
+    @FindBy(how = How.ID, using = "email")
     private WebElement inputCurrentEmail;
 
-    @FindBy(id = "passwd")
+    @FindBy(how = How.ID, using = "passwd")
     private WebElement inputPassword;
 
-    @FindBy(id = "SubmitLogin")
+    @FindBy(how = How.ID, using = "SubmitLogin")
     private WebElement buttonSubmitLogin;
 
-    @FindBy(className = "lost_password from_group")
+    @FindBy(how = How.CLASS_NAME, using = "lost_password from_group")
     private WebElement linkForgotYourPassword;
 
-    @FindBy(id = "create_account_error")
+    @FindBy(how = How.ID, using = "create_account_error")
     private WebElement alertMessageInvalidEmailAddress;
 
     public AuthenticationPage(WebDriver driver) {
@@ -42,6 +44,12 @@ public class AuthenticationPage extends HomePage {
     public AuthenticationPage setEmail(User user) {
         this.inputEmail.clear();
         this.inputEmail.sendKeys(user.getEmail());
+        return this;
+    }
+
+    public AuthenticationPage setEmail(String value) {
+        this.inputEmail.clear();
+        this.inputEmail.sendKeys(value);
         return this;
     }
 
@@ -80,5 +88,15 @@ public class AuthenticationPage extends HomePage {
         this.inputPassword.sendKeys(user.getPassword());
         this.buttonSubmitLogin.click();
         return new AccountPage(driver);
+    }
+
+    private boolean isAlert() {
+        return this.alertMessageInvalidEmailAddress.isDisplayed();
+    }
+
+    public SoftAssert verifyAlertMessage() {
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(isAlert(), this.alertMessageInvalidEmailAddress.getText());
+        return softAssert;
     }
 }

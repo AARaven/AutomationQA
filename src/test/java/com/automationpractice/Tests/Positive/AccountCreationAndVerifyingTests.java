@@ -5,6 +5,8 @@ import com.automationpractice.Data.Data;
 import com.automationpractice.Pages.AccountPage.AccountPage;
 import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
 import com.automationpractice.Pages.AuthorizationPage.IncludedPages.CreateAccountPage;
+import com.automationpractice.Pages.HomePage.HomePage;
+import com.automationpractice.Pages.HomePage.IncludedPages.SearchPage;
 import com.automationpractice.Tests.TestBase;
 import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.DataProvider;
@@ -117,5 +119,16 @@ public class AccountCreationAndVerifyingTests extends TestBase {
                 .clickUpdate()
                 .rewriteAll(otherUser)
                 .clickSubmitAddress();
+    }
+
+
+    @Test
+    public void searchSomething() {
+        HomePage home = new HomePage(driver);
+        home.navigate();
+        SearchPage search = home.searchText("T-shirts");
+        search
+
+                .clickAddToCart();
     }
 }
