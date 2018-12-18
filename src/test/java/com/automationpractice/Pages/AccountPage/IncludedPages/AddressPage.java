@@ -38,27 +38,27 @@ public class AddressPage extends AccountPage {
     private WebElement buttonBackToYourAddresses;
 
     public AddressPage clickUpdate() {
-        this.buttonUpdate.click();
+        buttonUpdate.click();
         return new AddressPage(driver);
     }
 
     public AddressPage clickDelete() {
-        this.buttonDelete.click();
+        buttonDelete.click();
         return this;
     }
 
     public AddressPage clickSubmitAddress() {
-        this.buttonSubmitAddress.click();
+        buttonSubmitAddress.click();
         return this;
     }
 
     public AddressPage clickAddAddress() {
-        this.buttonAddAddress.click();
+        buttonAddAddress.click();
         return this;
     }
 
     public AddressPage clickBackToYourAddresses() {
-        this.buttonBackToYourAddresses.click();
+        buttonBackToYourAddresses.click();
         return this;
     }
 
@@ -96,205 +96,192 @@ public class AddressPage extends AccountPage {
         SoftAssert softAssert = new SoftAssert();
 
         softAssert.assertTrue
-                        (isUserFirstName(user),
-                                "User first name is not correct");
+                (isUserFirstName(user),
+                        "User first name is not correct");
         softAssert.assertTrue
-                        (isUserLastName(user),
-                                "User last name is not correct");
+                (isUserLastName(user),
+                        "User last name is not correct");
         softAssert.assertTrue
-                        (isUserCompany(user),
-                                "User company is not correct");
+                (isUserCompany(user),
+                        "User company is not correct");
         softAssert.assertTrue
-                        (isUserAddress(user),
-                                "User address is not correct");
+                (isUserAddress(user),
+                        "User address is not correct");
         softAssert.assertTrue
-                        (isUserAddressSecondLine(user),
-                                "User address second line is not correct");
+                (isUserAddressSecondLine(user),
+                        "User address second line is not correct");
         softAssert.assertTrue
-                        (isUserCity(user),
-                                "User city is not correct");
+                (isUserCity(user),
+                        "User city is not correct");
         softAssert.assertTrue
-                        (isUserState(user),
-                                "User state is not correct");
+                (isUserState(user),
+                        "User state is not correct");
         softAssert.assertTrue
-                        (isUserZip(user),
-                                "User zip is not correct");
+                (isUserZip(user),
+                        "User zip is not correct");
         softAssert.assertTrue
-                        (isUserCountry(user),
-                                "User country is not correct");
+                (isUserCountry(user),
+                        "User country is not correct");
         softAssert.assertTrue
-                        (isUserHomePhone(user),
-                                "User home phone is not correct");
+                (isUserHomePhone(user),
+                        "User home phone is not correct");
         softAssert.assertTrue
-                        (isUserMobilePhone(user),
-                                "User mobile phone is not correct");
+                (isUserMobilePhone(user),
+                        "User mobile phone is not correct");
         softAssert.assertTrue
-                        (isUserAdditionalInfo(user),
-                                "User additional information is not correct");
+                (isUserAdditionalInfo(user),
+                        "User additional information is not correct");
         softAssert.assertTrue
-                        (isUserAlias(user),
-                                "User alias is not correct");
+                (isUserAlias(user),
+                        "User alias is not correct");
         return softAssert;
     }
 
     private AddressPage rewriteFirstName(String firstname) {
-        this.userAddress.getInputFirstName().clear();
-        this.userAddress.getInputFirstName().sendKeys(firstname);
+        rewriteElement(userAddress.getInputFirstName(), firstname);
         return this;
     }
 
     private AddressPage rewriteLastName(String lastname) {
-        this.userAddress.getInputLastName().clear();
-        this.userAddress.getInputLastName().sendKeys(lastname);
+        rewriteElement(userAddress.getInputLastName(), lastname);
         return this;
     }
 
     private AddressPage rewriteCompany(String company) {
-        this.userAddress.getInputCompany().clear();
-        this.userAddress.getInputCompany().sendKeys(company);
+        rewriteElement(userAddress.getInputCompany(), company);
         return this;
     }
 
     private AddressPage rewriteAddress(String address) {
-        this.userAddress.getInputAddress1().clear();
-        this.userAddress.getInputAddress1().sendKeys(address);
+        rewriteElement(userAddress.getInputAddress1(), address);
         return this;
     }
 
     private AddressPage rewriteAddressSecondLine(String address2) {
-        this.userAddress.getInputAddress2().clear();
-        this.userAddress.getInputAddress2().sendKeys(address2);
+        rewriteElement(userAddress.getInputAddress2(), address2);
         return this;
     }
 
     private AddressPage rewriteCity(String city) {
-        this.userAddress.getInputCity().clear();
-        this.userAddress.getInputCity().sendKeys(city);
+        rewriteElement(userAddress.getInputCity(), city);
         return this;
     }
 
     private AddressPage rewriteState(String state) {
-        new Select(this.userAddress.getSelectState()).deselectAll();
-        new Select(this.userAddress.getSelectState()).selectByValue(state);
+        new Select(userAddress.getSelectState()).selectByValue(state);
         return this;
     }
 
     private AddressPage rewriteZip(String zip) {
-        this.userAddress.getInputZipCode().clear();
-        this.userAddress.getInputZipCode().sendKeys(zip);
+        rewriteElement(userAddress.getInputZipCode(), zip);
         return this;
     }
 
     private AddressPage rewriteCountry(String country) {
-        new Select(this.userAddress.getSelectCountry()).deselectAll();
-        new Select(this.userAddress.getSelectCountry()).selectByValue(country);
+        new Select(userAddress.getSelectCountry()).selectByValue(country);
         return this;
     }
 
     private AddressPage rewriteHomePhone(String homePhone) {
-        this.userAddress.getInputPhone().clear();
-        this.userAddress.getInputPhone().sendKeys(homePhone);
+        rewriteElement(userAddress.getInputPhone(), homePhone);
         return this;
     }
 
     private AddressPage rewriteMobilePhone(String mobilePhone) {
-        this.userAddress.getInputPhoneMobile().clear();
-        this.userAddress.getInputPhoneMobile().sendKeys(mobilePhone);
+        rewriteElement(userAddress.getInputPhoneMobile(), mobilePhone);
         return this;
     }
 
     private AddressPage rewriteAdditionalInfo(String info) {
-        this.userAddress.getInputAdditionalInfo().clear();
-        this.userAddress.getInputAdditionalInfo().sendKeys(info);
+        rewriteElement(userAddress.getInputAdditionalInfo(), info);
         return this;
     }
 
     private AddressPage rewriteAlias(String alias) {
-        this.userAddress.getInputAlias().clear();
-        this.userAddress.getInputAlias().sendKeys(alias);
+        rewriteElement(userAddress.getInputAlias(), alias);
         return this;
     }
 
     private boolean isUserFirstName(User user) {
         return user.getFirstName()
-                .equals(this.userAddress
+                .equals(userAddress
                         .getInputFirstName()
                         .getAttribute("value"));
     }
 
     private boolean isUserLastName(User user) {
         return user.getLastName()
-                .equals(this.userAddress
+                .equals(userAddress
                         .getInputLastName()
                         .getAttribute("value"));
     }
 
     private boolean isUserCompany(User user) {
         return user.getCompany()
-                .equals(this.userAddress
+                .equals(userAddress
                         .getInputCompany()
                         .getAttribute("value"));
     }
 
     private boolean isUserAddress(User user) {
         return user.getAddress()
-                .equals(this.userAddress
+                .equals(userAddress
                         .getInputAddress1()
                         .getAttribute("value"));
     }
 
     private boolean isUserAddressSecondLine(User user) {
         return user.getAddressSecondLine()
-                .equals(this.userAddress
+                .equals(userAddress
                         .getInputAddress2()
                         .getAttribute("value"));
     }
 
     private boolean isUserCity(User user) {
         return user.getCity()
-                .equals(this.userAddress
+                .equals(userAddress
                         .getInputCity()
                         .getAttribute("value"));
     }
 
     private boolean isUserState(User user) {
         return user.getState()
-                .equals(new Select(this.userAddress.getSelectState())
+                .equals(new Select(userAddress.getSelectState())
                         .getFirstSelectedOption()
                         .getText());
     }
 
     private boolean isUserZip(User user) {
         return user.getZipCode()
-                .equals(this.userAddress
+                .equals(userAddress
                         .getInputZipCode()
                         .getAttribute("value"));
     }
 
     private boolean isUserCountry(User user) {
         return user.getCountry()
-                .equals(new Select(this.userAddress.getSelectCountry())
+                .equals(new Select(userAddress.getSelectCountry())
                         .getFirstSelectedOption()
                         .getText());
     }
 
     private boolean isUserHomePhone(User user) {
         return user.getHomePhone()
-                .equals(this.userAddress
+                .equals(userAddress
                         .getInputPhone()
                         .getAttribute("value"));
     }
 
     private boolean isUserMobilePhone(User user) {
         return user.getMobilePhone()
-                .equals(this.userAddress
+                .equals(userAddress
                         .getInputPhoneMobile()
                         .getAttribute("value"));
     }
 
     private boolean isUserAdditionalInfo(User user) {
         return user.getAdditionalInfo()
-                .equals(this.userAddress
+                .equals(userAddress
                         .getInputAdditionalInfo()
                         .getAttribute("value"));
     }
@@ -304,7 +291,7 @@ public class AddressPage extends AccountPage {
             return true;
         }
         return user.getAlias()
-                .equals(this.userAddress
+                .equals(userAddress
                         .getInputAlias()
                         .getAttribute("value"));
     }

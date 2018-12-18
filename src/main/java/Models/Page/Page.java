@@ -12,8 +12,8 @@ import java.util.Properties;
 
 public class Page implements PageNavigation {
 
-    private static final String PROPERTIES_PATH =
-            "./src/main/resources/PropertyFiles/url.properties";
+    private static final String PROPERTIES_PAGES_PATH =
+            "./src/main/resources/PropertyFiles/pages.properties";
 
     private String url;
     protected WebDriver driver;
@@ -57,8 +57,7 @@ public class Page implements PageNavigation {
     @SneakyThrows
     protected String getPropertyUrl(String key) {
         Properties prop = new Properties();
-        InputStream input = null;
-        input = new FileInputStream(PROPERTIES_PATH);
+        InputStream input = new FileInputStream(PROPERTIES_PAGES_PATH);
         prop.load(input);
         return prop.getProperty(key);
     }

@@ -5,7 +5,6 @@ import com.automationpractice.Data.Data;
 import com.automationpractice.Pages.AccountPage.AccountPage;
 import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
 import com.automationpractice.Pages.AuthorizationPage.IncludedPages.CreateAccountPage;
-import com.automationpractice.Pages.HomePage.HomePage;
 import com.automationpractice.Tests.TestBase;
 import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.DataProvider;
@@ -52,28 +51,17 @@ public class AccountCreationAndVerifyingTests extends TestBase {
                 .setFieldsUserData(user)
                 .clickRegister()
                 .clickSignOutBtn();
-
-        //Or this:
-//        HomePage home = new HomePage(driver);
-//        home.navigate();
-//        home
-//                .clickSignInBtn()
-//                .createAccount(user)
-//                .clickSignOutBtn();
     }
 
     @Test(dataProvider = "User")
     public void verifyUserPersonalInfo(User user) {
         AuthenticationPage authenticationPage =
                 new AuthenticationPage(driver);
-
-        authenticationPage
-                .navigate();
+        authenticationPage.navigate();
 
         AccountPage account =
                 authenticationPage
                         .authorizeUser(user);
-
         account
                 .clickMyAccountInfoPage()
                 .verifyPersonalInfo(user)
@@ -84,14 +72,11 @@ public class AccountCreationAndVerifyingTests extends TestBase {
     public void verifyUserAddress(User user) {
         AuthenticationPage authenticationPage =
                 new AuthenticationPage(driver);
-
-        authenticationPage
-                .navigate();
+        authenticationPage.navigate();
 
         AccountPage account =
                 authenticationPage
                         .authorizeUser(user);
-
         account
                 .clickMyAddressPage()
                 .clickUpdate()
@@ -101,40 +86,36 @@ public class AccountCreationAndVerifyingTests extends TestBase {
 
     @Test(dataProvider = "Users")
     public void rewriteUserPersonalInfo(User user, User otherUser) {
-        HomePage home =
-                new HomePage(driver);
-        home.navigate();
+        AuthenticationPage authenticationPage =
+                new AuthenticationPage(driver);
 
-        home.clickSignInBtn();
+        authenticationPage.navigate();
 
         AccountPage account =
-                new AuthenticationPage(driver)
+                authenticationPage
                         .authorizeUser(user);
 
         account
                 .clickMyAccountInfoPage()
                 .rewriteAll(otherUser)
-                .verifyPersonalInfo(user)
-                .assertAll();
+                .clickSave();
     }
 
     @Test(dataProvider = "Users")
     public void rewriteUserAddress(User user, User otherUser) {
-        HomePage home =
-                new HomePage(driver);
-        home.navigate();
+        AuthenticationPage authenticationPage =
+                new AuthenticationPage(driver);
 
-        home.clickSignInBtn();
+        authenticationPage.navigate();
 
         AccountPage account =
-                new AuthenticationPage(driver)
+                authenticationPage
                         .authorizeUser(user);
 
         account
                 .clickMyAddressPage()
                 .clickUpdate()
                 .rewriteAll(otherUser)
-                .verifyUserAddress(user)
-                .assertAll();
+                .clickSubmitAddress();
     }
 }

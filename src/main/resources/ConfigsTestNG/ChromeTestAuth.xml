@@ -6,7 +6,7 @@
     <test name="AuthorizationTestChrome">
         <parameter name="UsersJsonPath" value="./src/main/resources/UsersProfiles/Valid/UsersProfiles.json"/>
         <classes>
-            <class name="com.automationpractice.Tests.AuthTest"/>
+            <class name="com.automationpractice.Tests.Positive.AccountCreationAndVerifyingTests"/>
         </classes>
     </test>
 </suite>

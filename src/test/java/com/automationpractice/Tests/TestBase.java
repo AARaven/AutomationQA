@@ -1,5 +1,6 @@
 package com.automationpractice.Tests;
 
+import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,10 +8,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 @Log4j2
 public class TestBase {
+
+    private static final String PROPERTIES_WEBDRIVER_PATH =
+            "./src/main/resources/PropertyFiles/webdriver.properties";
 
     protected WebDriver driver;
 
@@ -75,16 +82,16 @@ public class TestBase {
             case ("chrome"):
                 setProperty("chrome");
                 this.driver = new ChromeDriver();
-                new WebDriverWait(this.driver, 10);
-                this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                new WebDriverWait(this.driver, 5);
+                this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                 this.driver.manage().window().maximize();
                 return this.driver;
 
             case ("firefox"):
                 setProperty("firefox");
                 this.driver = new FirefoxDriver();
-                new WebDriverWait(this.driver, 3);
-                this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+                new WebDriverWait(this.driver, 5);
+                this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                 this.driver.manage().window().maximize();
                 return this.driver;
         }
@@ -94,15 +101,24 @@ public class TestBase {
     private void setProperty(String driver) {
         switch (driver) {
             case ("chrome"):
-                log.debug("Set driver property : webdriver.chrome.driver," +
-                        " ./src/main/resources/WebDrivers/chromedriver.exe");
-                System.setProperty("webdriver.chrome.driver", "./src/main/resources/WebDrivers/chromedriver.exe");
+                System.setProperty
+                        (getDriverProperties("chromeDriverName"),
+                                getDriverProperties("chromeDriverPath"));
                 break;
             case ("firefox"):
-                log.debug("Set driver property : webdriver.gecko.driver," +
-                        " ./src/main/resources/WebDrivers/geckodriver.exe");
-                System.setProperty("webdriver.gecko.driver", "./src/main/resources/WebDrivers/geckodriver.exe");
+                System.setProperty
+                        (getDriverProperties("firefoxDriverName"),
+                                getDriverProperties("firefoxDriverPath"));
                 break;
         }
+    }
+
+    @SneakyThrows
+    private String getDriverProperties(String config) {
+        Properties prop = new Properties();
+        InputStream input;
+        input = new FileInputStream(PROPERTIES_WEBDRIVER_PATH);
+        prop.load(input);
+        return prop.getProperty(config);
     }
 }

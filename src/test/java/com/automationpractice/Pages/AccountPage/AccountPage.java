@@ -81,4 +81,9 @@ public class AccountPage extends HomePage {
         this.buttonMyWishlist.click();
         return new WishListPage(driver);
     }
+
+    protected void rewriteElement(WebElement element,String value) {
+        element.clear();
+        element.sendKeys(value);
+    }
 }

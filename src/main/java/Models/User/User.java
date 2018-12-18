@@ -1,6 +1,7 @@
 package Models.User;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.SneakyThrows;
 import org.codehaus.jackson.map.ObjectMapper;
 
@@ -12,6 +13,7 @@ public class User {
     private static final String USER_SAVING_PATH =
             "./src/main/resources/UsersProfiles/SavedProfiles/lastProfile.json";
 
+    // TODO: enums
     private String gender;
     private String firstName;
     private String lastName;

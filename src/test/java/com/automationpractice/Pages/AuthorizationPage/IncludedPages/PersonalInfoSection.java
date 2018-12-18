@@ -80,20 +80,12 @@ public class PersonalInfoSection {
     }
 
     private void setGender(User user) {
-        switch (user.getGender()) {
-            case "male":
-                this.radioGenderMale
-                        .click();
-                break;
-            case "female":
-                this.radioGenderFemale
-                        .click();
-                break;
-            default:
-                throw new IllegalArgumentException
-                        ("Current gender is not available.");
-        }
+        if (user.getGender().equals("male")) this.radioGenderMale.click();
+        else if (user.getGender().equals("female")) this.radioGenderFemale.click();
+        throw new IllegalArgumentException
+                ("Current gender is not available.");
     }
+
 
     private void setCustomerFirstName(String firstname) {
         this.inputCustomerFirstName.sendKeys(firstname);

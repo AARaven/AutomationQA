@@ -82,19 +82,24 @@ public class AccountInfoPage extends AccountPage {
     }
 
     public AccountInfoPage confirmPassword(User user) {
-        this.personalInfo.getInputPassword()
+        personalInfo.getInputPassword()
                 .sendKeys(user.getPassword());
         return this;
     }
 
     public AccountInfoPage changeUserGender(String gender) {
-        if (gender.equals("male")) {
-            this.personalInfo.getRadioGenderMale()
-                    .click();
-        } else if (gender.equals("female")) {
-            this.personalInfo.getRadioGenderFemale()
-                    .click();
-        } else throw new IllegalArgumentException("Your gender is not available.");
+        switch (gender) {
+            case "male":
+                personalInfo.getRadioGenderMale()
+                        .click();
+                break;
+            case "female":
+                personalInfo.getRadioGenderFemale()
+                        .click();
+                break;
+            default:
+                throw new IllegalArgumentException("Your gender is not available.");
+        }
         return this;
     }
 
@@ -118,62 +123,59 @@ public class AccountInfoPage extends AccountPage {
 
     private AccountInfoPage rewriteUserGender(User user) {
         if (user.getGender().equals("male")) {
-            this.personalInfo.getRadioGenderFemale().click();
+            personalInfo.getRadioGenderFemale().click();
         } else if (user.getGender().equals("female")) {
-            this.personalInfo.getRadioGenderMale();
+            personalInfo.getRadioGenderMale();
         }
         return this;
     }
 
     private AccountInfoPage rewriteUserFirstName(User user) {
-        this.inputFirstName.clear();
-        this.inputFirstName.sendKeys(user.getFirstName());
+        rewriteElement(inputFirstName,user.getFirstName());
         return this;
     }
 
     private AccountInfoPage rewriteUserLastName(User user) {
-        this.inputLastName.clear();
-        this.inputLastName.sendKeys(user.getLastName());
+        rewriteElement(inputLastName,user.getLastName());
         return this;
     }
 
     private AccountInfoPage rewriteUserEmail(User user) {
-        this.personalInfo.getInputEmail().clear();
-        this.personalInfo.getInputEmail().sendKeys(user.getEmail());
+        rewriteElement(personalInfo.getInputEmail(),user.getEmail());
         return this;
     }
 
     private AccountInfoPage rewriteUserDayOfBirth(User user) {
-        new Select(this.personalInfo.getSelectDays()).selectByValue(user.getDayOfBirth());
+        new Select(personalInfo.getSelectDays()).selectByValue(user.getDayOfBirth());
         return this;
     }
 
     private AccountInfoPage rewriteUserMonthOfBirth(User user) {
-        new Select(this.personalInfo.getSelectMonths()).selectByValue(user.getMonthOfBirth());
+        new Select(personalInfo.getSelectMonths()).selectByValue(user.getMonthOfBirth());
         return this;
     }
 
     private AccountInfoPage rewriteUserYearOfBirth(User user) {
-        new Select(this.personalInfo.getSelectYears()).selectByValue(user.getYearOfBirth());
+        new Select(personalInfo.getSelectYears()).selectByValue(user.getYearOfBirth());
         return this;
     }
 
     private AccountInfoPage rewriteUserNewsLetter(User user) {
-        this.personalInfo.getCheckboxNewsLetter().click();
+        personalInfo.getCheckboxNewsLetter().click();
         return this;
     }
 
     private AccountInfoPage rewriteUserSpecialOffers(User user) {
-        this.personalInfo.getCheckboxSpecialOffers().click();
+        personalInfo.getCheckboxSpecialOffers().click();
         return this;
     }
 
     private boolean isUserGender(User user) {
         if (user.getGender().equals("male")) {
-            return this.personalInfo.getRadioGenderMale()
+            return personalInfo.getRadioGenderMale()
                     .isSelected();
         } else if ((user.getGender().equals("female"))) {
-            return this.personalInfo.getRadioGenderFemale()
+            return personalInfo.getRadioGenderFemale()
                     .isSelected();
         }
         return false;
@@ -181,43 +183,43 @@ public class AccountInfoPage extends AccountPage {
 
     private boolean isUserFirstName(User user) {
         return user.getFirstName()
-                .equals(this.inputFirstName
+                .equals(inputFirstName
                         .getAttribute("value"));
     }
 
     private boolean isUserLastName(User user) {
         return user.getLastName()
-                .equals(this.inputLastName
+                .equals(inputLastName
                         .getAttribute("value"));
     }
 
     private boolean isUserEmail(User user) {
         return user.getEmail()
-                .equals(this.personalInfo.getInputEmail()
+                .equals(personalInfo.getInputEmail()
                         .getAttribute("value"));
     }
 
     private boolean isUserDayOfBirth(User user) {
         return user.getDayOfBirth()
-                .equals(this.personalInfo.getSelectDays()
+                .equals(personalInfo.getSelectDays()
                         .getAttribute("value"));
     }
 
     private boolean isUserMonthOfBirth(User user) {
         return user.getMonthOfBirth()
-                .equals(this.personalInfo.getSelectMonths()
+                .equals(personalInfo.getSelectMonths()
                         .getAttribute("value"));
     }
 
     private boolean isUserYearOfBirth(User user) {
         return user.getYearOfBirth()
-                .equals(this.personalInfo.getSelectYears()
+                .equals(personalInfo.getSelectYears()
                         .getAttribute("value"));
     }
 
     private boolean isNewsLetter(User user) {
         if (user.isNewsLetter()) {
-            return this.personalInfo.getCheckboxNewsLetter()
+            return personalInfo.getCheckboxNewsLetter()
                     .isSelected();
         }
         return false;
@@ -225,7 +227,7 @@ public class AccountInfoPage extends AccountPage {
 
     private boolean isSpecialOffers(User user) {
         if (user.isSpecialOffers()) {
-            return this.personalInfo.getCheckboxSpecialOffers()
+            return personalInfo.getCheckboxSpecialOffers()
                     .isSelected();
         }
         return false;
