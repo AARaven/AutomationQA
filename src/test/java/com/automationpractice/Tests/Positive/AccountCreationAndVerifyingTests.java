@@ -5,12 +5,8 @@ import com.automationpractice.Data.Data;
 import com.automationpractice.Pages.AccountPage.AccountPage;
 import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
 import com.automationpractice.Pages.AuthorizationPage.IncludedPages.CreateAccountPage;
-import com.automationpractice.Pages.HomePage.HomePage;
-import com.automationpractice.Pages.HomePage.IncludedPages.SearchPage;
 import com.automationpractice.Tests.TestBase;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -61,7 +57,6 @@ public class AccountCreationAndVerifyingTests extends TestBase {
     public void accountAuthorization(User user) {
         AuthenticationPage auth = new AuthenticationPage(driver);
         auth.navigate();
-
         auth.authorizeUser(user);
     }
 

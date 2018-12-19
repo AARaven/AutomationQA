@@ -2,6 +2,7 @@ package com.automationpractice.Pages.AuthorizationPage.IncludedPages;
 
 import Models.User.User;
 import lombok.Getter;
+import net.bytebuddy.utility.RandomString;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -99,6 +100,32 @@ public class AddressSection {
     void unfilledAddressSection() {
         this.inputAlias.clear();
         new Select(this.selectCountry).selectByVisibleText("-");
+    }
+
+    void fillAddressSectionInvalidUserData(User user) {
+        setDataFields
+                (inputFirstName, user.getFirstName());
+        setDataFields
+                (inputLastName, user.getLastName());
+        setDataFields
+                (inputCompany,user.getCompany());
+        setDataFields
+                (inputAddress1, user.getAddress());
+        setDataFields
+                (inputAddress2, user.getAddressSecondLine());
+        setDataFields
+                (inputCity, user.getCity());
+        setDataFields
+                (inputZipCode, user.getZipCode());
+        setDataFields
+                (inputAdditionalInfo, new RandomString(500).nextString());
+        setDataFields
+                (inputPhone, user.getHomePhone());
+        setDataFields
+                (inputPhoneMobile, user.getMobilePhone());
+        setDataFields
+                (inputAlias, user.getAlias());
+
     }
 
     private void setState(String state) {

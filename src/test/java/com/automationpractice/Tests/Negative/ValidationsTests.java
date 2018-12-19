@@ -17,30 +17,52 @@ public class ValidationsTests extends TestBase {
 
     private Data data = new Data();
 
-    @DataProvider(name = "User")
-    public Object[][] getUser() {
+    @DataProvider(name = "InvalidUser")
+    public Object[][] getInvalidUser() {
         return new Object[][]{
-                {data.getData("Alex", User.class, USERS_INVALID_PATH)}
+                {data.getData("InvalidAlex", User.class, USERS_INVALID_PATH)}
         };
     }
 
-    @Test(dataProvider = "User")
-    public void negativeCreationUser(User user) {
-        AuthenticationPage authentication = new AuthenticationPage(driver);
+    @Test(dataProvider = "InvalidUser")
+    public void creationAnAccountWithEmptyUserData(User user) {
+        AuthenticationPage authentication =
+                new AuthenticationPage(driver);
         authentication.navigate();
 
         authentication
-                .setEmail("asdf@asdf.tu")
+                .setEmail(user.getEmail())
                 .clickSubmitCreate();
 
         CreateAccountPage creation =
                 new CreateAccountPage(driver);
 
         creation
-                .setFieldsUserInvalidData()
+                .setFieldsUserEmptyData()
                 .clickRegister();
 
-        creation.verifyAlert().assertAll();
+        creation.verifyUserEmptyDataAlert().assertAll();
+    }
+
+    @Test(dataProvider = "InvalidUser")
+    public void creationAnAccountWithInvalidUserData(User user) {
+        AuthenticationPage authentication =
+                new AuthenticationPage(driver);
+        authentication.navigate();
+
+        CreateAccountPage creation =
+                authentication
+                        .setEmail(user.getEmail())
+                        .clickSubmitCreate();
+
+        creation
+                .setFieildsUserInvalidData(user)
+                .setEmail("!@#$!%")
+                .clickRegister();
+
+        creation
+                .verifyUserInvalidDataAlert()
+                .assertAll();
 
     }
 }

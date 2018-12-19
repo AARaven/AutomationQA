@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="TestCrossBrowser" verbose="1">
+    <!--<parameter name="browser" value="chrome"/>-->
+    <test name="NegativeAuthorizationTests" preserve-order="true">
+        <classes>
+            <class name="com.automationpractice.Tests.Negative.ValidationsTests">
+                <methods>
+                    <include name="creationAnAccountWithEmptyUserData"/>
+                    <include name="creationAnAccountWithInvalidUserData"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

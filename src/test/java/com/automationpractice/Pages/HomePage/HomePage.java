@@ -34,7 +34,6 @@ public class HomePage extends Page {
     @FindBy(how = How.CLASS_NAME, using = "account")
     private WebElement buttonAccount;
 
-
     public HomePage clickSignOutBtn() {
         this.buttonSignOut.click();
         return new HomePage(driver);
@@ -55,4 +54,6 @@ public class HomePage extends Page {
         this.inputSearch.submit();
         return new SearchPage(driver);
     }
+
+
 }

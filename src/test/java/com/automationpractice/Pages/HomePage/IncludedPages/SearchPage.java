@@ -5,12 +5,8 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Log4j2
 public class SearchPage extends HomePage {
@@ -33,17 +29,34 @@ public class SearchPage extends HomePage {
     @FindBy(how = How.XPATH, using = "/html[1]/body[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[3]/div[1]/p[1]/button[1]/span[1]")
     private WebElement getButtonAddToCart;
 
+    @FindBy(how = How.ID, using = "add_to_cart")
+    private WebElement cartDiv;
+
+    @FindBy(how = How.CLASS_NAME, using = "btn btn-default button button-medium")
+    private WebElement buttonPreceedToCheckOut;
+
     public SearchPage clickOnProduct() {
         this.linkProduct.click();
         return this;
     }
 
-    public SearchPage clickAddToCart() {
-        WebElement element = new WebDriverWait(driver, 5)
-                .until(ExpectedConditions
-                        .presenceOfElementLocated(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[3]/div[1]/p[1]/button[1]/span[1]")));
-        element.click();
+    public SearchPage chooseTShirt(String title) {
+        this.driver.findElements(By.className("product-name")).stream()
+                .filter(element -> element.getAttribute("title").contentEquals(title))
+                .forEach(WebElement::click);
         return this;
     }
+
+    public SearchPage clickAddToCart() {
+        this.driver.findElements(By.tagName("button")).stream()
+                .filter(element -> element.getAttribute("name").contains("Submit"))
+                .forEach(WebElement::click);
+        return this;
+    }
+
+//    public SearchPage clickProceedToCheckOut() {
+//        this.buttonPreceedToCheckOut.click();
+//        return this;
+//    }
 }
 

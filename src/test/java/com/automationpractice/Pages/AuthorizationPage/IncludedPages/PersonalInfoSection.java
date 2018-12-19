@@ -88,6 +88,18 @@ public class PersonalInfoSection {
      setDataFields(inputEmail,"");
     }
 
+    void fillPersonalInfoSectionInvalidData(User user) {
+        setGender(user);
+        setDataFields
+                (inputCustomerFirstName, user.getFirstName());
+        setDataFields
+                (inputCustomerLastName, user.getLastName());
+        setDataFields
+                (inputPassword, user.getPassword());
+        setNewsLetter(user);
+        setSpecialOffers(user);
+    }
+
     private void setGender(User user) {
         if (user.getGender().name().equals("MALE")) this.radioGenderMale.click();
         else if (user.getGender().name().equals("FEMALE")) this.radioGenderFemale.click();

@@ -38,7 +38,7 @@ public class CreateAccountPage extends HomePage {
         return this;
     }
 
-    public CreateAccountPage setFieldsUserInvalidData() {
+    public CreateAccountPage setFieldsUserEmptyData() {
         new PersonalInfoSection(driver)
                 .unfilledPersonalInfoSection();
         new AddressSection(driver)
@@ -46,7 +46,15 @@ public class CreateAccountPage extends HomePage {
         return this;
     }
 
-    public SoftAssert verifyAlert() {
+    public CreateAccountPage setFieildsUserInvalidData(User user) {
+        new PersonalInfoSection(driver)
+                .fillPersonalInfoSectionInvalidData(user);
+        new AddressSection(driver)
+                .fillAddressSectionInvalidUserData(user);
+        return this;
+    }
+
+    public SoftAssert verifyUserEmptyDataAlert() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue
                 (alertDiv.isDisplayed(), "Alert message is not displayed.");
@@ -85,5 +93,63 @@ public class CreateAccountPage extends HomePage {
                         "Alert message 'Country is invalid' is not displayed.");
         log.info(alertDiv.getText());
         return softAssert;
+    }
+
+    public SoftAssert verifyUserInvalidDataAlert() {
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue
+                (alertDiv.isDisplayed(), "Alert message is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("firstname is invalid."),
+                        "Alert message 'firstname is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("lastname is invalid."),
+                        "Alert message 'lastname is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("email is invalid"),
+                        "Alert message 'email is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("address1 is invalid."),
+                        "Alert message 'address1 is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("address2 is invalid."),
+                        "Alert message 'address2 is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("postcode is invalid."),
+                        "Alert message 'postcode is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("city is invalid."),
+                        "Alert message 'city is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("phone is invalid."),
+                        "Alert message 'phone is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("phone_mobile is invalid."),
+                        "Alert message 'phone_mobile is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("The Zip/Postal code you've entered is invalid. " +
+                                "It must follow this format: 00000"),
+                        "Alert message 'The Zip/Postal code you've entered is invalid." +
+                                " It must follow this format: 00000' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("passwd is invalid."),
+                        "Alert message 'email is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("This country requires you to choose a State."),
+                        "Alert message 'email is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("This country requires you to choose a State."),
+                        "Alert message 'email is invalid.' is not displayed.");
+        softAssert.assertTrue
+                (alertDiv.getText().contains("other is too long. Maximum length: 300"),
+                        "Alert message 'other is too long. Maximum length: 300' is not displayed.");
+        log.info(alertDiv.getText());
+        return softAssert;
+    }
+
+    public CreateAccountPage setEmail(String email) {
+        new PersonalInfoSection(driver).getInputEmail().clear();
+        new PersonalInfoSection(driver).getInputEmail().sendKeys(email);
+        return this;
     }
 }
