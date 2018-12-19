@@ -160,10 +160,10 @@ public class AccountInfoPage extends AccountPage {
     }
 
     private boolean isUserGender(User user) {
-        if (user.getGender().equals("male")) {
+        if (user.getGender().getGender().equals("male")) {
             return personalInfo.getRadioGenderMale()
                     .isSelected();
-        } else if ((user.getGender().equals("female"))) {
+        } else if ((user.getGender().getGender().equals("female"))) {
             return personalInfo.getRadioGenderFemale()
                     .isSelected();
         }

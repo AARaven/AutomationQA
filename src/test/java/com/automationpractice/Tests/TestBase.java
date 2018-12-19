@@ -34,7 +34,7 @@ public class TestBase {
         log.debug("After suite method:");
         log.debug("Stopping webdriver...");
         this.driver.quit();
-        log.debug("Webdriver stopped.");
+         log.debug("Webdriver stopped.");
     }
 
     @BeforeClass
@@ -82,8 +82,8 @@ public class TestBase {
             case ("chrome"):
                 setProperty("chrome");
                 this.driver = new ChromeDriver();
-                new WebDriverWait(this.driver, 5);
-                this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+                new WebDriverWait(this.driver, 7);
+                this.driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
                 this.driver.manage().window().maximize();
                 return this.driver;
 

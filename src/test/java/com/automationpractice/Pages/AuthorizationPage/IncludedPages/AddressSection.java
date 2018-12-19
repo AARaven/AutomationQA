@@ -73,6 +73,8 @@ public class AddressSection {
         setDataFields
                 (inputLastName, user.getLastName());
         setDataFields
+                (inputCompany,user.getCompany());
+        setDataFields
                 (inputAddress1, user.getAddress());
         setDataFields
                 (inputAddress2, user.getAddressSecondLine());
@@ -92,6 +94,11 @@ public class AddressSection {
                 (inputPhoneMobile, user.getMobilePhone());
         setDataFields
                 (inputAlias, user.getAlias());
+    }
+
+    void unfilledAddressSection() {
+        this.inputAlias.clear();
+        new Select(this.selectCountry).selectByVisibleText("-");
     }
 
     private void setState(String state) {

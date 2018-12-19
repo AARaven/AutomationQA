@@ -61,6 +61,9 @@ public class PersonalInfoSection {
     @FindBy(how = How.ID, using = "email")
     private WebElement inputEmail;
 
+    @FindBy(how = How.CLASS_NAME, using = "is_required validate form-control")
+    private WebElement reqEmail;
+
     void fillPersonalInfoSection(User user) {
         setGender(user);
         setDataFields
@@ -79,6 +82,10 @@ public class PersonalInfoSection {
         );
         setNewsLetter(user);
         setSpecialOffers(user);
+    }
+
+    void unfilledPersonalInfoSection() {
+     setDataFields(inputEmail,"");
     }
 
     private void setGender(User user) {

@@ -19,7 +19,6 @@ public class Page implements PageNavigation {
 
     private String url;
     protected WebDriver driver;
-    protected WebDriverWait wait;
 
     public void navigate() {
         this.driver.get(this.url);
@@ -43,7 +42,6 @@ public class Page implements PageNavigation {
 
     protected Page(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 5);
         PageFactory.initElements(new AjaxElementLocatorFactory
                 (driver, 5), this);
         log.debug("Calling superclass constructor HomePage");

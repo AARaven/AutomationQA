@@ -9,6 +9,8 @@ import com.automationpractice.Pages.HomePage.HomePage;
 import com.automationpractice.Pages.HomePage.IncludedPages.SearchPage;
 import com.automationpractice.Tests.TestBase;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -51,34 +53,33 @@ public class AccountCreationAndVerifyingTests extends TestBase {
 
         createAccountPage
                 .setFieldsUserData(user)
-                .clickRegister()
-                .clickSignOutBtn();
+                .clickRegister();
+    }
+
+
+    @Test(dataProvider = "User")
+    public void accountAuthorization(User user) {
+        AuthenticationPage auth = new AuthenticationPage(driver);
+        auth.navigate();
+
+        auth.authorizeUser(user);
     }
 
     @Test(dataProvider = "User")
     public void verifyUserPersonalInfo(User user) {
-        AuthenticationPage authenticationPage =
-                new AuthenticationPage(driver);
-        authenticationPage.navigate();
-
-        AccountPage account =
-                authenticationPage
-                        .authorizeUser(user);
+        AccountPage account = new AccountPage(driver);
+        account.navigate();
         account
                 .clickMyAccountInfoPage()
                 .verifyPersonalInfo(user)
                 .assertAll();
+
     }
 
     @Test(dataProvider = "User")
     public void verifyUserAddress(User user) {
-        AuthenticationPage authenticationPage =
-                new AuthenticationPage(driver);
-        authenticationPage.navigate();
-
-        AccountPage account =
-                authenticationPage
-                        .authorizeUser(user);
+        AccountPage account = new AccountPage(driver);
+        account.navigate();
         account
                 .clickMyAddressPage()
                 .clickUpdate()
@@ -119,16 +120,5 @@ public class AccountCreationAndVerifyingTests extends TestBase {
                 .clickUpdate()
                 .rewriteAll(otherUser)
                 .clickSubmitAddress();
-    }
-
-
-    @Test
-    public void searchSomething() {
-        HomePage home = new HomePage(driver);
-        home.navigate();
-        SearchPage search = home.searchText("T-shirts");
-        search
-
-                .clickAddToCart();
     }
 }
