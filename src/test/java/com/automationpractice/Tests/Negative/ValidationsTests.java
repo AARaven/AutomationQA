@@ -56,7 +56,7 @@ public class ValidationsTests extends TestBase {
                         .clickSubmitCreate();
 
         creation
-                .setFieildsUserInvalidData(user)
+                .setFieldsUserInvalidData(user)
                 .setEmail("!@#$!%")
                 .clickRegister();
 

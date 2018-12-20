@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="TestCrossBrowser" verbose="1">
-    <test name="AuthorizationTestChrome" preserve-order="true">
+    <test name="PageElementsTest" preserve-order="true">
         <classes>
-            <class name="com.automationpractice.Tests.Positive.OrderTests">
+            <class name="com.automationpractice.Tests.Positive.PageElementsTest">
                 <methods>
-                    <include name="searchTShirtAndAddToCaret"/>
+                    <include name="verifyingElementsOnPageIsEnabled"/>
                 </methods>
             </class>
         </classes>

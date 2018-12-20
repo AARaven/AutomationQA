@@ -20,7 +20,7 @@ public class OrderTests extends TestBase {
         SearchPage search = home.searchText("T-shirt");
 
         search
-                .chooseTShirt("Faded Short Sleeve T-shirts")
+                .chooseTShirt("Faded Short Sleeve")
                 .clickAddToCart()
                 .clickSubmitSummary()
                 .clickSubmitSignIn();

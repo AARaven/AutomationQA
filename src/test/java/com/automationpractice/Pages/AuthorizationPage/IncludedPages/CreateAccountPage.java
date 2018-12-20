@@ -4,6 +4,7 @@ import Models.User.User;
 import com.automationpractice.Pages.AccountPage.AccountPage;
 import com.automationpractice.Pages.HomePage.HomePage;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -46,11 +47,17 @@ public class CreateAccountPage extends HomePage {
         return this;
     }
 
-    public CreateAccountPage setFieildsUserInvalidData(User user) {
+    public CreateAccountPage setFieldsUserInvalidData(User user) {
         new PersonalInfoSection(driver)
                 .fillPersonalInfoSectionInvalidData(user);
         new AddressSection(driver)
                 .fillAddressSectionInvalidUserData(user);
+        return this;
+    }
+
+    public CreateAccountPage setEmail(String email) {
+        new PersonalInfoSection(driver).getInputEmail().clear();
+        new PersonalInfoSection(driver).getInputEmail().sendKeys(email);
         return this;
     }
 
@@ -147,9 +154,29 @@ public class CreateAccountPage extends HomePage {
         return softAssert;
     }
 
-    public CreateAccountPage setEmail(String email) {
-        new PersonalInfoSection(driver).getInputEmail().clear();
-        new PersonalInfoSection(driver).getInputEmail().sendKeys(email);
-        return this;
+    public SoftAssert verifyingInputElementsOnPageIsEnabled() {
+        SoftAssert softAssert = new SoftAssert();
+        this.driver.findElements(By.tagName("input"))
+                .forEach(element -> softAssert.assertTrue
+                        (element.isEnabled(), element.getAttribute("name")));
+        return softAssert;
+    }
+
+    public SoftAssert verifyingSelectElementsOnPageIsEnabled() {
+        SoftAssert softAssert = new SoftAssert();
+        this.driver.findElements(By.tagName("select"))
+                .forEach(element -> softAssert.assertTrue
+                        (element.isEnabled(), element.getAttribute("name") +
+                                " is disabled."));
+        return softAssert;
+    }
+
+    public SoftAssert verifyingTextAreaElementsOnPageIsEnabled() {
+        SoftAssert softAssert = new SoftAssert();
+        this.driver.findElements(By.tagName("textarea"))
+                .forEach(element -> softAssert.assertTrue
+                        (element.isEnabled(), element.getAttribute("name") +
+                                " is disabled."));
+        return softAssert;
     }
 }

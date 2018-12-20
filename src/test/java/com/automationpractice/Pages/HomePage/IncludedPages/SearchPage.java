@@ -18,24 +18,6 @@ public class SearchPage extends HomePage {
         setUrl(getPropertyUrl(getClass().getSimpleName()));
     }
 
-    @FindBy(how = How.CLASS_NAME, using = "product_img_link")
-    private WebElement linkProduct;
-
-    @FindBy(how = How.CLASS_NAME, using = "exclusive")
-    private WebElement buttonAddToCart;
-
-    @FindBy(how = How.CLASS_NAME, using = "pb-right-column col-xs-12 col-sm-4 col-md-3")
-    private WebElement containerTShirt;
-
-    @FindBy(how = How.XPATH, using = "/html[1]/body[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[3]/div[1]/p[1]/button[1]/span[1]")
-    private WebElement getButtonAddToCart;
-
-    @FindBy(how = How.ID, using = "add_to_cart")
-    private WebElement cartDiv;
-
-    @FindBy(how = How.CLASS_NAME, using = "button btn btn-default standard-checkout button-medium")
-    private WebElement buttonPreceedToCheckOut;
-
     @FindBy(how = How.NAME, using = "processAddress")
     private WebElement buttonSubmitAddressToOrder;
 
@@ -51,14 +33,9 @@ public class SearchPage extends HomePage {
     @FindBy(how = How.CLASS_NAME, using = "cheque-indent")
     private WebElement textOrderIsComplete;
 
-    public SearchPage clickOnProduct() {
-        this.linkProduct.click();
-        return this;
-    }
-
     public SearchPage chooseTShirt(String title) {
         this.driver.findElements(By.className("product-name")).stream()
-                .filter(element -> element.getAttribute("title").contentEquals(title))
+                .filter(element -> element.getAttribute("title").contains(title))
                 .findFirst()
                 .get()
                 .click();
@@ -83,20 +60,11 @@ public class SearchPage extends HomePage {
                 .click();
         return this;
     }
-    public SearchPage clickSubmitSignIn() {
-       this.driver.findElements(By.tagName("a")).stream()
-               .filter(element -> element.getAttribute("class")
-                       .contains("button btn btn-default standard-checkout button-medium"))
-               .findFirst()
-               .get()
-               .click();
-        return this;
-    }
 
-    public SearchPage clickProceedToCheckOutThird() {
-        this.driver.findElements(By.tagName("button")).stream()
-                .filter(element -> element.getAttribute("submit")
-                        .contains("submit"))
+    public SearchPage clickSubmitSignIn() {
+        this.driver.findElements(By.tagName("a")).stream()
+                .filter(element -> element.getAttribute("class")
+                        .contains("button btn btn-default standard-checkout button-medium"))
                 .findFirst()
                 .get()
                 .click();
@@ -135,7 +103,9 @@ public class SearchPage extends HomePage {
 
     public SoftAssert verifyOrderIsComplete() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(this.textOrderIsComplete.getText().contains("Your order on My Store is complete."),"Your order is not complete.");
+        softAssert.assertTrue(this.textOrderIsComplete.getText()
+                        .contains("Your order on My Store is complete."),
+                "Your order is not complete.");
         return softAssert;
     }
 }
