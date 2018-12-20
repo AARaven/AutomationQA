@@ -2,7 +2,9 @@ package com.automationpractice.Tests.Positive;
 
 import Models.User.User;
 import com.automationpractice.Pages.AccountPage.AccountPage;
+import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
 import com.automationpractice.Pages.HomePage.HomePage;
+import com.automationpractice.Pages.HomePage.IncludedPages.SearchPage;
 import com.automationpractice.Tests.TestBase;
 import org.testng.annotations.Test;
 
@@ -11,17 +13,34 @@ public class OrderTests extends TestBase {
     @Test(dataProvider = "User", dataProviderClass = AccountCreationAndVerifyingTests.class)
     public void searchTShirtAndAddToCaret(User user) {
         HomePage home = new HomePage(driver);
-        home.navigate();
-        home.clickSignInBtn()
-                .authorizeUser(user);
-        home
-                .searchText("T-shirt")
-                .chooseTShirt("Faded Short Sleeve T-shirts")
-                .clickAddToCart();
-
+        AuthenticationPage auth = new AuthenticationPage(driver);
         AccountPage account = new AccountPage(driver);
-        account.navigate();
-        account.clickOrderHistory().refresh();
+        home.navigate();
+
+        SearchPage search = home.searchText("T-shirt");
+
+        search
+                .chooseTShirt("Faded Short Sleeve T-shirts")
+                .clickAddToCart()
+                .clickSubmitSummary()
+                .clickSubmitSignIn();
+
+        auth
+                .authorizeUser(user);
+
+        search
+                .clickSubmitAddress()
+                .clickCheckBoxAgree()
+                .clickProcessCarier()
+                .clickBankWire()
+                .clickConfirmMyOrder()
+                .verifyOrderIsComplete()
+                .assertAll();
+
+        account .navigate();
+        account
+                .clickOrderHistory()
+                .clickOnPdfFile();
     }
 
     @Test

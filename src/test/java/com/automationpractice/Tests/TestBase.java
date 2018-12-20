@@ -1,5 +1,8 @@
 package com.automationpractice.Tests;
 
+import Models.User.User;
+import com.automationpractice.Data.Data;
+import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
@@ -34,7 +37,7 @@ public class TestBase {
         log.debug("After suite method:");
         log.debug("Stopping webdriver...");
         this.driver.quit();
-         log.debug("Webdriver stopped.");
+        log.debug("Webdriver stopped.");
     }
 
     @BeforeClass
@@ -58,6 +61,7 @@ public class TestBase {
     }
 
     @BeforeTest
+
     protected void beforeTestMethod() {
         log.debug("beforeTestMethod:");
     }

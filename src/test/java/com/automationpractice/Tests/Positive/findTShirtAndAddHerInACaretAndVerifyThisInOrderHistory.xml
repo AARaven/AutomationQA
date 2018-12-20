@@ -4,15 +4,10 @@
 <suite name="TestCrossBrowser" verbose="1">
     <test name="AuthorizationTestChrome" preserve-order="true">
         <classes>
-            <class name="com.automationpractice.Tests.Positive.AccountCreationAndVerifyingTests">
-                <methods>
-                    <include name="accountAuthorization"/>
-                </methods>
-            </class>
             <class name="com.automationpractice.Tests.Positive.OrderTests">
                 <methods>
+                    <include name="com.automationpractice.Tests.Positive.AccountCreationAndVerifyingTests.accountAuthorization"/>
                     <include name="searchTShirtAndAddToCaret"/>
-                    <include name="verifyThatTShirtWasAddedToOrderHistory"/>
                 </methods>
             </class>
         </classes>
