@@ -1,8 +1,5 @@
 package com.automationpractice.Tests;
 
-import Models.User.User;
-import com.automationpractice.Data.Data;
-import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;

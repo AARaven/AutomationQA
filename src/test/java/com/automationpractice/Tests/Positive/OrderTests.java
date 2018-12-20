@@ -6,7 +6,11 @@ import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
 import com.automationpractice.Pages.HomePage.HomePage;
 import com.automationpractice.Pages.HomePage.IncludedPages.SearchPage;
 import com.automationpractice.Tests.TestBase;
+import org.testng.ITestListener;
+import org.testng.ITestNGListener;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
 
 public class OrderTests extends TestBase {
 
@@ -42,6 +46,7 @@ public class OrderTests extends TestBase {
                 .clickOrderHistory()
                 .clickOnPdfFile();
     }
+
 
     @Test
     public void verifyThatTShirtWasAddedToOrderHistory() {
