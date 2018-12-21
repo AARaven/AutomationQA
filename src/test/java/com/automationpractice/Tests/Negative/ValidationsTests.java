@@ -63,6 +63,5 @@ public class ValidationsTests extends TestBase {
         creation
                 .verifyUserInvalidDataAlert()
                 .assertAll();
-
     }
 }

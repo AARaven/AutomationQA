@@ -9,7 +9,6 @@
             <class name="com.automationpractice.Tests.Positive.AccountCreationAndVerifyingTests">
                 <methods>
                     <include name="creationAnAccount"/>
-                    <include name=""
                 </methods>
             </class>
         </classes>

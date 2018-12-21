@@ -63,93 +63,58 @@ public class CreateAccountPage extends HomePage {
 
     public SoftAssert verifyUserEmptyDataAlert() {
         SoftAssert softAssert = new SoftAssert();
+        WebElement errorContainer = alertDiv.findElement(By.tagName("ol"));
+        String[] strings = errorContainer.getText().split("\\n");
+        String[] errors = {"You must register at least one phone number.",
+                "lastname is required.",
+                "firstname is required.",
+                "passwd is required.",
+                "id_country is required.",
+                "aliasd is required.",
+                "address1 is required.",
+                "city is required.",
+                "Country cannot be loaded with address->id_country",
+                "Country is invalid"
+        };
         softAssert.assertTrue
-                (alertDiv.isDisplayed(), "Alert message is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("You must register at least one phone number."),
-                        "Alert message 'You must register at least one phone number.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("lastname is required."),
-                        "Alert message 'lastname is required.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("firstname is required."),
-                        "Alert message 'firstname is required.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("email is required."),
-                        "Alert message 'email is required.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("passwd is required."),
-                        "Alert message 'passwd is required.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("id_country is required."),
-                        "Alert message 'id_country is required.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("alias is required."),
-                        "Alert message 'alias is required.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("address1 is required."),
-                        "Alert message 'address1 is required.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("city is required."),
-                        "Alert message 'city is required.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("Country cannot be loaded with address->id_country"),
-                        "Alert message 'Country cannot be loaded with address->id_country' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("Country is invalid"),
-                        "Alert message 'Country is invalid' is not displayed.");
+                (alertDiv.isDisplayed(),
+                        "Alert message is not displayed.");
+
+        for (int i = 0; i < strings.length; i++) {
+            softAssert.assertTrue(strings[i].contains(errors[i]),
+                    "The alert message {'" + errors[i] + "'} is not displayed.");
+        }
         log.info(alertDiv.getText());
         return softAssert;
     }
 
     public SoftAssert verifyUserInvalidDataAlert() {
         SoftAssert softAssert = new SoftAssert();
+        WebElement errorContainer = alertDiv.findElement(By.tagName("ol"));
+        String[] strings = errorContainer.getText().split("\\n");
+        String[] errors = {"lastname is invalid.",
+                "firstname is invalid.",
+                "email is invalid",
+                "passwd is invalid.",
+                "address1 is invalid.",
+                "address2 is invalid.",
+                "postcode is invalid.",
+                "city is invalid.",
+                "other is too long. Maximum length: 300",
+                "phone is invalid.",
+                "phone_mobile is invalid.",
+                "The Zip/Postal code you've entered is invalid. It must follow this format: 00000",
+                "This country requires you to choose a State.",
+        };
         softAssert.assertTrue
-                (alertDiv.isDisplayed(), "Alert message is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("firstname is invalid."),
-                        "Alert message 'firstname is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("lastname is invalid."),
-                        "Alert message 'lastname is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("email is invalid"),
-                        "Alert message 'email is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("address1 is invalid."),
-                        "Alert message 'address1 is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("address2 is invalid."),
-                        "Alert message 'address2 is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("postcode is invalid."),
-                        "Alert message 'postcode is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("city is invalid."),
-                        "Alert message 'city is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("phone is invalid."),
-                        "Alert message 'phone is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("phone_mobile is invalid."),
-                        "Alert message 'phone_mobile is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("The Zip/Postal code you've entered is invalid. " +
-                                "It must follow this format: 00000"),
-                        "Alert message 'The Zip/Postal code you've entered is invalid." +
-                                " It must follow this format: 00000' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("passwd is invalid."),
-                        "Alert message 'email is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("This country requires you to choose a State."),
-                        "Alert message 'email is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("This country requires you to choose a State."),
-                        "Alert message 'email is invalid.' is not displayed.");
-        softAssert.assertTrue
-                (alertDiv.getText().contains("other is too long. Maximum length: 300"),
-                        "Alert message 'other is too long. Maximum length: 300' is not displayed.");
+                (alertDiv.isDisplayed(),
+                        "Alert message is not displayed.");
+
+        for (int i = 0; i < strings.length; i++) {
+            softAssert.assertTrue
+                    (strings[i].contains(errors[i]),
+                            "The alert message {'" + errors[i] + "'} is not displayed.");
+        }
         log.info(alertDiv.getText());
         return softAssert;
     }
