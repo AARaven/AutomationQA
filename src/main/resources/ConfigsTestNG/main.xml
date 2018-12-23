@@ -4,7 +4,7 @@
 <suite name="CrossTestAuthorization" verbose="1">
     <suite-files>
         <suite-file path="ChromeTestAuth.xml"/>
-        <!--<suite-file path="FirefoxTestAuth.xml"/>-->
+        <!--<suite-file.pdf path="FirefoxTestAuth.xml"/>-->
     </suite-files>
 
 </suite>

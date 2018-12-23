@@ -1,34 +1,32 @@
 package com.automationpractice.Tests.Positive;
 
 import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
-import com.automationpractice.Pages.AuthorizationPage.IncludedPages.CreateAccountPage;
-import com.automationpractice.Tests.TestBase;
-import lombok.extern.log4j.Log4j2;
+import com.automationpractice.Pages.AuthorizationPage.IncludedPages.AccountCreationPage;
+import com.automationpractice.Tests.BaseTest;
+import io.qameta.allure.Step;
 import org.testng.annotations.Test;
 
-@Log4j2
-public class PageElementsTest extends TestBase {
-
-    @Test
-    public void verifyingElementsOnPageIsEnabled() {
-        AuthenticationPage authentication = new AuthenticationPage(driver);
-        authentication.navigate();
-
-        CreateAccountPage create =
-                authentication
-                        .setEmail("asasdfdf@asdf.ru")
-                        .clickSubmitCreate();
-
-        create
-                .verifyingInputElementsOnPageIsEnabled()
-                .assertAll();
-
-        create
-                .verifyingSelectElementsOnPageIsEnabled()
-                .assertAll();
-
-        create
-                .verifyingTextAreaElementsOnPageIsEnabled()
-                .assertAll();
-    }
+public class PageElementsTest extends BaseTest {
+	
+	@Test( description = "A test that implements" +
+			" the verification of elements on the creation an account page." )
+	@Step( "Verifying that elements on creation an account page is enabled." )
+	public void verifyingElementsOnPageIsEnabled() {
+		AuthenticationPage authentication = new AuthenticationPage( driver );
+		authentication.navigate();
+		
+		AccountCreationPage creation =
+				authentication
+						.setEmail( "asasdfdf@asdf.ru" )
+						.clickSubmitCreate();
+		creation
+				.verifyInputElementsOnPageIsEnabled()
+				.assertAll();
+		creation
+				.verifySelectElementsOnPageIsEnabled()
+				.assertAll();
+		creation
+				.verifyTextAreaElementsOnPageIsEnabled()
+				.assertAll();
+	}
 }

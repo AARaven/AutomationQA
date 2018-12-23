@@ -1,0 +1,29 @@
+{
+  "requiredErrors": [
+    "You must register at least one phone number.",
+    "lastname is required.",
+    "firstname is required.",
+    "passwd is required.",
+    "id_country is required.",
+    "alias is required.",
+    "address1 is required.",
+    "city is required.",
+    "Country cannot be loaded with address->id_country",
+    "Country is invalid"
+  ],
+  "invalidErrors": [
+    "lastname is invalid.",
+    "firstname is invalid.",
+    "email is invalid",
+    "passwd is invalid.",
+    "address1 is invalid.",
+    "address2 is invalid.",
+    "postcode is invalid.",
+    "city is invalid.",
+    "other is too long. Maximum length: 300",
+    "phone is invalid.",
+    "phone_mobile is invalid.",
+    "The Zip/Postal code you've entered is invalid. It must follow this format: 00000",
+    "This country requires you to choose a State."
+  ]
+}

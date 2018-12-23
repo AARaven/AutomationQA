@@ -6,7 +6,7 @@
     <test name="AuthorizationTestChrome" preserve-order="true">
         <parameter name="UsersJsonPath" value="./src/main/resources/UsersProfiles/Valid/UsersProfiles.json"/>
         <classes>
-            <class name="com.automationpractice.Tests.Positive.AccountCreationAndVerifyingTests">
+            <class name="com.automationpractice.Tests.Positive.AccountTests">
                 <methods>
                     <include name="creationAnAccount"/>
                 </methods>

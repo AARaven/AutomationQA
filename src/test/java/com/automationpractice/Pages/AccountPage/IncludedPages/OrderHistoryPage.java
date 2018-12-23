@@ -1,32 +1,57 @@
 package com.automationpractice.Pages.AccountPage.IncludedPages;
 
 import com.automationpractice.Pages.AccountPage.AccountPage;
-import lombok.extern.log4j.Log4j2;
+import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
-import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
-@Log4j2
 public class OrderHistoryPage extends AccountPage {
-
-    public OrderHistoryPage(WebDriver driver) {
-        super(driver);
-        this.setUrl(getPropertyUrl(getClass().getSimpleName()));
-        log.debug("Creating an instance OrderHistoryPage");
-    }
-
-    public OrderHistoryPage clickOnPdfFile() {
-
-        WebElement elementPdf = this.driver.findElements(By.tagName("a")).stream()
-                .filter(element -> element.getAttribute("target").contains("_blank"))
-                .findFirst()
-                .get();
-
-        elementPdf.click();
-        return this;
-    }
+	
+	
+	@FindBy( className = "link-button" )
+	private WebElement linkPdf;
+	
+	public OrderHistoryPage( WebDriver driver ) {
+		super( driver );
+	}
+	
+	public OrderHistoryPage downloadOrderAsPdf() {
+		
+		Actions actions = new Actions( driver );
+		
+		this.driver.findElements( By.tagName( "a" ) ).stream()
+				.filter( element -> element.getAttribute( "target" ).contains( "_blank" ) )
+				.findFirst().ifPresent( WebElement::click );
+		actions.tick( this::isDownloaded );
+		return this;
+	}
+	
+	public boolean isDownloaded() {
+		return takeListFileFromDownloadFolderWithPdfSuffix().isEmpty();
+	}
+	
+	@SneakyThrows
+	private List <String> takeListFileFromDownloadFolderWithPdfSuffix() {
+		File path = new File( "D:\\Загрузки" );
+		return Arrays.stream( path.list() )
+				.filter( s -> s.endsWith( ".pdf" ) )
+				.collect( Collectors.toList() );
+	}
+	
+	public String getDownloadFileName() {
+		File path = new File( "D:\\Загрузки" );
+		String filename = Arrays.stream( path.list() )
+				.filter( s -> s.endsWith( ".pdf" ) )
+				.findFirst().get();
+		return filename;
+	}
 }

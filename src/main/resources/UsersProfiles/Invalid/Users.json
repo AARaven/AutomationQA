@@ -1,0 +1,25 @@
+{
+  "InvalidUser": {
+    "gender": "MALE",
+    "firstName": "!@#!$!",
+    "lastName": "!@#!$!",
+    "email": "AleXx@mail.com",
+    "password": "!@#",
+    "dayOfBirth": "-",
+    "monthOfBirth": "-",
+    "yearOfBirth": "-",
+    "company": "!@#!$!#$!!#",
+    "address": "!@#!",
+    "addressSecondLine": "!@#!@",
+    "city": "!@#!$",
+    "state": "-",
+    "zipCode": "!@#!$",
+    "country": "-",
+    "additionalInfo": "!@#!$!",
+    "homePhone": "!@#!$!",
+    "mobilePhone": "!@#!$!",
+    "alias": "!@#!$!",
+    "newsLetter": "false",
+    "specialOffers": "false"
+  }
+}
