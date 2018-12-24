@@ -2,6 +2,7 @@ package Models.User;
 
 import lombok.Data;
 import lombok.SneakyThrows;
+import net.bytebuddy.utility.RandomString;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.File;
@@ -11,6 +12,9 @@ public class User {
 	
 	private static final String USER_SAVING_PATH =
 			"./src/main/resources/UsersProfiles/SavedProfiles/lastProfile.json";
+	
+	RandomString text = new RandomString( RandomString.DEFAULT_LENGTH );
+	RandomString textLong = new RandomString( 15 );
 	
 	private Gender gender;
 	private String firstName;
@@ -47,31 +51,6 @@ public class User {
 		public String getGender() {
 			return this.gender;
 		}
-	}
-	
-	public User() {
-		this.gender = Gender.MALE;
-		this.firstName = "asdfasdf";
-		this.lastName = "asdfasdf";
-		this.email = "asdfasfasdf@adfasdf.asdf";
-		this.password = "asdfasdfwef2342fad";
-		this.dayOfBirth = "5";
-		this.monthOfBirth = "12";
-		this.yearOfBirth = "1999";
-		this.company = "asdfasf";
-		this.address = "asdfasdf,66666,asdfaasdf";
-		this.addressSecondLine = "20";
-		this.city = "Minsk";
-		this.state = "Alaska";
-		this.zipCode = "00000";
-		this.country = "United States";
-		this.additionalInfo = "asdfasdf";
-		this.homePhone = "5555555";
-		this.mobilePhone = "55555555";
-		this.alias = "James Bond";
-		this.newsLetter = true;
-		this.specialOffers = true;
-		saveUserProfile( this );
 	}
 	
 	@SneakyThrows

@@ -19,5 +19,28 @@
     "homePhone": "666666",
     "mobilePhone": "66666666666",
     "alias": "asdf@asdf.asf"
+  },
+  "NextUser": {
+    "gender": "MALE",
+    "firstName": "asdfasdf",
+    "lastName": "asdfasdf",
+    "email": "asdfasfasdf@adfasdf.asdf",
+    "password": "asdfasdfwef2342fad",
+    "dayOfBirth": "5",
+    "monthOfBirth": "12",
+    "yearOfBirth": "1999",
+    "company": "asdfasf",
+    "address": "asdfasdf,66666,asdfaasdf",
+    "addressSecondLine": "20",
+    "city": "Minsk",
+    "state": "Alaska",
+    "zipCode": "00000",
+    "country": "United States",
+    "additionalInfo": "asdfasdf",
+    "homePhone": "5555555",
+    "mobilePhone": "55555555",
+    "alias": "James Bond",
+    "newsLetter": true,
+    "specialOffers": true
   }
 }

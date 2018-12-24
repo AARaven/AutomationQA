@@ -8,16 +8,16 @@
     <artifactId>AutomationQA</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <reporting>
-        <excludeDefaults>true</excludeDefaults>
-        <plugins>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.8</version>
-            </plugin>
-        </plugins>
-    </reporting>
+    <!--<reporting>-->
+        <!--<excludeDefaults>true</excludeDefaults>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>io.qameta.allure</groupId>-->
+                <!--<artifactId>allure-plugin-api</artifactId>-->
+                <!--<version>2.8.1</version>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</reporting>-->
 
     <properties>
         <testng.version>6.14.3</testng.version>
@@ -26,7 +26,7 @@
         <log4j-core.version>2.11.1</log4j-core.version>
         <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
         <lombok.version>1.18.4</lombok.version>
-        <maven-surefire-plagin.version>3.0.0-M1</maven-surefire-plagin.version>
+        <maven-surefire-plagin.version>3.0.0-M2</maven-surefire-plagin.version>
         <aspectj.version>1.9.2</aspectj.version>
         <allure-testing.version>2.8.1</allure-testing.version>
 
@@ -54,12 +54,12 @@
                     <properties>
                         <property>
                             <name>suitethreadpoolsize</name>
-                            <value>4</value>
+                            <value>6</value>
                         </property>
                     </properties>
 
                     <!--<argLine>-->
-                        <!-- -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/ ${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
+                          <!-- -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/ ${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
                     <!--</argLine>-->
 
                     <!--<dependencies>-->
