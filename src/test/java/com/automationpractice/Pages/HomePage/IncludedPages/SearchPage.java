@@ -8,8 +8,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.asserts.SoftAssert;
 
-import java.util.stream.Stream;
-
 public class SearchPage extends HomePage {
 	
 	public SearchPage( WebDriver driver ) {

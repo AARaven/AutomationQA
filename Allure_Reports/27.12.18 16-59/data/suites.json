@@ -1,0 +1,229 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "PageElementsTest",
+    "children" : [ {
+      "name" : "VerifyingElementsIsEnabledOnPage",
+      "children" : [ {
+        "name" : "com.automationpractice.Tests.Positive.PageElementsTest",
+        "children" : [ {
+          "name" : "A test that implements the verification of elements on the creation an account page.",
+          "uid" : "b06241b29f30a98a",
+          "parentUid" : "8ca3ce575be17dc7ea5b36f3aceb2e41",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918610700,
+            "stop" : 1545918663626,
+            "duration" : 52926
+          },
+          "flaky" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "8ca3ce575be17dc7ea5b36f3aceb2e41"
+      } ],
+      "uid" : "678d2fcd622abad7c813c78a021587f4"
+    } ],
+    "uid" : "f12c42ae14c325e9e7f0f3ca51740a60"
+  }, {
+    "name" : "AccountAndOrderingTests",
+    "children" : [ {
+      "name" : "CreationAnAccount",
+      "children" : [ {
+        "name" : "com.automationpractice.Tests.Positive.AccountTest",
+        "children" : [ {
+          "name" : "A test that implement creation an account.",
+          "uid" : "3e7cee9c28894330",
+          "parentUid" : "19691f74e0425c2c179b1fee037dda73",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918611140,
+            "stop" : 1545918672479,
+            "duration" : 61339
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@a8fabed, textLong=net.bytebuddy.utility.RandomString@dca9060, gender=MALE, firstName=Mario, lastName=Durham, email=IccDurhamC2o3@mail.ru, password=YGe44TMP, dayOfBirth=20, monthOfBirth=5, yearOfBirth=1983, company=Coca-cola inc., address=4033  Kidd Avenue,99737, Coca-cola inc., addressSecondLine=20, city=Healy Lake, state=Alaska, zipCode=34683, country=United States, additionalInfo=Knock-knock, homePhone=907-876-2739, mobilePhone=907-632-7261, alias=IccDurhamC2o3@mail.ru, newsLetter=true, specialOffers=true)" ]
+        }, {
+          "name" : "A test that implement creation an account.",
+          "uid" : "aaa1cde8936724f4",
+          "parentUid" : "19691f74e0425c2c179b1fee037dda73",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918672552,
+            "stop" : 1545918683902,
+            "duration" : 11350
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@12767369, textLong=net.bytebuddy.utility.RandomString@36c13af2, gender=MALE, firstName=Gene, lastName=Edwards, email=LGene43@rambler.com, password=zHOIWzXl, dayOfBirth=13, monthOfBirth=2, yearOfBirth=1974, company=Coca-cola inc., address=1892  Cambridge Drive,666666, Coca-cola inc., addressSecondLine=20, city=Phoenix, state=Arizona, zipCode=85003, country=United States, additionalInfo=Knock-knock, homePhone=623-512-0468, mobilePhone=602-762-2783, alias=LGene43@rambler.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "A test that implement creation an account.",
+          "uid" : "f8ed348f5e541382",
+          "parentUid" : "19691f74e0425c2c179b1fee037dda73",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918683937,
+            "stop" : 1545918694241,
+            "duration" : 10304
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@7817939b, textLong=net.bytebuddy.utility.RandomString@b15d356, gender=FEMALE, firstName=Glenda, lastName=Ryan, email=b1Glenda343@gmail.com, password=nxFpCCx3, dayOfBirth=11, monthOfBirth=9, yearOfBirth=1989, company=Coca-cola inc., address=870  Stoneybrook Road,666666, Coca-cola inc., addressSecondLine=20, city=Cocoa, state=Florida, zipCode=32922, country=United States, additionalInfo=Knock-knock, homePhone=321-630-8537, mobilePhone=321-863-7967, alias=b1Glenda343@gmail.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "A test that implement creation an account.",
+          "uid" : "bd70e1a6f138c2f3",
+          "parentUid" : "19691f74e0425c2c179b1fee037dda73",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918694270,
+            "stop" : 1545918704660,
+            "duration" : 10390
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@728c694f, textLong=net.bytebuddy.utility.RandomString@6d1b03eb, gender=FEMALE, firstName=Hedwig , lastName=James, email=jHedwigP6x3@yandex.ru, password=HIMuorPL, dayOfBirth=23, monthOfBirth=7, yearOfBirth=1977, company=Coca-cola inc., address=1101  Pine Garden Lane,666666, Coca-cola inc., addressSecondLine=20, city=Canton, state=Georgia, zipCode=30114, country=United States, additionalInfo=Knock-knock, homePhone=770-721-5341, mobilePhone=678-910-7500, alias=jHedwigP6x3@yandex.ru, newsLetter=false, specialOffers=false)" ]
+        } ],
+        "uid" : "19691f74e0425c2c179b1fee037dda73"
+      } ],
+      "uid" : "9f289c9bf5118a9490da74c9cf60586b"
+    }, {
+      "name" : "VerifyingAnAccount",
+      "children" : [ {
+        "name" : "com.automationpractice.Tests.Positive.AccountTest",
+        "children" : [ {
+          "name" : "A test that implement verifying account personal info.",
+          "uid" : "dec5772c668d51cb",
+          "parentUid" : "07b9134688c9f51e93b2682f3c73b9e6",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918704756,
+            "stop" : 1545918713158,
+            "duration" : 8402
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@158aa747, textLong=net.bytebuddy.utility.RandomString@3c6cb1d8, gender=MALE, firstName=Mario, lastName=Durham, email=IccDurhamC2o3@mail.ru, password=YGe44TMP, dayOfBirth=20, monthOfBirth=5, yearOfBirth=1983, company=Coca-cola inc., address=4033  Kidd Avenue,99737, Coca-cola inc., addressSecondLine=20, city=Healy Lake, state=Alaska, zipCode=34683, country=United States, additionalInfo=Knock-knock, homePhone=907-876-2739, mobilePhone=907-632-7261, alias=IccDurhamC2o3@mail.ru, newsLetter=true, specialOffers=true)" ]
+        }, {
+          "name" : "A test that implement verifying account personal info.",
+          "uid" : "934d447d6208eae2",
+          "parentUid" : "07b9134688c9f51e93b2682f3c73b9e6",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918713187,
+            "stop" : 1545918719215,
+            "duration" : 6028
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@70b02094, textLong=net.bytebuddy.utility.RandomString@2e619647, gender=MALE, firstName=Gene, lastName=Edwards, email=LGene43@rambler.com, password=zHOIWzXl, dayOfBirth=13, monthOfBirth=2, yearOfBirth=1974, company=Coca-cola inc., address=1892  Cambridge Drive,666666, Coca-cola inc., addressSecondLine=20, city=Phoenix, state=Arizona, zipCode=85003, country=United States, additionalInfo=Knock-knock, homePhone=623-512-0468, mobilePhone=602-762-2783, alias=LGene43@rambler.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "A test that implement verifying account personal info.",
+          "uid" : "89de611e830ef7ea",
+          "parentUid" : "07b9134688c9f51e93b2682f3c73b9e6",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918719281,
+            "stop" : 1545918725358,
+            "duration" : 6077
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@4be2130f, textLong=net.bytebuddy.utility.RandomString@5162e4e4, gender=FEMALE, firstName=Glenda, lastName=Ryan, email=b1Glenda343@gmail.com, password=nxFpCCx3, dayOfBirth=11, monthOfBirth=9, yearOfBirth=1989, company=Coca-cola inc., address=870  Stoneybrook Road,666666, Coca-cola inc., addressSecondLine=20, city=Cocoa, state=Florida, zipCode=32922, country=United States, additionalInfo=Knock-knock, homePhone=321-630-8537, mobilePhone=321-863-7967, alias=b1Glenda343@gmail.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "A test that implement verifying account personal info.",
+          "uid" : "859d0624c009b1fc",
+          "parentUid" : "07b9134688c9f51e93b2682f3c73b9e6",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918725386,
+            "stop" : 1545918731362,
+            "duration" : 5976
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@7bb8a9aa, textLong=net.bytebuddy.utility.RandomString@411e4c0b, gender=FEMALE, firstName=Hedwig , lastName=James, email=jHedwigP6x3@yandex.ru, password=HIMuorPL, dayOfBirth=23, monthOfBirth=7, yearOfBirth=1977, company=Coca-cola inc., address=1101  Pine Garden Lane,666666, Coca-cola inc., addressSecondLine=20, city=Canton, state=Georgia, zipCode=30114, country=United States, additionalInfo=Knock-knock, homePhone=770-721-5341, mobilePhone=678-910-7500, alias=jHedwigP6x3@yandex.ru, newsLetter=false, specialOffers=false)" ]
+        }, {
+          "name" : "A test that implement verifying account address.",
+          "uid" : "537228017d3eb7ae",
+          "parentUid" : "07b9134688c9f51e93b2682f3c73b9e6",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918731424,
+            "stop" : 1545918738805,
+            "duration" : 7381
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@11c3159, textLong=net.bytebuddy.utility.RandomString@603a85e5, gender=MALE, firstName=Mario, lastName=Durham, email=IccDurhamC2o3@mail.ru, password=YGe44TMP, dayOfBirth=20, monthOfBirth=5, yearOfBirth=1983, company=Coca-cola inc., address=4033  Kidd Avenue,99737, Coca-cola inc., addressSecondLine=20, city=Healy Lake, state=Alaska, zipCode=34683, country=United States, additionalInfo=Knock-knock, homePhone=907-876-2739, mobilePhone=907-632-7261, alias=IccDurhamC2o3@mail.ru, newsLetter=true, specialOffers=true)" ]
+        }, {
+          "name" : "A test that implement verifying account address.",
+          "uid" : "de1e624db8c66d63",
+          "parentUid" : "07b9134688c9f51e93b2682f3c73b9e6",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918738830,
+            "stop" : 1545918746132,
+            "duration" : 7302
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@24bca74f, textLong=net.bytebuddy.utility.RandomString@14ac9464, gender=MALE, firstName=Gene, lastName=Edwards, email=LGene43@rambler.com, password=zHOIWzXl, dayOfBirth=13, monthOfBirth=2, yearOfBirth=1974, company=Coca-cola inc., address=1892  Cambridge Drive,666666, Coca-cola inc., addressSecondLine=20, city=Phoenix, state=Arizona, zipCode=85003, country=United States, additionalInfo=Knock-knock, homePhone=623-512-0468, mobilePhone=602-762-2783, alias=LGene43@rambler.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "A test that implement verifying account address.",
+          "uid" : "7ba0de57f5196648",
+          "parentUid" : "07b9134688c9f51e93b2682f3c73b9e6",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918746187,
+            "stop" : 1545918753782,
+            "duration" : 7595
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@27951769, textLong=net.bytebuddy.utility.RandomString@440cec5f, gender=FEMALE, firstName=Glenda, lastName=Ryan, email=b1Glenda343@gmail.com, password=nxFpCCx3, dayOfBirth=11, monthOfBirth=9, yearOfBirth=1989, company=Coca-cola inc., address=870  Stoneybrook Road,666666, Coca-cola inc., addressSecondLine=20, city=Cocoa, state=Florida, zipCode=32922, country=United States, additionalInfo=Knock-knock, homePhone=321-630-8537, mobilePhone=321-863-7967, alias=b1Glenda343@gmail.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "A test that implement verifying account address.",
+          "uid" : "db2bf82aef89ac04",
+          "parentUid" : "07b9134688c9f51e93b2682f3c73b9e6",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918753810,
+            "stop" : 1545918761735,
+            "duration" : 7925
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@31decf9f, textLong=net.bytebuddy.utility.RandomString@75e6cdd6, gender=FEMALE, firstName=Hedwig , lastName=James, email=jHedwigP6x3@yandex.ru, password=HIMuorPL, dayOfBirth=23, monthOfBirth=7, yearOfBirth=1977, company=Coca-cola inc., address=1101  Pine Garden Lane,666666, Coca-cola inc., addressSecondLine=20, city=Canton, state=Georgia, zipCode=30114, country=United States, additionalInfo=Knock-knock, homePhone=770-721-5341, mobilePhone=678-910-7500, alias=jHedwigP6x3@yandex.ru, newsLetter=false, specialOffers=false)" ]
+        } ],
+        "uid" : "07b9134688c9f51e93b2682f3c73b9e6"
+      } ],
+      "uid" : "78cc56976f89fa8f5c271f02fd4f4585"
+    } ],
+    "uid" : "04b793763daa10e1182f7496c19fad8a"
+  }, {
+    "name" : "CreationEmptyAndInvalid",
+    "children" : [ {
+      "name" : "NegativeAuthorization",
+      "children" : [ {
+        "name" : "com.automationpractice.Tests.Negative.WrongDataTests",
+        "children" : [ {
+          "name" : "creationWithEmptyData",
+          "uid" : "75c1ecec5c04ff5c",
+          "parentUid" : "830477c3ff7d68ac9b01754f29599046",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918611140,
+            "stop" : 1545918663719,
+            "duration" : 52579
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@4690f8b2, textLong=net.bytebuddy.utility.RandomString@2f9ebee7, gender=MALE, firstName=!@#!$!, lastName=!@#!$!, email=AleXx@mail.com, password=!@#, dayOfBirth=-, monthOfBirth=-, yearOfBirth=-, company=!@#!$!#$!!#, address=!@#!, addressSecondLine=!@#!@, city=!@#!$, state=-, zipCode=!@#!$, country=-, additionalInfo=!@#!$!, homePhone=!@#!$!, mobilePhone=!@#!$!, alias=!@#!$!, newsLetter=false, specialOffers=false)" ]
+        }, {
+          "name" : "creationWithInvalidData",
+          "uid" : "7759f2c7ffd4e8c9",
+          "parentUid" : "830477c3ff7d68ac9b01754f29599046",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545918663786,
+            "stop" : 1545918676521,
+            "duration" : 12735
+          },
+          "flaky" : false,
+          "parameters" : [ "User(text=net.bytebuddy.utility.RandomString@559958ed, textLong=net.bytebuddy.utility.RandomString@6c76b020, gender=MALE, firstName=!@#!$!, lastName=!@#!$!, email=AleXx@mail.com, password=!@#, dayOfBirth=-, monthOfBirth=-, yearOfBirth=-, company=!@#!$!#$!!#, address=!@#!, addressSecondLine=!@#!@, city=!@#!$, state=-, zipCode=!@#!$, country=-, additionalInfo=!@#!$!, homePhone=!@#!$!, mobilePhone=!@#!$!, alias=!@#!$!, newsLetter=false, specialOffers=false)" ]
+        } ],
+        "uid" : "830477c3ff7d68ac9b01754f29599046"
+      } ],
+      "uid" : "56522211528ad9edf355e32965ebda91"
+    } ],
+    "uid" : "1bf0194e8a1ec4ccf498bf9ec495c9f8"
+  } ]
+}

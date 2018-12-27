@@ -5,7 +5,11 @@
     <!--<parameter name="browser" value="firefox"/>-->
     <test name="AuthorizationTestFirefox">
         <classes>
-            <class name="com.automationpractice.Tests.AuthTest"/>
+            <class name="com.automationpractice.Tests.Positive.AccountTest">
+                <methods>
+                    <include name="creationAnAccount"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

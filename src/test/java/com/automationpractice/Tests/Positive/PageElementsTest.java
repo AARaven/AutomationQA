@@ -11,20 +11,26 @@ public class PageElementsTest extends BaseTest {
 	@Test( description = "A test that implements" +
 			" the verification of elements on the creation an account page." )
 	@Step( "Verifying that elements on creation an account page is enabled." )
-	public void verifyingElementsOnPageIsEnabled() {
-		AuthenticationPage authentication = new AuthenticationPage( driver );
+	public void verifyingElementsIsEnabled() {
+		AuthenticationPage authentication =
+				new AuthenticationPage( getDriver() );
+		AccountCreationPage creation =
+				new AccountCreationPage( getDriver() );
+		
 		authentication.navigate();
 		
-		AccountCreationPage creation =
-				authentication
-						.setEmail( "asasdfdf@asdf.ru" )
-						.clickSubmitCreate();
+		authentication
+				.setEmail( "asd12fdVf@as2df.ru" )
+				.clickSubmitCreate();
+		
 		creation
 				.verifyInputElementsOnPageIsEnabled()
 				.assertAll();
+		
 		creation
 				.verifySelectElementsOnPageIsEnabled()
 				.assertAll();
+		
 		creation
 				.verifyTextAreaElementsOnPageIsEnabled()
 				.assertAll();

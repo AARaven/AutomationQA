@@ -1,20 +1,12 @@
 package Models.User;
 
 import lombok.Data;
-import lombok.SneakyThrows;
-import net.bytebuddy.utility.RandomString;
-import org.codehaus.jackson.map.ObjectMapper;
-
-import java.io.File;
 
 @Data
 public class User {
 	
 	private static final String USER_SAVING_PATH =
 			"./src/main/resources/UsersProfiles/SavedProfiles/lastProfile.json";
-	
-	RandomString text = new RandomString( RandomString.DEFAULT_LENGTH );
-	RandomString textLong = new RandomString( 15 );
 	
 	private Gender gender;
 	private String firstName;
@@ -52,10 +44,10 @@ public class User {
 			return this.gender;
 		}
 	}
-	
-	@SneakyThrows
-	private void saveUserProfile( User user ) {
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.writeValue( new File( USER_SAVING_PATH ), user );
-	}
+
+//	@SneakyThrows
+//	private void saveUserProfile( User user ) {
+//		ObjectMapper mapper = new ObjectMapper();
+//		mapper.writeValue( new File( USER_SAVING_PATH ), user );
+//	}
 }

@@ -18,6 +18,7 @@ public class BasePage implements PageNavigation {
 			"./src/main/resources/PropertyFiles/pages.properties";
 	
 	private String url;
+	
 	protected WebDriver driver;
 	
 	@Override

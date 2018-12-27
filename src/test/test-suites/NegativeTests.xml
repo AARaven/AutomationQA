@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="CreationEmptyAndInvalid" verbose="2">
+
+    <test name="NegativeAuthorization">
+        <classes>
+            <class name="com.automationpractice.Tests.Negative.NegativeCreationTest">
+                <methods>
+                    <include name="creationWithEmptyData"/>
+                    <include name="creationWithInvalidData"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

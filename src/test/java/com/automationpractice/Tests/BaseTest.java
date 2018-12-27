@@ -3,8 +3,6 @@ package com.automationpractice.Tests;
 import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
@@ -14,25 +12,39 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 @Listeners( { ScreenShot.class } )
-public class BaseTest {
+public class BaseTest extends Thread {
 	
 	private static final String PROPERTIES_WEBDRIVER_PATH =
 			"./src/main/resources/PropertyFiles/webdriver.properties";
 	
-	protected WebDriver driver;
+	private ThreadLocal <WebDriver> storage = new ThreadLocal <>();
 	
 	public WebDriver getDriver() {
-		return this.driver;
+		WebDriver current = storage.get();
+		if ( current == null ) {
+			setProperty( "chrome" );
+			current = new ChromeDriver();
+			current.manage().timeouts().implicitlyWait( 7, TimeUnit.SECONDS );
+			new WebDriverWait( current, 7 );
+			current.manage().window().maximize();
+			storage.set( current );
+		}
+		return current;
+	}
+	
+	private void quiteDriver() {
+		storage.get().quit();
+		storage.remove();
 	}
 	
 	@BeforeSuite
 	protected void beforeSuiteMethod() {
-		startDriver( "chrome" );
+		getDriver();
 	}
 	
 	@AfterSuite
 	protected void afterSuiteMethod() {
-		this.driver.quit();
+		quiteDriver();
 	}
 	
 	@BeforeClass
@@ -90,28 +102,28 @@ public class BaseTest {
 				break;
 		}
 	}
-	
-	private WebDriver startDriver( String driver ) {
-		switch ( driver ) {
-			case ( "chrome" ):
-				setProperty( "chrome" );
-				this.driver = new ChromeDriver();
-				ChromeOptions options = new ChromeOptions();
-				new WebDriverWait( this.driver, 7 );
-				this.driver.manage().timeouts().implicitlyWait( 7, TimeUnit.SECONDS );
-				this.driver.manage().window().maximize();
-				return this.driver;
-			
-			case ( "firefox" ):
-				setProperty( "firefox" );
-				this.driver = new FirefoxDriver();
-				new WebDriverWait( this.driver, 5 );
-				this.driver.manage().timeouts().implicitlyWait( 5, TimeUnit.SECONDS );
-				this.driver.manage().window().maximize();
-				return this.driver;
-			
-			default:
-				throw new NullPointerException( "Wrong browser name!" );
-		}
-	}
+
+//	private WebDriver startDriver( String driver ) {
+//		switch ( driver ) {
+//			case ( "chrome" ):
+//				setProperty( "chrome" );
+//				ChromeOptions options = new ChromeOptions();
+//				this.driver = new ChromeDriver();
+//				new WebDriverWait( this.driver, 7 );
+//				this.driver.manage().timeouts().implicitlyWait( 7, TimeUnit.SECONDS );
+//				this.driver.manage().window().maximize();
+//				return this.driver;
+//
+//			case ( "firefox" ):
+//				setProperty( "firefox" );
+//				this.driver = new FirefoxDriver();
+//				new WebDriverWait( this.driver, 5 );
+//				this.driver.manage().timeouts().implicitlyWait( 5, TimeUnit.SECONDS );
+//				this.driver.manage().window().maximize();
+//				return this.driver;
+//
+//			default:
+//				throw new NullPointerException( "Wrong browser name!" );
+//		}
+//	}
 }

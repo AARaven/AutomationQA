@@ -2,9 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="CrossTestAuthorization" verbose="1">
+
     <suite-files>
         <suite-file path="ChromeTestAuth.xml"/>
-        <!--<suite-file.pdf path="FirefoxTestAuth.xml"/>-->
+        <suite-file path="FirefoxTestAuth.xml"/>
     </suite-files>
 
 </suite>

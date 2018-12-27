@@ -1,0 +1,151 @@
+[ {
+  "uid" : "3e7cee9c28894330",
+  "name" : "A test that implement creation an account.",
+  "time" : {
+    "start" : 1545918611140,
+    "stop" : 1545918672479,
+    "duration" : 61339
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dec5772c668d51cb",
+  "name" : "A test that implement verifying account personal info.",
+  "time" : {
+    "start" : 1545918704756,
+    "stop" : 1545918713158,
+    "duration" : 8402
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "db2bf82aef89ac04",
+  "name" : "A test that implement verifying account address.",
+  "time" : {
+    "start" : 1545918753810,
+    "stop" : 1545918761735,
+    "duration" : 7925
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7ba0de57f5196648",
+  "name" : "A test that implement verifying account address.",
+  "time" : {
+    "start" : 1545918746187,
+    "stop" : 1545918753782,
+    "duration" : 7595
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "75c1ecec5c04ff5c",
+  "name" : "creationWithEmptyData",
+  "time" : {
+    "start" : 1545918611140,
+    "stop" : 1545918663719,
+    "duration" : 52579
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "859d0624c009b1fc",
+  "name" : "A test that implement verifying account personal info.",
+  "time" : {
+    "start" : 1545918725386,
+    "stop" : 1545918731362,
+    "duration" : 5976
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "89de611e830ef7ea",
+  "name" : "A test that implement verifying account personal info.",
+  "time" : {
+    "start" : 1545918719281,
+    "stop" : 1545918725358,
+    "duration" : 6077
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bd70e1a6f138c2f3",
+  "name" : "A test that implement creation an account.",
+  "time" : {
+    "start" : 1545918694270,
+    "stop" : 1545918704660,
+    "duration" : 10390
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "537228017d3eb7ae",
+  "name" : "A test that implement verifying account address.",
+  "time" : {
+    "start" : 1545918731424,
+    "stop" : 1545918738805,
+    "duration" : 7381
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7759f2c7ffd4e8c9",
+  "name" : "creationWithInvalidData",
+  "time" : {
+    "start" : 1545918663786,
+    "stop" : 1545918676521,
+    "duration" : 12735
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b06241b29f30a98a",
+  "name" : "A test that implements the verification of elements on the creation an account page.",
+  "time" : {
+    "start" : 1545918610700,
+    "stop" : 1545918663626,
+    "duration" : 52926
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "934d447d6208eae2",
+  "name" : "A test that implement verifying account personal info.",
+  "time" : {
+    "start" : 1545918713187,
+    "stop" : 1545918719215,
+    "duration" : 6028
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f8ed348f5e541382",
+  "name" : "A test that implement creation an account.",
+  "time" : {
+    "start" : 1545918683937,
+    "stop" : 1545918694241,
+    "duration" : 10304
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "de1e624db8c66d63",
+  "name" : "A test that implement verifying account address.",
+  "time" : {
+    "start" : 1545918738830,
+    "stop" : 1545918746132,
+    "duration" : 7302
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "aaa1cde8936724f4",
+  "name" : "A test that implement creation an account.",
+  "time" : {
+    "start" : 1545918672552,
+    "stop" : 1545918683902,
+    "duration" : 11350
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

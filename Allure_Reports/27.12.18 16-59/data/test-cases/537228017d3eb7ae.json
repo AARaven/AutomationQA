@@ -1,0 +1,214 @@
+{
+  "uid" : "537228017d3eb7ae",
+  "name" : "A test that implement verifying account address.",
+  "fullName" : "com.automationpractice.Tests.Positive.AccountTest.verifyAddress",
+  "historyId" : "3feefdf357c968a0cdfe8274cf4655d7",
+  "time" : {
+    "start" : 1545918731424,
+    "stop" : 1545918738805,
+    "duration" : 7381
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "beforeClassMethod",
+    "time" : {
+      "start" : 1545918704709,
+      "stop" : 1545918704709,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "beforeMethod",
+    "time" : {
+      "start" : 1545918731416,
+      "stop" : 1545918731416,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "beforeTestMethod",
+    "time" : {
+      "start" : 1545918704709,
+      "stop" : 1545918704709,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "beforeSuiteMethod",
+    "time" : {
+      "start" : 1545918546828,
+      "stop" : 1545918607848,
+      "duration" : 61020
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Navigate to address page from account page and verify address.",
+      "time" : {
+        "start" : 1545918731424,
+        "stop" : 1545918738804,
+        "duration" : 7380
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User(text=net.bytebuddy.utility.RandomString@11c3159, textLong=net.bytebuddy.utility.RandomString@603a85e5, gender=MALE, firstName=Mario, lastName=Durham, email=IccDurhamC2o3@mail.ru, password=YGe44TMP, dayOfBirth=20, monthOfBirth=5, yearOfBirth=1983, company=Coca-cola inc., address=4033  Kidd Avenue,99737, Coca-cola inc., addressSecondLine=20, city=Healy Lake, state=Alaska, zipCode=34683, country=United States, additionalInfo=Knock-knock, homePhone=907-876-2739, mobilePhone=907-632-7261, alias=IccDurhamC2o3@mail.ru, newsLetter=true, specialOffers=true)"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "afterClassMethod",
+    "time" : {
+      "start" : 1545918761756,
+      "stop" : 1545918761756,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "afterTestMethod",
+    "time" : {
+      "start" : 1545918761756,
+      "stop" : 1545918761756,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "afterMethod",
+    "time" : {
+      "start" : 1545918738814,
+      "stop" : 1545918738814,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "afterSuiteMethod",
+    "time" : {
+      "start" : 1545918761805,
+      "stop" : 1545918762640,
+      "duration" : 835
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "com.automationpractice.Tests.Positive.AccountTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.automationpractice.Tests.Positive.AccountTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "verifyAddress"
+  }, {
+    "name" : "parentSuite",
+    "value" : "AccountAndOrderingTests"
+  }, {
+    "name" : "suite",
+    "value" : "VerifyingAnAccount"
+  }, {
+    "name" : "subSuite",
+    "value" : "com.automationpractice.Tests.Positive.AccountTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-4L6ENKG"
+  }, {
+    "name" : "thread",
+    "value" : "8868@DESKTOP-4L6ENKG.TestNG-suites-1(17)"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "User(text=net.bytebuddy.utility.RandomString@11c3159, textLong=net.bytebuddy.utility.RandomString@603a85e5, gender=MALE, firstName=Mario, lastName=Durham, email=IccDurhamC2o3@mail.ru, password=YGe44TMP, dayOfBirth=20, monthOfBirth=5, yearOfBirth=1983, company=Coca-cola inc., address=4033  Kidd Avenue,99737, Coca-cola inc., addressSecondLine=20, city=Healy Lake, state=Alaska, zipCode=34683, country=United States, additionalInfo=Knock-knock, homePhone=907-876-2739, mobilePhone=907-632-7261, alias=IccDurhamC2o3@mail.ru, newsLetter=true, specialOffers=true)"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "537228017d3eb7ae.json",
+  "parameterValues" : [ "User(text=net.bytebuddy.utility.RandomString@11c3159, textLong=net.bytebuddy.utility.RandomString@603a85e5, gender=MALE, firstName=Mario, lastName=Durham, email=IccDurhamC2o3@mail.ru, password=YGe44TMP, dayOfBirth=20, monthOfBirth=5, yearOfBirth=1983, company=Coca-cola inc., address=4033  Kidd Avenue,99737, Coca-cola inc., addressSecondLine=20, city=Healy Lake, state=Alaska, zipCode=34683, country=United States, additionalInfo=Knock-knock, homePhone=907-876-2739, mobilePhone=907-632-7261, alias=IccDurhamC2o3@mail.ru, newsLetter=true, specialOffers=true)" ]
+}

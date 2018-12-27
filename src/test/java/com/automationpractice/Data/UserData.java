@@ -5,12 +5,6 @@ import org.testng.annotations.DataProvider;
 
 public class UserData extends Data {
 	
-	private static final String USERS_VALID_PATH =
-			"./src/main/resources/UsersProfiles/Valid/Users.json";
-	
-	private static final String USERS_INVALID_PATH =
-			"./src/main/resources/UsersProfiles/Invalid/Users.json";
-	
 	@DataProvider( name = "ValidUser" )
 	public Object[][] getUser() {
 		return new Object[][]{

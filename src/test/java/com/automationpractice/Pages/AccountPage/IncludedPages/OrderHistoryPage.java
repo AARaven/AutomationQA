@@ -5,9 +5,7 @@ import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 import java.io.File;
 import java.util.Arrays;
@@ -26,12 +24,10 @@ public class OrderHistoryPage extends AccountPage {
 	
 	public OrderHistoryPage downloadOrderAsPdf() {
 		
-		Actions actions = new Actions( driver );
-		
 		this.driver.findElements( By.tagName( "a" ) ).stream()
 				.filter( element -> element.getAttribute( "target" ).contains( "_blank" ) )
 				.findFirst().ifPresent( WebElement::click );
-		actions.tick( this::isDownloaded );
+		
 		return this;
 	}
 	
