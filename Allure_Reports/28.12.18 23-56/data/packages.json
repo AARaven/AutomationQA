@@ -1,0 +1,269 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "com.automationpractice.Tests",
+    "children" : [ {
+      "name" : "Positive",
+      "children" : [ {
+        "name" : "PageElementsTest",
+        "children" : [ {
+          "name" : "verifyingElementsIsEnabled",
+          "uid" : "404030f1cdcb83c",
+          "parentUid" : "9c84f136ec7b17e95707c6d2b2f3faa5",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029489166,
+            "stop" : 1546029502440,
+            "duration" : 13274
+          },
+          "flaky" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "9c84f136ec7b17e95707c6d2b2f3faa5"
+      }, {
+        "name" : "AccountTest",
+        "children" : [ {
+          "name" : "creationAnAccount",
+          "uid" : "88d75a96ebcfab70",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029489762,
+            "stop" : 1546029513675,
+            "duration" : 23913
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=MALE, firstName=Mario, lastName=Durham, email=IccDurhamC2o4@mail.ru, password=YGe44TMP, dayOfBirth=20, monthOfBirth=5, yearOfBirth=1983, company=Coca-cola inc., address=4033  Kidd Avenue,99737, Coca-cola inc., addressSecondLine=20, city=Healy Lake, state=Alaska, zipCode=34683, country=United States, additionalInfo=Knock-knock, homePhone=907-876-2739, mobilePhone=907-632-7261, alias=IccDurhamC2o4@mail.ru, newsLetter=true, specialOffers=true)" ]
+        }, {
+          "name" : "creationAnAccount",
+          "uid" : "a4344a8abce9429c",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029513753,
+            "stop" : 1546029525450,
+            "duration" : 11697
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=MALE, firstName=Gene, lastName=Edwards, email=LGene434@rambler.com, password=zHOIWzXl, dayOfBirth=13, monthOfBirth=2, yearOfBirth=1974, company=Coca-cola inc., address=1892  Cambridge Drive,666666, Coca-cola inc., addressSecondLine=20, city=Phoenix, state=Arizona, zipCode=85003, country=United States, additionalInfo=Knock-knock, homePhone=623-512-0468, mobilePhone=602-762-2783, alias=LGene434@rambler.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "creationAnAccount",
+          "uid" : "edb7f7760c4f83b7",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029525493,
+            "stop" : 1546029536073,
+            "duration" : 10580
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=FEMALE, firstName=Glenda, lastName=Ryan, email=b1Glenda344@gmail.com, password=nxFpCCx3, dayOfBirth=11, monthOfBirth=9, yearOfBirth=1989, company=Coca-cola inc., address=870  Stoneybrook Road,666666, Coca-cola inc., addressSecondLine=20, city=Cocoa, state=Florida, zipCode=32922, country=United States, additionalInfo=Knock-knock, homePhone=321-630-8537, mobilePhone=321-863-7967, alias=b1Glenda344@gmail.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "creationAnAccount",
+          "uid" : "ace69e6a17af7d62",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029536122,
+            "stop" : 1546029546170,
+            "duration" : 10048
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=FEMALE, firstName=Hedwig , lastName=James, email=jHedwigP6x4@yandex.ru, password=HIMuorPL, dayOfBirth=23, monthOfBirth=7, yearOfBirth=1977, company=Coca-cola inc., address=1101  Pine Garden Lane,666666, Coca-cola inc., addressSecondLine=20, city=Canton, state=Georgia, zipCode=30114, country=United States, additionalInfo=Knock-knock, homePhone=770-721-5341, mobilePhone=678-910-7500, alias=jHedwigP6x4@yandex.ru, newsLetter=false, specialOffers=false)" ]
+        }, {
+          "name" : "verifyPersonalInfo",
+          "uid" : "1b99e3c305a82d85",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029546259,
+            "stop" : 1546029551761,
+            "duration" : 5502
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=MALE, firstName=Mario, lastName=Durham, email=IccDurhamC2o4@mail.ru, password=YGe44TMP, dayOfBirth=20, monthOfBirth=5, yearOfBirth=1983, company=Coca-cola inc., address=4033  Kidd Avenue,99737, Coca-cola inc., addressSecondLine=20, city=Healy Lake, state=Alaska, zipCode=34683, country=United States, additionalInfo=Knock-knock, homePhone=907-876-2739, mobilePhone=907-632-7261, alias=IccDurhamC2o4@mail.ru, newsLetter=true, specialOffers=true)" ]
+        }, {
+          "name" : "verifyPersonalInfo",
+          "uid" : "6b5bef8b70cb0c17",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029551788,
+            "stop" : 1546029557314,
+            "duration" : 5526
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=MALE, firstName=Gene, lastName=Edwards, email=LGene434@rambler.com, password=zHOIWzXl, dayOfBirth=13, monthOfBirth=2, yearOfBirth=1974, company=Coca-cola inc., address=1892  Cambridge Drive,666666, Coca-cola inc., addressSecondLine=20, city=Phoenix, state=Arizona, zipCode=85003, country=United States, additionalInfo=Knock-knock, homePhone=623-512-0468, mobilePhone=602-762-2783, alias=LGene434@rambler.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "verifyPersonalInfo",
+          "uid" : "56e917addf5a73d8",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029557341,
+            "stop" : 1546029563138,
+            "duration" : 5797
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=FEMALE, firstName=Glenda, lastName=Ryan, email=b1Glenda344@gmail.com, password=nxFpCCx3, dayOfBirth=11, monthOfBirth=9, yearOfBirth=1989, company=Coca-cola inc., address=870  Stoneybrook Road,666666, Coca-cola inc., addressSecondLine=20, city=Cocoa, state=Florida, zipCode=32922, country=United States, additionalInfo=Knock-knock, homePhone=321-630-8537, mobilePhone=321-863-7967, alias=b1Glenda344@gmail.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "verifyPersonalInfo",
+          "uid" : "f0fd2cc8e64f9078",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029563185,
+            "stop" : 1546029569508,
+            "duration" : 6323
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=FEMALE, firstName=Hedwig , lastName=James, email=jHedwigP6x4@yandex.ru, password=HIMuorPL, dayOfBirth=23, monthOfBirth=7, yearOfBirth=1977, company=Coca-cola inc., address=1101  Pine Garden Lane,666666, Coca-cola inc., addressSecondLine=20, city=Canton, state=Georgia, zipCode=30114, country=United States, additionalInfo=Knock-knock, homePhone=770-721-5341, mobilePhone=678-910-7500, alias=jHedwigP6x4@yandex.ru, newsLetter=false, specialOffers=false)" ]
+        }, {
+          "name" : "verifyAddress",
+          "uid" : "a2e8c086d60448bd",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029569557,
+            "stop" : 1546029576738,
+            "duration" : 7181
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=MALE, firstName=Mario, lastName=Durham, email=IccDurhamC2o4@mail.ru, password=YGe44TMP, dayOfBirth=20, monthOfBirth=5, yearOfBirth=1983, company=Coca-cola inc., address=4033  Kidd Avenue,99737, Coca-cola inc., addressSecondLine=20, city=Healy Lake, state=Alaska, zipCode=34683, country=United States, additionalInfo=Knock-knock, homePhone=907-876-2739, mobilePhone=907-632-7261, alias=IccDurhamC2o4@mail.ru, newsLetter=true, specialOffers=true)" ]
+        }, {
+          "name" : "verifyAddress",
+          "uid" : "7696b3310cbc5f73",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029576765,
+            "stop" : 1546029584927,
+            "duration" : 8162
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=MALE, firstName=Gene, lastName=Edwards, email=LGene434@rambler.com, password=zHOIWzXl, dayOfBirth=13, monthOfBirth=2, yearOfBirth=1974, company=Coca-cola inc., address=1892  Cambridge Drive,666666, Coca-cola inc., addressSecondLine=20, city=Phoenix, state=Arizona, zipCode=85003, country=United States, additionalInfo=Knock-knock, homePhone=623-512-0468, mobilePhone=602-762-2783, alias=LGene434@rambler.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "verifyAddress",
+          "uid" : "b5adf811761fb4e5",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029584955,
+            "stop" : 1546029592652,
+            "duration" : 7697
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=FEMALE, firstName=Glenda, lastName=Ryan, email=b1Glenda344@gmail.com, password=nxFpCCx3, dayOfBirth=11, monthOfBirth=9, yearOfBirth=1989, company=Coca-cola inc., address=870  Stoneybrook Road,666666, Coca-cola inc., addressSecondLine=20, city=Cocoa, state=Florida, zipCode=32922, country=United States, additionalInfo=Knock-knock, homePhone=321-630-8537, mobilePhone=321-863-7967, alias=b1Glenda344@gmail.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "verifyAddress",
+          "uid" : "4fce95fae9198699",
+          "parentUid" : "5d146b55313fb21e0e5008bcfc611279",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029592683,
+            "stop" : 1546029600467,
+            "duration" : 7784
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=FEMALE, firstName=Hedwig , lastName=James, email=jHedwigP6x4@yandex.ru, password=HIMuorPL, dayOfBirth=23, monthOfBirth=7, yearOfBirth=1977, company=Coca-cola inc., address=1101  Pine Garden Lane,666666, Coca-cola inc., addressSecondLine=20, city=Canton, state=Georgia, zipCode=30114, country=United States, additionalInfo=Knock-knock, homePhone=770-721-5341, mobilePhone=678-910-7500, alias=jHedwigP6x4@yandex.ru, newsLetter=false, specialOffers=false)" ]
+        } ],
+        "uid" : "5d146b55313fb21e0e5008bcfc611279"
+      }, {
+        "name" : "OrderTest",
+        "children" : [ {
+          "name" : "searchProductAndOrdering",
+          "uid" : "443e6a59837ce7f0",
+          "parentUid" : "f8badbeac4d4c1e9876331bad0d2edb3",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029600600,
+            "stop" : 1546029624895,
+            "duration" : 24295
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=MALE, firstName=Mario, lastName=Durham, email=IccDurhamC2o4@mail.ru, password=YGe44TMP, dayOfBirth=20, monthOfBirth=5, yearOfBirth=1983, company=Coca-cola inc., address=4033  Kidd Avenue,99737, Coca-cola inc., addressSecondLine=20, city=Healy Lake, state=Alaska, zipCode=34683, country=United States, additionalInfo=Knock-knock, homePhone=907-876-2739, mobilePhone=907-632-7261, alias=IccDurhamC2o4@mail.ru, newsLetter=true, specialOffers=true)" ]
+        }, {
+          "name" : "searchProductAndOrdering",
+          "uid" : "623376ae2cc43a46",
+          "parentUid" : "f8badbeac4d4c1e9876331bad0d2edb3",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029624966,
+            "stop" : 1546029646095,
+            "duration" : 21129
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=MALE, firstName=Gene, lastName=Edwards, email=LGene434@rambler.com, password=zHOIWzXl, dayOfBirth=13, monthOfBirth=2, yearOfBirth=1974, company=Coca-cola inc., address=1892  Cambridge Drive,666666, Coca-cola inc., addressSecondLine=20, city=Phoenix, state=Arizona, zipCode=85003, country=United States, additionalInfo=Knock-knock, homePhone=623-512-0468, mobilePhone=602-762-2783, alias=LGene434@rambler.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "searchProductAndOrdering",
+          "uid" : "999ec974f699bf43",
+          "parentUid" : "f8badbeac4d4c1e9876331bad0d2edb3",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029646123,
+            "stop" : 1546029667219,
+            "duration" : 21096
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=FEMALE, firstName=Glenda, lastName=Ryan, email=b1Glenda344@gmail.com, password=nxFpCCx3, dayOfBirth=11, monthOfBirth=9, yearOfBirth=1989, company=Coca-cola inc., address=870  Stoneybrook Road,666666, Coca-cola inc., addressSecondLine=20, city=Cocoa, state=Florida, zipCode=32922, country=United States, additionalInfo=Knock-knock, homePhone=321-630-8537, mobilePhone=321-863-7967, alias=b1Glenda344@gmail.com, newsLetter=false, specialOffers=true)" ]
+        }, {
+          "name" : "searchProductAndOrdering",
+          "uid" : "20eb8773fd6d8de7",
+          "parentUid" : "f8badbeac4d4c1e9876331bad0d2edb3",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029667248,
+            "stop" : 1546029689160,
+            "duration" : 21912
+          },
+          "flaky" : false,
+          "parameters" : [ "User(gender=FEMALE, firstName=Hedwig , lastName=James, email=jHedwigP6x4@yandex.ru, password=HIMuorPL, dayOfBirth=23, monthOfBirth=7, yearOfBirth=1977, company=Coca-cola inc., address=1101  Pine Garden Lane,666666, Coca-cola inc., addressSecondLine=20, city=Canton, state=Georgia, zipCode=30114, country=United States, additionalInfo=Knock-knock, homePhone=770-721-5341, mobilePhone=678-910-7500, alias=jHedwigP6x4@yandex.ru, newsLetter=false, specialOffers=false)" ]
+        }, {
+          "name" : "verifyingDownloadedFile",
+          "uid" : "9e48e9c994261152",
+          "parentUid" : "f8badbeac4d4c1e9876331bad0d2edb3",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546029689187,
+            "stop" : 1546029689191,
+            "duration" : 4
+          },
+          "flaky" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "f8badbeac4d4c1e9876331bad0d2edb3"
+      } ],
+      "uid" : "826e6c14600ffb5337e08c8e29a98ddb"
+    }, {
+      "name" : "Negative.NegativeCreationTest",
+      "children" : [ {
+        "name" : "creationWithEmptyData",
+        "uid" : "a09f2cd88dd56b59",
+        "parentUid" : "bcf08a20c1b935212dc52097e50bf41a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1546029489761,
+          "stop" : 1546029504313,
+          "duration" : 14552
+        },
+        "flaky" : false,
+        "parameters" : [ "User(gender=MALE, firstName=!@#!$!, lastName=!@#!$!, email=AleXx@mail.com, password=!@#, dayOfBirth=-, monthOfBirth=-, yearOfBirth=-, company=!@#!$!#$!!#, address=!@#!, addressSecondLine=!@#!@, city=!@#!$, state=-, zipCode=!@#!$, country=-, additionalInfo=!@#!$!, homePhone=!@#!$!, mobilePhone=!@#!$!, alias=!@#!$!, newsLetter=false, specialOffers=false)" ]
+      }, {
+        "name" : "creationWithInvalidData",
+        "uid" : "b80dc5f15dc10fa9",
+        "parentUid" : "bcf08a20c1b935212dc52097e50bf41a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1546029504357,
+          "stop" : 1546029516928,
+          "duration" : 12571
+        },
+        "flaky" : false,
+        "parameters" : [ "User(gender=MALE, firstName=!@#!$!, lastName=!@#!$!, email=AleXx@mail.com, password=!@#, dayOfBirth=-, monthOfBirth=-, yearOfBirth=-, company=!@#!$!#$!!#, address=!@#!, addressSecondLine=!@#!@, city=!@#!$, state=-, zipCode=!@#!$, country=-, additionalInfo=!@#!$!, homePhone=!@#!$!, mobilePhone=!@#!$!, alias=!@#!$!, newsLetter=false, specialOffers=false)" ]
+      } ],
+      "uid" : "Negative.NegativeCreationTest"
+    } ],
+    "uid" : "com.automationpractice.Tests"
+  } ]
+}

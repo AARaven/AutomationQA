@@ -3,6 +3,8 @@ package Models.Page;
 import lombok.SneakyThrows;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
@@ -52,12 +54,19 @@ public class BasePage implements PageNavigation {
 				( driver, 5 ), this );
 	}
 	
-	public String getTitle() {
+	protected String getTitle() {
 		return this.driver.getTitle();
 	}
 	
 	protected void setUrl( String url ) {
 		this.url = url;
+	}
+	
+	protected void moveToElement( WebElement element ) {
+		new Actions( driver )
+				.moveToElement( element )
+				.build()
+				.perform();
 	}
 	
 	@SneakyThrows
@@ -69,7 +78,7 @@ public class BasePage implements PageNavigation {
 	}
 	
 	@SneakyThrows
-	protected String[] getPropertyArray( String value, String path ) {
+	protected String[] getJsonData( String value, String path ) {
 		File file = new File( path );
 		ObjectMapper mapper = new ObjectMapper();
 		String[] strings;

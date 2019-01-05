@@ -1,7 +1,11 @@
 package com.automationpractice.Tests.Positive;
 
+import Models.User.User;
+import com.automationpractice.Data.UserData;
+import com.automationpractice.Pages.AccountPage.AccountPage;
 import com.automationpractice.Pages.AuthorizationPage.AuthenticationPage;
 import com.automationpractice.Pages.AuthorizationPage.IncludedPages.AccountCreationPage;
+import com.automationpractice.Pages.HomePage.HomePage;
 import com.automationpractice.Tests.BaseTest;
 import io.qameta.allure.Step;
 import org.testng.annotations.Test;
@@ -34,5 +38,22 @@ public class PageElementsTest extends BaseTest {
 		creation
 				.verifyTextAreaElementsOnPageIsEnabled()
 				.assertAll();
+	}
+	
+	@Test( dataProvider = "ValidUser", dataProviderClass = UserData.class )
+	public void exampleTestElements( User user ) {
+		HomePage home = new HomePage( getDriver() );
+		AuthenticationPage authentication = new AuthenticationPage( getDriver() );
+		AccountPage myAccount = new AccountPage( getDriver() );
+		
+		home
+				.navigate();
+		home
+				.clickSignIn();
+		
+		authentication
+				.authorizeUser( user );
+		
+		
 	}
 }

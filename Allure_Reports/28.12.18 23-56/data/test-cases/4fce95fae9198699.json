@@ -1,0 +1,214 @@
+{
+  "uid" : "4fce95fae9198699",
+  "name" : "A test that implement verifying account address.",
+  "fullName" : "com.automationpractice.Tests.Positive.AccountTest.verifyAddress",
+  "historyId" : "ca51e370fb3da882fbe5408e457d670",
+  "time" : {
+    "start" : 1546029592683,
+    "stop" : 1546029600467,
+    "duration" : 7784
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "beforeTestMethod",
+    "time" : {
+      "start" : 1546029546228,
+      "stop" : 1546029546228,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "beforeClassMethod",
+    "time" : {
+      "start" : 1546029546228,
+      "stop" : 1546029546228,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "beforeMethod",
+    "time" : {
+      "start" : 1546029592672,
+      "stop" : 1546029592672,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "beforeSuiteMethod",
+    "time" : {
+      "start" : 1546029482007,
+      "stop" : 1546029488837,
+      "duration" : 6830
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Navigate to address page from account page and verify address.",
+      "time" : {
+        "start" : 1546029592683,
+        "stop" : 1546029600467,
+        "duration" : 7784
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User(gender=FEMALE, firstName=Hedwig , lastName=James, email=jHedwigP6x4@yandex.ru, password=HIMuorPL, dayOfBirth=23, monthOfBirth=7, yearOfBirth=1977, company=Coca-cola inc., address=1101  Pine Garden Lane,666666, Coca-cola inc., addressSecondLine=20, city=Canton, state=Georgia, zipCode=30114, country=United States, additionalInfo=Knock-knock, homePhone=770-721-5341, mobilePhone=678-910-7500, alias=jHedwigP6x4@yandex.ru, newsLetter=false, specialOffers=false)"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "afterTestMethod",
+    "time" : {
+      "start" : 1546029600489,
+      "stop" : 1546029600489,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "afterClassMethod",
+    "time" : {
+      "start" : 1546029600488,
+      "stop" : 1546029600488,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "afterMethod",
+    "time" : {
+      "start" : 1546029600477,
+      "stop" : 1546029600478,
+      "duration" : 1
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "afterSuiteMethod",
+    "time" : {
+      "start" : 1546029689274,
+      "stop" : 1546029690087,
+      "duration" : 813
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "com.automationpractice.Tests.Positive.AccountTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.automationpractice.Tests.Positive.AccountTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "verifyAddress"
+  }, {
+    "name" : "parentSuite",
+    "value" : "AccountAndOrderingTests"
+  }, {
+    "name" : "suite",
+    "value" : "VerifyingAnAccount"
+  }, {
+    "name" : "subSuite",
+    "value" : "com.automationpractice.Tests.Positive.AccountTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-4L6ENKG"
+  }, {
+    "name" : "thread",
+    "value" : "5696@DESKTOP-4L6ENKG.TestNG-suites-1(18)"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "User(gender=FEMALE, firstName=Hedwig , lastName=James, email=jHedwigP6x4@yandex.ru, password=HIMuorPL, dayOfBirth=23, monthOfBirth=7, yearOfBirth=1977, company=Coca-cola inc., address=1101  Pine Garden Lane,666666, Coca-cola inc., addressSecondLine=20, city=Canton, state=Georgia, zipCode=30114, country=United States, additionalInfo=Knock-knock, homePhone=770-721-5341, mobilePhone=678-910-7500, alias=jHedwigP6x4@yandex.ru, newsLetter=false, specialOffers=false)"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "4fce95fae9198699.json",
+  "parameterValues" : [ "User(gender=FEMALE, firstName=Hedwig , lastName=James, email=jHedwigP6x4@yandex.ru, password=HIMuorPL, dayOfBirth=23, monthOfBirth=7, yearOfBirth=1977, company=Coca-cola inc., address=1101  Pine Garden Lane,666666, Coca-cola inc., addressSecondLine=20, city=Canton, state=Georgia, zipCode=30114, country=United States, additionalInfo=Knock-knock, homePhone=770-721-5341, mobilePhone=678-910-7500, alias=jHedwigP6x4@yandex.ru, newsLetter=false, specialOffers=false)" ]
+}

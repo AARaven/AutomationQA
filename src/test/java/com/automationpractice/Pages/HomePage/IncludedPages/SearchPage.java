@@ -4,7 +4,6 @@ import com.automationpractice.Pages.HomePage.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.asserts.SoftAssert;
 
@@ -30,8 +29,6 @@ public class SearchPage extends HomePage {
 	private WebElement textOrderIsComplete;
 	
 	public SearchPage chooseProduct( String title ) {
-		Actions setVisibleAjaxContainer = new Actions( driver );
-		
 		WebElement productContainer =
 				this.driver.findElements
 						( By.className( "product-name" ) ).stream()
@@ -39,10 +36,7 @@ public class SearchPage extends HomePage {
 						.filter( element -> element.getAttribute( "title" ).contains( title ) )
 						.findFirst().get();
 		
-		setVisibleAjaxContainer
-				.moveToElement( productContainer )
-				.build()
-				.perform();
+		moveToElement( productContainer );
 		return this;
 	}
 	

@@ -1,0 +1,214 @@
+{
+  "uid" : "edb7f7760c4f83b7",
+  "name" : "A test that implement creation an account.",
+  "fullName" : "com.automationpractice.Tests.Positive.AccountTest.creationAnAccount",
+  "historyId" : "1f5f62f41d0a85f5848ff68dfa7e88e8",
+  "time" : {
+    "start" : 1546029525493,
+    "stop" : 1546029536073,
+    "duration" : 10580
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "beforeClassMethod",
+    "time" : {
+      "start" : 1546029488837,
+      "stop" : 1546029488837,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "beforeTestMethod",
+    "time" : {
+      "start" : 1546029488837,
+      "stop" : 1546029488837,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "beforeMethod",
+    "time" : {
+      "start" : 1546029525484,
+      "stop" : 1546029525484,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "beforeSuiteMethod",
+    "time" : {
+      "start" : 1546029482007,
+      "stop" : 1546029488837,
+      "duration" : 6830
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Navigate to authentication page and create a new account.",
+      "time" : {
+        "start" : 1546029525494,
+        "stop" : 1546029536073,
+        "duration" : 10579
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User(gender=FEMALE, firstName=Glenda, lastName=Ryan, email=b1Glenda344@gmail.com, password=nxFpCCx3, dayOfBirth=11, monthOfBirth=9, yearOfBirth=1989, company=Coca-cola inc., address=870  Stoneybrook Road,666666, Coca-cola inc., addressSecondLine=20, city=Cocoa, state=Florida, zipCode=32922, country=United States, additionalInfo=Knock-knock, homePhone=321-630-8537, mobilePhone=321-863-7967, alias=b1Glenda344@gmail.com, newsLetter=false, specialOffers=true)"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "afterMethod",
+    "time" : {
+      "start" : 1546029536105,
+      "stop" : 1546029536105,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "afterClassMethod",
+    "time" : {
+      "start" : 1546029546188,
+      "stop" : 1546029546188,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "afterTestMethod",
+    "time" : {
+      "start" : 1546029546188,
+      "stop" : 1546029546189,
+      "duration" : 1
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "afterSuiteMethod",
+    "time" : {
+      "start" : 1546029689274,
+      "stop" : 1546029690087,
+      "duration" : 813
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "com.automationpractice.Tests.Positive.AccountTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.automationpractice.Tests.Positive.AccountTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "creationAnAccount"
+  }, {
+    "name" : "parentSuite",
+    "value" : "AccountAndOrderingTests"
+  }, {
+    "name" : "suite",
+    "value" : "CreationAnAccount"
+  }, {
+    "name" : "subSuite",
+    "value" : "com.automationpractice.Tests.Positive.AccountTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-4L6ENKG"
+  }, {
+    "name" : "thread",
+    "value" : "5696@DESKTOP-4L6ENKG.TestNG-suites-1(18)"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "User(gender=FEMALE, firstName=Glenda, lastName=Ryan, email=b1Glenda344@gmail.com, password=nxFpCCx3, dayOfBirth=11, monthOfBirth=9, yearOfBirth=1989, company=Coca-cola inc., address=870  Stoneybrook Road,666666, Coca-cola inc., addressSecondLine=20, city=Cocoa, state=Florida, zipCode=32922, country=United States, additionalInfo=Knock-knock, homePhone=321-630-8537, mobilePhone=321-863-7967, alias=b1Glenda344@gmail.com, newsLetter=false, specialOffers=true)"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "edb7f7760c4f83b7.json",
+  "parameterValues" : [ "User(gender=FEMALE, firstName=Glenda, lastName=Ryan, email=b1Glenda344@gmail.com, password=nxFpCCx3, dayOfBirth=11, monthOfBirth=9, yearOfBirth=1989, company=Coca-cola inc., address=870  Stoneybrook Road,666666, Coca-cola inc., addressSecondLine=20, city=Cocoa, state=Florida, zipCode=32922, country=United States, additionalInfo=Knock-knock, homePhone=321-630-8537, mobilePhone=321-863-7967, alias=b1Glenda344@gmail.com, newsLetter=false, specialOffers=true)" ]
+}

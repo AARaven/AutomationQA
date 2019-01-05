@@ -12,29 +12,29 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 @Listeners( { ScreenShot.class } )
-public class BaseTest extends Thread {
+public class BaseTest {
 	
 	private static final String PROPERTIES_WEBDRIVER_PATH =
 			"./src/main/resources/PropertyFiles/webdriver.properties";
 	
-	private ThreadLocal <WebDriver> storage = new ThreadLocal <>();
+	private static ThreadLocal <WebDriver> driverBox = new ThreadLocal <>();
 	
 	public WebDriver getDriver() {
-		WebDriver current = storage.get();
+		WebDriver current = driverBox.get();
 		if ( current == null ) {
 			setProperty( "chrome" );
 			current = new ChromeDriver();
 			current.manage().timeouts().implicitlyWait( 7, TimeUnit.SECONDS );
 			new WebDriverWait( current, 7 );
 			current.manage().window().maximize();
-			storage.set( current );
+			driverBox.set( current );
 		}
 		return current;
 	}
 	
 	private void quiteDriver() {
-		storage.get().quit();
-		storage.remove();
+		driverBox.get().quit();
+		driverBox.remove();
 	}
 	
 	@BeforeSuite

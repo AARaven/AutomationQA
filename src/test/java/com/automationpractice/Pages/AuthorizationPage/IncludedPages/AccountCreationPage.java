@@ -63,7 +63,7 @@ public class AccountCreationPage extends HomePage {
 		SoftAssert softAssert = new SoftAssert();
 		WebElement errorContainer = alertDiv.findElement( By.tagName( "ol" ) );
 		String[] actualErrors = errorContainer.getText().split( "\\n" );
-		String[] expectedErrors = getPropertyArray( "requiredErrors", ERROR_LIST_PATH );
+		String[] expectedErrors = getJsonData( "requiredErrors", ERROR_LIST_PATH );
 		softAssert.assertTrue
 				( alertDiv.isDisplayed(), "Alert message is not displayed." );
 		
@@ -78,7 +78,7 @@ public class AccountCreationPage extends HomePage {
 		SoftAssert softAssert = new SoftAssert();
 		WebElement errorContainer = alertDiv.findElement( By.tagName( "ol" ) );
 		String[] actualErrors = errorContainer.getText().split( "\\n" );
-		String[] expectedErrors = getPropertyArray( "invalidErrors", ERROR_LIST_PATH );
+		String[] expectedErrors = getJsonData( "invalidErrors", ERROR_LIST_PATH );
 		softAssert.assertTrue
 				( alertDiv.isDisplayed(),
 						"Alert message is not displayed." );
