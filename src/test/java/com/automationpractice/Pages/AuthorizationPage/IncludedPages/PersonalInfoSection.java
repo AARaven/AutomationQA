@@ -74,7 +74,7 @@ public class PersonalInfoSection {
 		
 		setDateOfBirth(
 				user.getDayOfBirth(),
-				user.getMonthOfBirth(),
+				Integer.toString( user.getMonthOfBirth().getNumber() ),
 				user.getYearOfBirth()
 		);
 		setNewsLetter( user );
@@ -119,7 +119,7 @@ public class PersonalInfoSection {
 	
 	private void setDataFields( WebElement element, String value ) {
 		element.clear();
-		if ( value.equals( "" ) ) element.clear();
+		if ( value.isEmpty() ) element.clear();
 		else element.sendKeys( value );
 	}
 }

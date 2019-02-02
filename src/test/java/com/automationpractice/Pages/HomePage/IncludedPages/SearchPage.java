@@ -28,6 +28,9 @@ public class SearchPage extends HomePage {
 	@FindBy( className = "cheque-indent" )
 	private WebElement textOrderIsComplete;
 	
+	@FindBy( className = "product-container" )
+	private WebElement productContainers;
+	
 	public SearchPage chooseProduct( String title ) {
 		WebElement productContainer =
 				this.driver.findElements

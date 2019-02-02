@@ -73,19 +73,19 @@ public class AddressSection {
 		setDataFields
 				( inputLastName, user.getLastName() );
 		setDataFields
-				( inputCompany, user.getCompany() );
+				( inputCompany, user.getAddress().getCompany() );
 		setDataFields
-				( inputAddress1, user.getAddress() );
+				( inputAddress1, user.getAddress().getAddress() );
 		setDataFields
-				( inputAddress2, user.getAddressSecondLine() );
+				( inputAddress2, user.getAddress().getAddressSecondLine() );
 		setDataFields
-				( inputCity, user.getCity() );
+				( inputCity, user.getAddress().getCity() );
 		setState
-				( user.getState() );
+				( user.getAddress().getState().getName() );
 		setDataFields
-				( inputZipCode, user.getZipCode() );
+				( inputZipCode, user.getAddress().getZipCode() );
 		setCountry
-				( user.getCountry() );
+				( user.getAddress().getCountry() );
 		setDataFields
 				( inputAdditionalInfo, user.getAdditionalInfo() );
 		setDataFields
@@ -107,15 +107,15 @@ public class AddressSection {
 		setDataFields
 				( inputLastName, user.getLastName() );
 		setDataFields
-				( inputCompany, user.getCompany() );
+				( inputCompany, user.getAddress().getCompany() );
 		setDataFields
-				( inputAddress1, user.getAddress() );
+				( inputAddress1, user.getAddress().getAddress() );
 		setDataFields
-				( inputAddress2, user.getAddressSecondLine() );
+				( inputAddress2, user.getAddress().getAddressSecondLine() );
 		setDataFields
-				( inputCity, user.getCity() );
+				( inputCity, user.getAddress().getCity() );
 		setDataFields
-				( inputZipCode, user.getZipCode() );
+				( inputZipCode, user.getAddress().getZipCode() );
 		setDataFields
 				( inputAdditionalInfo, new RandomString( 500 ).nextString() );
 		setDataFields

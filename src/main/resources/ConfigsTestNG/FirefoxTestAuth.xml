@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="TestCrossBrowser" verbose="1">
-    <!--<parameter name="browser" value="firefox"/>-->
+    <!--<parameter name="browser" number="firefox"/>-->
     <test name="AuthorizationTestFirefox">
         <classes>
             <class name="com.automationpractice.Tests.Positive.AccountTest">

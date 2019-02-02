@@ -135,7 +135,8 @@ public class AccountInfoPage extends AccountPage {
 	}
 	
 	private AccountInfoPage rewriteUserMonthOfBirth( User user ) {
-		new Select( personalInfo.getSelectMonths() ).selectByValue( user.getMonthOfBirth() );
+		new Select( personalInfo.getSelectMonths() )
+				.selectByValue( Integer.toString( user.getMonthOfBirth().getNumber() ) );
 		return this;
 	}
 	
@@ -168,37 +169,37 @@ public class AccountInfoPage extends AccountPage {
 	private boolean isUserFirstName( User user ) {
 		return user.getFirstName()
 				.equals( inputFirstName
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserLastName( User user ) {
 		return user.getLastName()
 				.equals( inputLastName
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserEmail( User user ) {
 		return user.getEmail()
 				.equals( personalInfo.getInputEmail()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserDayOfBirth( User user ) {
 		return user.getDayOfBirth()
 				.equals( personalInfo.getSelectDays()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserMonthOfBirth( User user ) {
-		return user.getMonthOfBirth()
+		return Integer.toString( user.getMonthOfBirth().getNumber() )
 				.equals( personalInfo.getSelectMonths()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserYearOfBirth( User user ) {
 		return user.getYearOfBirth()
 				.equals( personalInfo.getSelectYears()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isNewsLetter( User user ) {

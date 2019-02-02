@@ -64,17 +64,17 @@ public class AddressPage extends AccountPage {
 		rewriteLastName
 				( user.getLastName() );
 		rewriteCompany
-				( user.getCompany() );
+				( user.getAddress().getCompany() );
 		rewriteAddress
-				( user.getAddress() );
+				( user.getAddress().getAddress() );
 		rewriteAddressSecondLine
-				( user.getAddressSecondLine() );
+				( user.getAddress().getAddressSecondLine() );
 		rewriteCity
-				( user.getCity() );
+				( user.getAddress().getCity() );
 //        rewriteState
 //                (user.getState());
 		rewriteZip
-				( user.getZipCode() );
+				( user.getAddress().getZipCode() );
 //        rewriteCountry
 //                (user.getCountry());
 		rewriteHomePhone
@@ -202,60 +202,60 @@ public class AddressPage extends AccountPage {
 		return user.getFirstName()
 				.equals( userAddress
 						.getInputFirstName()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserLastName( User user ) {
 		return user.getLastName()
 				.equals( userAddress
 						.getInputLastName()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserCompany( User user ) {
-		return user.getCompany()
+		return user.getAddress().getCompany()
 				.equals( userAddress
 						.getInputCompany()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserAddress( User user ) {
 		return user.getAddress()
 				.equals( userAddress
 						.getInputAddress1()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserAddressSecondLine( User user ) {
-		return user.getAddressSecondLine()
+		return user.getAddress().getAddressSecondLine()
 				.equals( userAddress
 						.getInputAddress2()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserCity( User user ) {
-		return user.getCity()
+		return user.getAddress().getCity()
 				.equals( userAddress
 						.getInputCity()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserState( User user ) {
-		return user.getState()
+		return user.getAddress().getState()
 				.equals( new Select( userAddress.getSelectState() )
 						.getFirstSelectedOption()
 						.getText() );
 	}
 	
 	private boolean isUserZip( User user ) {
-		return user.getZipCode()
+		return user.getAddress().getZipCode()
 				.equals( userAddress
 						.getInputZipCode()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserCountry( User user ) {
-		return user.getCountry()
+		return user.getAddress().getCountry()
 				.equals( new Select( userAddress.getSelectCountry() )
 						.getFirstSelectedOption()
 						.getText() );
@@ -265,21 +265,21 @@ public class AddressPage extends AccountPage {
 		return user.getHomePhone()
 				.equals( userAddress
 						.getInputPhone()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserMobilePhone( User user ) {
 		return user.getMobilePhone()
 				.equals( userAddress
 						.getInputPhoneMobile()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserAdditionalInfo( User user ) {
 		return user.getAdditionalInfo()
 				.equals( userAddress
 						.getInputAdditionalInfo()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 	
 	private boolean isUserAlias( User user ) {
@@ -289,6 +289,6 @@ public class AddressPage extends AccountPage {
 		return user.getAlias()
 				.equals( userAddress
 						.getInputAlias()
-						.getAttribute( "value" ) );
+						.getAttribute( "number" ) );
 	}
 }

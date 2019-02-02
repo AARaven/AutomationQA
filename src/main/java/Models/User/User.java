@@ -14,15 +14,9 @@ public class User {
 	private String email;
 	private String password;
 	private String dayOfBirth;
-	private String monthOfBirth;
+	private Month monthOfBirth;
 	private String yearOfBirth;
-	private String company;
-	private String address;
-	private String addressSecondLine;
-	private String city;
-	private String state;
-	private String zipCode;
-	private String country;
+	private Address address;
 	private String additionalInfo;
 	private String homePhone;
 	private String mobilePhone;
@@ -44,6 +38,33 @@ public class User {
 			return this.gender;
 		}
 	}
+	
+	public enum Month {
+		DEFAULT( "-" ),
+		JANUARY( "January" ), FEBRUARY( "February" ), MARCH( "March" ),
+		APRIL( "April" ), MAY( "May" ), JUNE( "June" ),
+		JULY( "July" ), AUGUST( "August" ), SEPTEMBER( "September" ),
+		OCTOBER( "October" ), NOVEMBER( "November" ), DECEMBER( "December" ),
+		;
+		
+		
+		private String name;
+		private int number;
+		
+		public String getName() {
+			return this.name;
+		}
+		
+		public int getNumber() {
+			return this.number;
+		}
+		
+		Month( String name ) {
+			this.name = name;
+			this.number = ordinal();
+		}
+	}
+
 
 //	@SneakyThrows
 //	private void saveUserProfile( User user ) {
