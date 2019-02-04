@@ -1,9 +1,9 @@
 package Models.Order.Clothes.Enums.ForUserChoice;
 
-public enum Availability {
+public enum Conditions {
     
     DEFAULT(),
-    IN_STOCK( "In stock" ),
+    NEW( "New" ),
     ;
     
     private String description;
@@ -16,9 +16,10 @@ public enum Availability {
         this.description = description;
     }
     
-    Availability() { }
+    Conditions() { }
     
-    Availability( String description ) {
+    Conditions( String description ) {
         this.setDescription( description );
     }
+    
 }

@@ -1,16 +1,11 @@
 package Models.Order.Clothes.Enums.ForOrdering;
 
-public enum Colour {
+public enum Compositions {
     
     DEFAULT(),
-    BEIGE( "Beige" ),
-    BLACK( "Black" ),
-    BLUE( "Blue" ),
-    YELLOW( "Yellow" ),
-    WHITE( "White" ),
-    ORANGE( "Orange" ),
-    GREEN( "Green" ),
-    PINK( "Pink" ),
+    COTTON( "Cotton" ),
+    VISCOSE( "Viscose" ),
+    POLYESTER( "Polyester" ),
     ;
     
     private String description;
@@ -23,9 +18,9 @@ public enum Colour {
         this.description = description;
     }
     
-    Colour() { }
+    Compositions() { }
     
-    Colour( String description ) {
+    Compositions( String description ) {
         this.setDescription( description );
     }
 }

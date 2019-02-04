@@ -131,18 +131,18 @@ public class AccountInfoPage extends AccountPage {
     }
     
     private AccountInfoPage rewriteUserDayOfBirth( User user ) {
-        new Select( personalInfo.getSelectDays() ).selectByValue( user.getDayOfBirth() );
+        new Select( personalInfo.getSelectDays() ).selectByValue( user.getDay() );
         return this;
     }
     
     private AccountInfoPage rewriteUserMonthOfBirth( User user ) {
         new Select( personalInfo.getSelectMonths() )
-                .selectByValue( Integer.toString( user.getMonthOfBirth().getNumber() ) );
+                .selectByValue( Integer.toString( user.getMonths().getNumber() ) );
         return this;
     }
     
     private AccountInfoPage rewriteUserYearOfBirth( User user ) {
-        new Select( personalInfo.getSelectYears() ).selectByValue( user.getYearOfBirth() );
+        new Select( personalInfo.getSelectYears() ).selectByValue( user.getYear() );
         return this;
     }
     
@@ -186,19 +186,19 @@ public class AccountInfoPage extends AccountPage {
     }
     
     private boolean isUserDayOfBirth( User user ) {
-        return user.getDayOfBirth()
+        return user.getDay()
                    .equals( personalInfo.getSelectDays()
                                         .getAttribute( "number" ) );
     }
     
     private boolean isUserMonthOfBirth( User user ) {
-        return Integer.toString( user.getMonthOfBirth().getNumber() )
+        return Integer.toString( user.getMonths().getNumber() )
                       .equals( personalInfo.getSelectMonths()
                                            .getAttribute( "number" ) );
     }
     
     private boolean isUserYearOfBirth( User user ) {
-        return user.getYearOfBirth()
+        return user.getYear()
                    .equals( personalInfo.getSelectYears()
                                         .getAttribute( "number" ) );
     }

@@ -59,9 +59,9 @@ public class PersonalInfoSection {
                 ( inputEmail, user.getEmail() );
         
         setDateOfBirth(
-                user.getDayOfBirth(),
-                Integer.toString( user.getMonthOfBirth().getNumber() ),
-                user.getYearOfBirth()
+                user.getDay(),
+                Integer.toString( user.getMonths().getNumber() ),
+                user.getYear()
                       );
         setNewsLetter( user );
         setSpecialOffers( user );

@@ -1,12 +1,9 @@
-package Models.Order.Clothes.Enums.ForOrdering;
+package Models.Order.Clothes.Enums.ForUserChoice;
 
-public enum Property {
+public enum Availabilities {
     
     DEFAULT(),
-    COLORFUL( "Colorful" ),
-    MIDI( "Midi" ),
-    MAXI( "Maxi" ),
-    SHORT( "Short" ),
+    IN_STOCK( "In stock" ),
     ;
     
     private String description;
@@ -19,9 +16,9 @@ public enum Property {
         this.description = description;
     }
     
-    Property() { }
+    Availabilities() { }
     
-    Property( String description ) {
+    Availabilities( String description ) {
         this.setDescription( description );
     }
 }

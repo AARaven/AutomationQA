@@ -1,14 +1,14 @@
-package Models.Order.Clothes.Enums.ForUserChoice;
+package Models.Order.Clothes.Enums.ForOrdering;
 
-public enum Style {
+public enum Sizes {
     
     DEFAULT(),
-    CASUAL( "Casual" ),
-    DRESSY( "Dressy" ),
-    GIRLY( "Girly" ),
+    L( "Large" ),
+    M( "Medium" ),
+    S( "Small" ),
     ;
     
-    private String description;
+    String description;
     
     public String getDescription() {
         return this.description;
@@ -18,9 +18,9 @@ public enum Style {
         this.description = description;
     }
     
-    Style() { }
+    Sizes() { }
     
-    Style( String description ) {
+    Sizes( String description ) {
         this.setDescription( description );
     }
 }

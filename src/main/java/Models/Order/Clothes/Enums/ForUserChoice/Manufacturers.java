@@ -1,6 +1,6 @@
 package Models.Order.Clothes.Enums.ForUserChoice;
 
-public enum Manufacturer {
+public enum Manufacturers {
     
     DEFAULT(),
     FASHION( "Fashion" ),
@@ -16,9 +16,9 @@ public enum Manufacturer {
         this.description = description;
     }
     
-    Manufacturer() { }
+    Manufacturers() { }
     
-    Manufacturer( String description ) {
+    Manufacturers( String description ) {
         this.setDescription( description );
     }
 }

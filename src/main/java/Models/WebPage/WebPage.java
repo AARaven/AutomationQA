@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public interface WebPage {
     
-    static final String PROPERTIES_WEB_PAGES_PATH =
+    String PROPERTIES_WEB_PAGES_PATH =
             "./src/main/resources/PropertyFiles/pages.properties";
     
     @SneakyThrows

@@ -1,14 +1,19 @@
 package Models.Order.Clothes.Enums.ForOrdering;
 
-public enum Size {
+public enum Colours {
     
     DEFAULT(),
-    L( "Large" ),
-    M( "Medium" ),
-    S( "Small" ),
+    BEIGE( "Beige" ),
+    BLACK( "Black" ),
+    BLUE( "Blue" ),
+    YELLOW( "Yellow" ),
+    WHITE( "White" ),
+    ORANGE( "Orange" ),
+    GREEN( "Green" ),
+    PINK( "Pink" ),
     ;
     
-    String description;
+    private String description;
     
     public String getDescription() {
         return this.description;
@@ -18,9 +23,9 @@ public enum Size {
         this.description = description;
     }
     
-    Size() { }
+    Colours() { }
     
-    Size( String description ) {
+    Colours( String description ) {
         this.setDescription( description );
     }
 }

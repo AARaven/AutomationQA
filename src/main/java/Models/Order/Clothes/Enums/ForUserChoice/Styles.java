@@ -1,11 +1,11 @@
-package Models.Order.Clothes.Enums.ForOrdering;
+package Models.Order.Clothes.Enums.ForUserChoice;
 
-public enum Composition {
+public enum Styles {
     
     DEFAULT(),
-    COTTON( "Cotton" ),
-    VISCOSE( "Viscose" ),
-    POLYESTER( "Polyester" ),
+    CASUAL( "Casual" ),
+    DRESSY( "Dressy" ),
+    GIRLY( "Girly" ),
     ;
     
     private String description;
@@ -18,9 +18,9 @@ public enum Composition {
         this.description = description;
     }
     
-    Composition() { }
+    Styles() { }
     
-    Composition( String description ) {
+    Styles( String description ) {
         this.setDescription( description );
     }
 }
