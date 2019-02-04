@@ -11,33 +11,32 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-@Listeners( { ScreenShot.class } )
-@Log4j2
+
+@Log4j2 @Listeners( { ScreenShot.class } )
 public class BaseTest {
+    
+    private static ThreadLocal < WebDriver > DRIVER_BOX = new ThreadLocal <>();
     
     private static final String WEBDRIVER_PROPERTIES_PATH =
             "./src/main/resources/PropertyFiles/webdriver.properties";
     
-    private static ThreadLocal <WebDriver> DRIVER_BOX = new ThreadLocal <>();
     
     public WebDriver getDriver() {
-        WebDriver driverThreadSafety = DRIVER_BOX.get();
         
-        if ( driverThreadSafety == null ) {
-            log.debug( "Thread-safety webdriver initialization." );
-            setProperty( "chrome" );
-            driverThreadSafety = new ChromeDriver();
-            driverThreadSafety.manage()
-                    .timeouts()
-                    .implicitlyWait( 7, TimeUnit.SECONDS );
-            driverThreadSafety.manage()
-                    .window()
-                    .maximize();
-            DRIVER_BOX.set( driverThreadSafety );
+        WebDriver threadSafeDriver = DRIVER_BOX.get();
+        
+        if ( threadSafeDriver == null ) {
+            setProperty();
+            threadSafeDriver = new ChromeDriver();
+            threadSafeDriver.manage()
+                              .timeouts()
+                              .implicitlyWait( 7, TimeUnit.SECONDS );
+            threadSafeDriver.manage()
+                              .window()
+                              .maximize();
+            DRIVER_BOX.set( threadSafeDriver );
         }
-        log.debug( "Return thread-safety webdriver." );
-        
-        return driverThreadSafety;
+        return threadSafeDriver;
     }
     
     private void quiteDriver() {
@@ -89,25 +88,18 @@ public class BaseTest {
     
     @SneakyThrows
     private String getDriverProperties( String config ) {
-        Properties prop = new Properties();
+        Properties  prop = new Properties();
         InputStream input;
         input = new FileInputStream( WEBDRIVER_PROPERTIES_PATH );
         prop.load( input );
         return prop.getProperty( config );
     }
     
-    private void setProperty( String driver ) {
-        switch ( driver ) {
-            case ( "chrome" ):
-                System.setProperty
-                        ( getDriverProperties( "chromeDriverName" ),
-                                getDriverProperties( "chromeDriverPath" ) );
-                break;
-            case ( "firefox" ):
-                System.setProperty
-                        ( getDriverProperties( "firefoxDriverName" ),
-                                getDriverProperties( "firefoxDriverPath" ) );
-                break;
-        }
+    private void setProperty() {
+        System.setProperty
+                ( getDriverProperties( "chromeDriverName" ),
+                  getDriverProperties( "chromeDriverPath" ) );
     }
 }
+
+

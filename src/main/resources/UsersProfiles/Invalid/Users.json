@@ -1,27 +1,27 @@
 {
-  "InvalidUser": {
-    "gender": "MALE",
-    "firstName": "!@#!$!",
-    "lastName": "!@#!$!",
-    "email": "AleXx4@mail.com",
-    "password": "!@#",
-    "dayOfBirth": "-",
-    "monthOfBirth": "DEFAULT",
-    "yearOfBirth": "-",
-    "address": {
-      "country": "-",
-      "state": "DEFAULT",
-      "city": "!@#!$",
-      "zipCode": "!@#!$",
-      "address": "!@#!",
-      "addressSecondLine": "!@#!@",
-      "company": "!@#!$!#$!!#"
+  "InvalidUser" : {
+    "gender" :         "MALE",
+    "firstName" :      "!@#!$!",
+    "lastName" :       "!@#!$!",
+    "email" :          "AleXx4@mail.com",
+    "password" :       "!@#",
+    "dayOfBirth" :     "-",
+    "monthOfBirth" :   "DEFAULT",
+    "yearOfBirth" :    "-",
+    "address" :        {
+      "country" :           "-",
+      "state" :             "DEFAULT",
+      "city" :              "!@#!$",
+      "zipCode" :           "!@#!$",
+      "address" :           "!@#!",
+      "addressSecondLine" : "!@#!@",
+      "company" :           "!@#!$!#$!!#"
     },
-    "additionalInfo": "!@#!$!",
-    "homePhone": "!@#!$!",
-    "mobilePhone": "!@#!$!",
-    "alias": "!@#!$!",
-    "newsLetter": "false",
-    "specialOffers": "false"
+    "additionalInfo" : "!@#!$!",
+    "homePhone" :      "!@#!$!",
+    "mobilePhone" :    "!@#!$!",
+    "alias" :          "!@#!$!",
+    "newsLetter" :     "false",
+    "specialOffers" :  "false"
   }
 }

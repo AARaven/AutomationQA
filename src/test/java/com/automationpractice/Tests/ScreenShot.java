@@ -14,52 +14,54 @@ import java.io.File;
 import java.nio.file.Files;
 
 public class ScreenShot implements ITestListener {
-	
-	@Override
-	public void onTestStart( ITestResult iTestResult ) {
-	
-	}
-	
-	@Override
-	public void onTestSuccess( ITestResult iTestResult ) {
-	
-	}
-	
-	@Override
-	@SneakyThrows
-	public void onTestFailure( ITestResult iTestResult ) {
-		Object currentClass = iTestResult.getInstance();
-		WebDriver driver = ( ( BaseTest ) currentClass ).getDriver();
-		if ( driver != null ) {
-			File f = ( ( TakesScreenshot ) driver ).getScreenshotAs( OutputType.FILE );
-			FileUtils.copyFile( f, new File( "./src/test/testFailure.jpeg" ) );
-			byte[] fileContent = Files.readAllBytes( f.toPath() );
-			saveScreenshotJPG( fileContent );
-		}
-	}
-	
-	@Attachment( value = "Page screenshot", type = "image/jpg" )
-	private byte[] saveScreenshotJPG( byte[] screenShot ) {
-		return screenShot;
-	}
-	
-	@Override
-	public void onTestSkipped( ITestResult iTestResult ) {
-	
-	}
-	
-	@Override
-	public void onTestFailedButWithinSuccessPercentage( ITestResult iTestResult ) {
-	
-	}
-	
-	@Override
-	public void onStart( ITestContext iTestContext ) {
-	
-	}
-	
-	@Override
-	public void onFinish( ITestContext iTestContext ) {
-	
-	}
+    
+    @Override
+    public void onTestStart( ITestResult iTestResult ) {
+    
+    }
+    
+    @Override
+    public void onTestSuccess( ITestResult iTestResult ) {
+    
+    }
+    
+    @Override
+    @SneakyThrows
+    public void onTestFailure( ITestResult iTestResult ) {
+        Object    currentClass = iTestResult.getInstance();
+        WebDriver driver       = ( ( BaseTest ) currentClass ).getDriver();
+        
+        if ( driver != null ) {
+            File f = ( ( TakesScreenshot ) driver ).getScreenshotAs( OutputType.FILE );
+            FileUtils.copyFile( f, new File( "./src/test/testFailure.jpeg" ) );
+            byte[] fileContent = Files.readAllBytes( f.toPath() );
+            saveScreenshotJPG( fileContent );
+            
+        }
+    }
+    
+    @Attachment( value = "WebPage screenshot", type = "image/jpg" )
+    private byte[] saveScreenshotJPG( byte[] screenShot ) {
+        return screenShot;
+    }
+    
+    @Override
+    public void onTestSkipped( ITestResult iTestResult ) {
+    
+    }
+    
+    @Override
+    public void onTestFailedButWithinSuccessPercentage( ITestResult iTestResult ) {
+    
+    }
+    
+    @Override
+    public void onStart( ITestContext iTestContext ) {
+    
+    }
+    
+    @Override
+    public void onFinish( ITestContext iTestContext ) {
+    
+    }
 }

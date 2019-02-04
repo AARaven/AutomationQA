@@ -12,16 +12,15 @@ import org.testng.annotations.Test;
 
 public class PageElementsTest extends BaseTest {
     
-    @Test( description = "A test that implements" +
-            " the verification of elements on the creation an account page." )
+    @Test( description = "A test that implements " +
+                         "the verification of elements on the creation an account page." )
     @Step( "Verifying that elements on creation an account page is enabled." )
     public void verifyingElementsIsEnabled() {
-        AuthenticationPage authentication =
-                new AuthenticationPage( getDriver() );
-        AccountCreationPage creation =
-                new AccountCreationPage( getDriver() );
         
-        authentication.navigate();
+        AuthenticationPage  authentication = new AuthenticationPage( getDriver() );
+        AccountCreationPage creation       = new AccountCreationPage( getDriver() );
+        
+        authentication.openPage();
         
         authentication
                 .setEmail( "asd12fdVf@as2df.ru" )
@@ -42,16 +41,18 @@ public class PageElementsTest extends BaseTest {
     
     @Test( description = "REST API / GET" )
     public void exampleGETCapitalOfRussia() {
-        Response response = RestAssured.get( "https://restcountries.eu/rest/v1/name/United Kingdom" );
+        Response response = RestAssured.get(
+                "https://restcountries.eu/rest/v1/name/United Kingdom" );
         JSONArray jsonArray = new JSONArray( response.asString() );
-        String capital = jsonArray.getJSONObject( 0 ).getString( "capital" );
+        String    capital   = jsonArray.getJSONObject( 0 ).getString( "capital" );
         Assert.assertEquals( capital, "London" );
         System.out.println( capital );
     }
     
     @Test( description = "REST API / GET" )
     public void exampleGETDetailsOfRussia() {
-        Response response = RestAssured.get( "https://restcountries.eu/rest/v1/name/russia" );
+        Response response = RestAssured.get(
+                "https://restcountries.eu/rest/v1/name/russia" );
         JSONArray jsonArray = new JSONArray( response.asString().split( "[,]" ) );
         jsonArray.forEach( System.out::println );
     }
