@@ -4,24 +4,37 @@ public enum Properties {
     
     DEFAULT(),
     COLORFUL( "Colorful" ),
-    MIDI( "Midi" ),
     MAXI( "Maxi" ),
+    MIDI( "Midi" ),
     SHORT( "Short" ),
     ;
     
+    private int    number;
     private String description;
     
-    public String getDescription() {
-        return this.description;
+    private void setNumber( int number ) {
+        this.number = number;
     }
     
-    public void setDescription( String description ) {
+    private void setDescription( String description ) {
         this.description = description;
     }
     
-    Properties() { }
+    Properties() {
+        this.setNumber( ordinal() );
+        this.setDescription( "None" );
+    }
     
     Properties( String description ) {
+        this.setNumber( ordinal() );
         this.setDescription( description );
+    }
+    
+    public int getNumber() {
+        return this.number;
+    }
+    
+    public String getDescription() {
+        return this.description;
     }
 }

@@ -5,9 +5,15 @@ import lombok.Data;
 
 import java.util.ArrayList;
 
-@Data
 public class Order {
     
-    ArrayList < Clothes > clothes;
+    private ArrayList < Clothes > clothes;
     
+    public ArrayList < Clothes > getClothes() {
+        return this.clothes;
+    }
+    
+    public Order( ArrayList < Clothes > clothes ) {
+        this.clothes = clothes;
+    }
 }

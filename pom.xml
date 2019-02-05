@@ -55,7 +55,7 @@
 
                     <properties>
                         <property>
-                            <name>suitethreadpoolsize</name>
+                            <description>suitethreadpoolsize</description>
                             <value>3</value>
                         </property>
                     </properties>

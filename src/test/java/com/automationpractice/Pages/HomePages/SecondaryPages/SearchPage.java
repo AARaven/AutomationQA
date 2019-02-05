@@ -1,6 +1,6 @@
-package com.automationpractice.Pages.HomePage.IncludedPages;
+package com.automationpractice.Pages.HomePages.SecondaryPages;
 
-import com.automationpractice.Pages.HomePage.HomePage;
+import com.automationpractice.Pages.HomePages.HomePage;
 import lombok.Getter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

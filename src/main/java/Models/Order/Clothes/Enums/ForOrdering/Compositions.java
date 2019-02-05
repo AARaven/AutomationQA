@@ -4,23 +4,36 @@ public enum Compositions {
     
     DEFAULT(),
     COTTON( "Cotton" ),
-    VISCOSE( "Viscose" ),
     POLYESTER( "Polyester" ),
+    VISCOSE( "Viscose" ),
     ;
     
+    private int    number;
     private String description;
     
-    public String getDescription() {
-        return this.description;
+    private void setNumber( int number ) {
+        this.number = number;
     }
     
-    public void setDescription( String description ) {
+    private void setDescription( String description ) {
         this.description = description;
     }
     
-    Compositions() { }
+    Compositions() {
+        this.setNumber( ordinal() );
+        this.setDescription( "None" );
+    }
     
     Compositions( String description ) {
+        this.setNumber( ordinal() );
         this.setDescription( description );
+    }
+    
+    public int getNumber() {
+        return this.number;
+    }
+    
+    public String getDescription() {
+        return this.description;
     }
 }

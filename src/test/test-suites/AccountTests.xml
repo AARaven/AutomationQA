@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="AccountAndOrderingTests" verbose="2">
+<suite description="AccountAndOrderingTests" verbose="2">
 
-    <test name="CreationAnAccount">
+    <test description="CreationAnAccount">
         <classes>
-            <class name="com.automationpractice.Tests.Positive.AccountTest">
+            <class description="com.automationpractice.Tests.Positive.AccountTest">
                 <methods>
-                    <include name="creationAnAccount"/>
+                    <include description="creationAnAccount"/>
                 </methods>
             </class>
         </classes>
     </test>
 
-    <test name="VerifyingAnAccount">
+    <test description="VerifyingAnAccount">
         <classes>
-            <class name="com.automationpractice.Tests.Positive.AccountTest">
+            <class description="com.automationpractice.Tests.Positive.AccountTest">
                 <methods>
-                    <include name="verifyPersonalInfo"/>
-                    <include name="verifyAddress"/>
+                    <include description="verifyPersonalInfo"/>
+                    <include description="verifyAddress"/>
                 </methods>
             </class>
         </classes>
     </test>
 
-    <test name="Ordering">
+    <test description="Ordering">
         <classes>
-            <class name="com.automationpractice.Tests.Positive.OrderTest">
+            <class description="com.automationpractice.Tests.Positive.OrderTest">
                 <methods>
-                    <include name="searchProductAndOrdering"/>
-                    <include name="verifyingDownloadedFile"/>
+                    <include description="searchProductAndOrdering"/>
+                    <include description="verifyingDownloadedFile"/>
                 </methods>
             </class>
         </classes>

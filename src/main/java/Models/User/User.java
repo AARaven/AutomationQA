@@ -23,6 +23,7 @@ public class User {
     private String  homePhone;
     private String  mobilePhone;
     private String  alias;
+    
     private boolean newsLetter;
     private boolean specialOffers;
 }

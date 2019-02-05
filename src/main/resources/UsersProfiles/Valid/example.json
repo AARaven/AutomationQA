@@ -1,0 +1,31 @@
+{
+  "Alex" : {
+    
+    "gender" :         "MALE or FEMALE",
+    "firstName" :      "name",
+    "lastName" :       "surname",
+    "email" :          "string@string.domain",
+    "password" :       "password",
+    "day" :     "1",
+    "month" :   "APRIL",
+    "year" :    "2000",
+    
+    "address" :        {
+      "state" :             "IOWA",
+      "company" :           "company",
+      "address" :           "address",
+      "addressSecondLine" : "20",
+      "city" :              "city",
+      "zipCode" :           "55555",
+      "country" :           "United States"
+    },
+    
+    "additionalInfo" : "info",
+    "homePhone" :      "555-555-555",
+    "mobilePhone" :    "555-555-555",
+    "alias" :          "alias",
+    "newsLetter" :     true,
+    "specialOffers" :  true,
+    
+  }
+}

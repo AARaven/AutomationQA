@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="PageElementsTest" verbose="2">
+<suite description="PageElementsTest" verbose="2">
 
-    <test name="VerifyingElementsIsEnabledOnPage">
+    <test description="VerifyingElementsIsEnabledOnPage">
         <classes>
-            <class name="com.automationpractice.Tests.Positive.PageElementsTest">
+            <class description="com.automationpractice.Tests.Positive.PageElementsTest">
                 <methods>
-                    <include name="verifyingElementsIsEnabled"/>
+                    <include description="verifyingElementsIsEnabled"/>
                 </methods>
             </class>
         </classes>

@@ -1,13 +1,15 @@
 {
   "Mario" :  {
+    
     "gender" :         "MALE",
     "firstName" :      "Mario",
     "lastName" :       "Durham",
-    "email" :          "IccDurhamC1o@mail.ru",
+    "email" :          "IccDurhamC1o02@mail.ru",
     "password" :       "YGe44TMP",
-    "dayOfBirth" :     "20",
-    "monthOfBirth" :   "MAY",
-    "yearOfBirth" :    "1983",
+    "day" :            "20",
+    "months" :         "MAY",
+    "year" :           "1983",
+    
     "address" :        {
       "country" :           "United States",
       "state" :             "ALASKA",
@@ -16,6 +18,7 @@
       "address" :           "4033 Kidd Avenue,99737, Coca-cola inc.",
       "addressSecondLine" : "20",
       "company" :           "Coca-cola inc."
+      
     },
     "additionalInfo" : "Knock-knock",
     "homePhone" :      "907-876-2739",
@@ -23,16 +26,21 @@
     "alias" :          "IccDurhamC1o@mail.ru",
     "newsLetter" :     true,
     "specialOffers" :  true
+    
   },
+  
+  
   "Gene" :   {
+    
     "gender" :         "MALE",
     "firstName" :      "Gene",
     "lastName" :       "Edwards",
-    "email" :          "LGene41@rambler.com",
+    "email" :          "LGene4101@rambler.com",
     "password" :       "zHOIWzXl",
-    "dayOfBirth" :     "13",
-    "monthOfBirth" :   "FEBRUARY",
-    "yearOfBirth" :    "1974",
+    "day" :            "13",
+    "months" :         "FEBRUARY",
+    "year" :           "1974",
+    
     "address" :        {
       "country" :           "United States",
       "state" :             "ARIZONA",
@@ -41,6 +49,7 @@
       "address" :           "1892 Cambridge Drive,666666, Coca-cola inc.",
       "addressSecondLine" : "20",
       "company" :           "Roadrunner rec."
+      
     },
     "additionalInfo" : "Knock-knock",
     "homePhone" :      "623-512-0468",
@@ -49,15 +58,19 @@
     "newsLetter" :     false,
     "specialOffers" :  true
   },
+  
+  
   "Glenda" : {
+    
     "gender" :         "FEMALE",
     "firstName" :      "Glenda",
     "lastName" :       "Ryan",
-    "email" :          "b1Glenda31@gmail.com",
+    "email" :          "b1Glenda3101@gmail.com",
     "password" :       "nxFpCCx3",
-    "dayOfBirth" :     "11",
-    "monthOfBirth" :   "SEPTEMBER",
-    "yearOfBirth" :    "1989",
+    "day" :            "11",
+    "months" :         "SEPTEMBER",
+    "year" :           "1989",
+    
     "address" :        {
       "country" :           "United States",
       "state" :             "FLORIDA",
@@ -66,6 +79,7 @@
       "address" :           "870 Stoneybrook Road,666666, Coca-cola inc.",
       "addressSecondLine" : "20",
       "company" :           "Coca-cola inc."
+      
     },
     "additionalInfo" : "Knock-knock",
     "homePhone" :      "321-630-8537",
@@ -73,16 +87,20 @@
     "alias" :          "b1Glenda31@gmail.com",
     "newsLetter" :     false,
     "specialOffers" :  true
+    
   },
+  
+  
   "Hedwig" : {
     "gender" :         "FEMALE",
-    "firstName" :      "Hedwig ",
+    "firstName" :      "Hedwig",
     "lastName" :       "James",
-    "email" :          "jHedwigP6x41@yandex.ru",
+    "email" :          "jHedwigP6x4101@yandex.ru",
     "password" :       "HIMuorPL",
-    "dayOfBirth" :     "23",
-    "monthOfBirth" :   "JULY",
-    "yearOfBirth" :    "1977",
+    "day" :            "23",
+    "months" :         "JULY",
+    "year" :           "1977",
+    
     "address" :        {
       "country" :           "United States",
       "state" :             "GEORGIA",
@@ -91,6 +109,7 @@
       "address" :           "1101 Pine Garden Lane,666666, Coca-cola inc.",
       "addressSecondLine" : "20",
       "company" :           "Columbia inc."
+      
     },
     "additionalInfo" : "Knock-knock",
     "homePhone" :      "770-721-5341",
@@ -98,5 +117,7 @@
     "alias" :          "jHedwigP6x41@yandex.ru",
     "newsLetter" :     false,
     "specialOffers" :  false
+    
+    
   }
 }

@@ -3,11 +3,11 @@
 
     <Appenders>
 
-        <Console name="console" target="SYSTEM_OUT">
+        <Console description="console" target="SYSTEM_OUT">
             <PatternLayout pattern="[%-5level] [%d{yyyy.MM.dd. | HH:mm:ss}] [%t] [%c{1}] [%M] String: [%L] - %m%n"/>
         </Console>
 
-        <RollingFile name="rollingfile" fileName="./src/main/resources/Logs/test.log"
+        <RollingFile description="rollingfile" fileName="./src/main/resources/Logs/test.log"
                      filePattern="./src/main/resources/Logs/test-%d{yyyyMMdd__HH_mm_ss}.log">
             <PatternLayout pattern="[%-5level] [%d{yyyy.MM.dd. | HH:mm:ss}] [%t] [%c{1}] [%M] String: [%L] - %m%n"/>
 

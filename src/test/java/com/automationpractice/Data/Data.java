@@ -16,9 +16,9 @@ abstract class Data {
     
     @SneakyThrows
     Object getData( String objectName, Class className, String path ) {
-        
-        File         file   = new File( path );
+    
         ObjectMapper mapper = new ObjectMapper();
+        File         file   = new File( path );
         Object       object;
         HashMap      map;
         

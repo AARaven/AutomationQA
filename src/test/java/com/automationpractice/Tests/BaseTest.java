@@ -12,14 +12,14 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 
-@Log4j2 @Listeners( { ScreenShot.class } )
+@Log4j2
+@Listeners( { ScreenShot.class } )
 public class BaseTest {
-    
-    private static ThreadLocal < WebDriver > DRIVER_BOX = new ThreadLocal <>();
     
     private static final String WEBDRIVER_PROPERTIES_PATH =
             "./src/main/resources/PropertyFiles/webdriver.properties";
     
+    private static ThreadLocal < WebDriver > DRIVER_BOX = new ThreadLocal <>();
     
     public WebDriver getDriver() {
         
@@ -29,12 +29,13 @@ public class BaseTest {
             setProperty();
             threadSafeDriver = new ChromeDriver();
             threadSafeDriver.manage()
-                              .timeouts()
-                              .implicitlyWait( 7, TimeUnit.SECONDS );
+                            .timeouts()
+                            .implicitlyWait( 7, TimeUnit.SECONDS );
             threadSafeDriver.manage()
-                              .window()
-                              .maximize();
+                            .window()
+                            .maximize();
             DRIVER_BOX.set( threadSafeDriver );
+            log.debug( "Thread safe driver created." );
         }
         return threadSafeDriver;
     }

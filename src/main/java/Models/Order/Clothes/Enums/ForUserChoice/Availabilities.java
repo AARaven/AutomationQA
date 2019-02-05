@@ -6,19 +6,32 @@ public enum Availabilities {
     IN_STOCK( "In stock" ),
     ;
     
+    private int    number;
     private String description;
     
-    public String getDescription() {
-        return this.description;
+    private void setNumber( int number ) {
+        this.number = number;
     }
     
-    public void setDescription( String description ) {
+    private void setDescription( String description ) {
         this.description = description;
     }
     
-    Availabilities() { }
+    Availabilities() {
+        this.setNumber( ordinal() );
+        this.setDescription( "None" );
+    }
     
     Availabilities( String description ) {
+        this.setNumber( ordinal() );
         this.setDescription( description );
+    }
+    
+    public int getNumber() {
+        return this.number;
+    }
+    
+    public String getDescription() {
+        return this.description;
     }
 }

@@ -2,7 +2,7 @@ package Models.User.Enums;
 
 public enum Months {
     
-    DEFAULT( "-" ),
+    DEFAULT(),
     JANUARY( "January" ),
     FEBRUARY( "February" ),
     MARCH( "March" ),
@@ -18,18 +18,31 @@ public enum Months {
     ;
     
     private int    number;
-    private String name;
+    private String description;
     
-    public String getName() {
-        return this.name;
+    private void setNumber( int number ) {
+        this.number = number;
+    }
+    
+    private void setDescription( String description ) {
+        this.description = description;
+    }
+    
+    Months() {
+        this.setNumber( ordinal() );
+        this.setDescription( "" );
+    }
+    
+    Months( String description ) {
+        this.setNumber( ordinal() );
+        this.setDescription( description );
     }
     
     public int getNumber() {
         return this.number;
     }
     
-    Months( String name ) {
-        this.name = name;
-        this.number = ordinal();
+    public String getDescription() {
+        return this.description;
     }
 }

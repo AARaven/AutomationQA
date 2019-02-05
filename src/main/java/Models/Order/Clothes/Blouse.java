@@ -18,7 +18,8 @@ public class Blouse extends Clothes {
         super( quantity, name, colour, composition, property, size );
     }
     
-    @Override public boolean equals( Object object ) {
+    @Override
+    public boolean equals( Object object ) {
         
         if ( this == object ) {
             return true;
@@ -37,11 +38,13 @@ public class Blouse extends Clothes {
                && this.getProperty().equals( blouse.getProperty() );
     }
     
-    @Override public int hashCode() {
+    @Override
+    public int hashCode() {
         return super.hashCode();
     }
     
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return super.toString();
     }
 }

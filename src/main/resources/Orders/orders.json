@@ -1,0 +1,78 @@
+{
+  "FirstOrder" :  {
+    "clothes" : [
+      {
+        "PrintedSummerDress" :     {
+          "quantity" :    "",
+          "name" :        "",
+          "size" :        "",
+          "colour" :      "S",
+          "composition" : "",
+          "property" :    ""
+        },
+        "Blouse" :                 {
+          "quantity" :    "",
+          "name" :        "",
+          "size" :        "L",
+          "colour" :      "BLACK",
+          "composition" : "",
+          "property" :    ""
+        },
+        "FadedShortSleeveTShirt" : {
+          "quantity" :    "",
+          "name" :        "",
+          "size" :        "M",
+          "colour" :      "",
+          "composition" : "",
+          "property" :    ""
+        },
+        "PrintedDress" :           {
+          "quantity" :    "1",
+          "name" :        "",
+          "size" :        "S",
+          "colour" :      "ORANGE",
+          "composition" : "",
+          "property" :    ""
+        }
+      }
+    ]
+  },
+  "SecondOrder" : {
+    "clothes" : [
+      {
+        "PrintedSummerDress" :     {
+          "quantity" :    "",
+          "name" :        "",
+          "size" :        "L",
+          "colour" :      "",
+          "composition" : "",
+          "property" :    ""
+        },
+        "Blouse" :                 {
+          "quantity" :    "",
+          "name" :        "",
+          "size" :        "S",
+          "colour" :      "BLACK",
+          "composition" : "",
+          "property" :    ""
+        },
+        "FadedShortSleeveTShirt" : {
+          "quantity" :    "",
+          "name" :        "",
+          "size" :        "L",
+          "colour" :      "",
+          "composition" : "",
+          "property" :    ""
+        },
+        "PrintedDress" :           {
+          "quantity" :    "2",
+          "name" :        "",
+          "size" :        "M",
+          "colour" :      "ORANGE",
+          "composition" : "",
+          "property" :    ""
+        }
+      }
+    ]
+  }
+}

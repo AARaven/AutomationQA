@@ -13,10 +13,10 @@ public abstract class Clothes {
     
     @Getter @Setter protected int          quantity;
     @Getter @Setter protected String       name;
+    @Getter @Setter protected Sizes        size;
     @Getter @Setter protected Colours      colour;
     @Getter @Setter protected Compositions composition;
     @Getter @Setter protected Properties   property;
-    @Getter @Setter protected Sizes        size;
     
     
     private Clothes() { }
@@ -42,33 +42,13 @@ public abstract class Clothes {
     }
     
     @Override
-    public boolean equals( Object object ) {
-        
-        if ( this == object ) {
-            return true;
-        }
-        
-        if ( !( object instanceof Clothes ) ) {
-            return false;
-        }
-        
-        Clothes clothes = ( Clothes ) object;
-        return this.getQuantity() == clothes.getQuantity()
-               && this.getName().equals( clothes.getName() )
-               && this.getColour().equals( clothes.getColour() )
-               && this.getComposition().equals( clothes.getComposition() )
-               && this.getProperty().equals( clothes.getProperty() )
-               && this.getSize().equals( clothes.getSize() );
-    }
-    
-    @Override
     public int hashCode() {
-        return Objects.hash( getQuantity(),
-                             getName(),
-                             getColour(),
-                             getComposition(),
-                             getProperty(),
-                             getSize() );
+        return Objects.hash( this.getQuantity(),
+                             this.getName(),
+                             this.getColour(),
+                             this.getComposition(),
+                             this.getProperty(),
+                             this.getSize() );
     }
     
     @Override
@@ -83,11 +63,11 @@ public abstract class Clothes {
                               "\nsize ='%s' " +
                               "\n}",
                               this.getClass().getSimpleName(),
-                              getQuantity(),
-                              getName(),
-                              getColour(),
-                              getComposition(),
-                              getProperty(),
-                              getSize() );
+                              this.getQuantity(),
+                              this.getName(),
+                              this.getColour(),
+                              this.getComposition(),
+                              this.getProperty(),
+                              this.getSize() );
     }
 }

@@ -2,7 +2,7 @@ package Models.User.Enums;
 
 public enum States {
     
-    DEFAULT( "-" ),
+    DEFAULT(),
     ALABAMA( "Alabama" ),
     ALASKA( "Alaska" ),
     ARIZONA( "Arizona" ),
@@ -58,28 +58,33 @@ public enum States {
     WYOMING( "Wyoming" ),
     ;
     
-    private String name;
-    private int number;
+    private int    number;
+    private String description;
     
-    public String getName() {
-        return this.name;
+    private void setNumber( int number ) {
+        this.number = number;
     }
     
-    public void setName( String name ) {
-        this.name = name;
+    private void setDescription( String description ) {
+        this.description = description;
+    }
+    
+    States() {
+        this.setNumber( ordinal() );
+        this.setDescription( "" );
+    }
+    
+    States( String description ) {
+        this.setNumber( ordinal() );
+        this.setDescription( description );
     }
     
     public int getNumber() {
         return this.number;
     }
     
-    public void setNumber( int number ) {
-        this.number = number;
-    }
-    
-    States( String name ) {
-        this.setName( name );
-        this.setNumber( ordinal() );
+    public String getDescription() {
+        return this.description;
     }
 }
 

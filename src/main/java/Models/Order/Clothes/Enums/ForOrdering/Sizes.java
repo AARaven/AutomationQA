@@ -3,24 +3,37 @@ package Models.Order.Clothes.Enums.ForOrdering;
 public enum Sizes {
     
     DEFAULT(),
-    L( "Large" ),
-    M( "Medium" ),
     S( "Small" ),
+    M( "Medium" ),
+    L( "Large" ),
     ;
     
-    String description;
+    private int    number;
+    private String description;
     
-    public String getDescription() {
-        return this.description;
+    private void setNumber( int number ) {
+        this.number = number;
     }
     
-    public void setDescription( String description ) {
+    private void setDescription( String description ) {
         this.description = description;
     }
     
-    Sizes() { }
+    Sizes() {
+        this.setNumber( ordinal() );
+        this.setDescription( "None" );
+    }
     
     Sizes( String description ) {
+        this.setNumber( ordinal() );
         this.setDescription( description );
+    }
+    
+    public int getNumber() {
+        return this.number;
+    }
+    
+    public String getDescription() {
+        return this.description;
     }
 }
